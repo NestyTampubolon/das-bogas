@@ -9,6 +9,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\GalleryController;
 
 use App\Http\Controllers\DaftarProdukController;
+use App\Http\Controllers\DaftarLayananController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +36,9 @@ Route::get('/about', [AboutController::class, 'index']);
 
 // ADMIN
 Route::get('/daftarproduk', [DaftarProdukController::class, 'index']);
+Route::get('/daftarlayanan', [DaftarLayananController::class, 'index']);
+Route::get('/daftarlayanan/tambah', [DaftarLayananController::class, 'tambah']);
+Route::post('daftarlayanan/store', [DaftarLayananController::class, 'store'])->name('daftarlayanan.store');
+Route::get('/daftarlayanan/edit/{id_layanan}', [DaftarLayananController::class, 'edit']);
+Route::post('daftarlayanan/update/{id_layanan}', [DaftarLayananController::class, 'update'])->name('daftarlayanan.update');
+Route::get('daftarlayanan/delete/{id_layanan}', [DaftarLayananController::class, 'delete'])->name('daftarlayanan.delete');

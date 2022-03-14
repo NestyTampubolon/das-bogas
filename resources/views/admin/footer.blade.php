@@ -49,6 +49,10 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{asset('js')}}/sb-admin-2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+    <script src="{{asset('js')}}/demo/datatables-demo.js"></script>
 
 </body>
 
