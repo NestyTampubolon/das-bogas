@@ -15,5 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
         $this->call(LayananSeeder::class);
+        $this->call(CafeSeeder::class);
+        $this->call(ProdukSeeder::class);
     }
 }

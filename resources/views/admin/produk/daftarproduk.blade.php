@@ -24,13 +24,10 @@
 
             <main>
                 <div class="container-fluid">
-                    <h1 class="mt-4">Dashboard</h1>
-                    <!-- <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">Dashboard</li>
-                    </ol> -->
+                    <h1 class="mt-4">Daftar Produk</h1>
 
                     <div class=" py-3">
-                        <div><a href="/daftarlayanan/tambah" class="btn btn-success btn-icon-split" style="text-align: right;">
+                        <div><a href="/daftarproduk/tambah" class="btn btn-success btn-icon-split" style="text-align: right;">
                                 <span class="icon text-white-50">
                                     <i class="fas fa-plus"></i>
                                 </span>
@@ -48,23 +45,25 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Jenis Service</th>
-                                            <th>Tipe A</th>
-                                            <th>Tipe B</th>
+                                            <th>Nama</th>
+                                            <th>Harga</th>
+                                            <th>Kategori</th>
+                                            <th>Kuantitas</th>
                                             <th>Gambar</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($daftarlayanans as $daftarlayanan)
+                                        @foreach($daftarproduks as $daftarproduk)
                                         <tr>
                                             <td></td>
-                                            <td>{{$daftarlayanan->jenisservice}}</td>
-                                            <td>{{$daftarlayanan->harga_tipea}}</td>
-                                            <td>{{$daftarlayanan->harga_tipeb}}</td>
-                                            <td><img src="{{url('gbr_layanan/'.$daftarlayanan->gambar_layanan)}}" class="py-1 width="50" height="100" alt=""></td>
+                                            <td>{{$daftarproduk->nama}}</td>
+                                            <td>{{$daftarproduk->harga}}</td>
+                                            <td>{{$daftarproduk->kategori}}</td>
+                                            <td>{{$daftarproduk->kuantitas}}</td>
+                                            <td><img src="{{url('gbr_produk/'.$daftarproduk->gambar_produk)}}" class="py-1 width="50" height="100" alt=""></td>
                                             <td>
-                                                <a href="/daftarlayanan/edit/{{$daftarlayanan->id_layanan}}" class="btn btn-primary btn-icon-split">
+                                                <a href="/daftarproduk/edit/{{$daftarproduk->id_produk}}" class="btn btn-primary btn-icon-split">
                                                     <span class="icon text-white-50">
                                                         <i class="fas fa-pen"></i>
                                                     </span>
@@ -96,7 +95,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <a href="daftarlayanan/delete/{{$daftarlayanan->id_layanan}}" class="btn btn-danger btn-icon-split">
+                                                <a href="daftarproduk/delete/{{$daftarproduk->id_produk}}" class="btn btn-danger btn-icon-split">
                                                     <span class="text">Hapus</span>
                                                 </a>
                                             </div>
