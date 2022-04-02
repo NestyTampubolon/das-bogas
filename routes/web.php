@@ -7,6 +7,8 @@ use App\Http\Controllers\LayananController;
 use App\Http\Controllers\CafeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\ProdukDetailController;
+use App\Http\Controllers\LayananDetailController;
 
 use App\Http\Controllers\DaftarProdukController;
 use App\Http\Controllers\DaftarLayananController;
@@ -31,6 +33,10 @@ Route::get('/layanan', [LayananController::class, 'index']);
 Route::get('/cafe', [CafeController::class, 'index']);
 Route::get('/gallery', [GalleryController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
+
+Route::get('/produk/detail/{id_produk}', [ProdukDetailController::class, 'index']);
+
+Route::get('/layanan/detail/{id_layanan}', [LayananDetailController::class, 'index']);
 
 
 

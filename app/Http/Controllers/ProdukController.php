@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Produk;
 
 class ProdukController extends Controller
 {
     //
     public function index(){
-        return view('layout.produk');
+        $produks = Produk::all();
+        return view('layout.produk', compact('produks'));
     }
 }

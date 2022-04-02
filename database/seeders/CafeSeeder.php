@@ -36,10 +36,110 @@ class CafeSeeder extends Seeder
                 'kategori' => 'makanan'
             ],
             [
-                'nama' => 'Indomie Goreng' ,
+                'nama' => 'Indomie Goreng Hype Abis' ,
                 'harga_cafe' => 15000,
                 'kategori' => 'makanan'
             ],
+            [
+                'nama' => 'Indomie Goreng Ayam Geprek' ,
+                'harga_cafe' => 15000,
+                'kategori' => 'makanan'
+            ],
+            [
+                'nama' => 'Indomie Goreng Ayam Sambal Matah' ,
+                'harga_cafe' => 15000,
+                'kategori' => 'makanan'
+            ],
+            [
+                'nama' => 'Indomie Soto Medan' ,
+                'harga_cafe' => 12000,
+                'kategori' => 'makanan'
+            ],
+            [
+                'nama' => 'Indomie Soto Seblak' ,
+                'harga_cafe' => 12000,
+                'kategori' => 'makanan'
+            ],
+            [
+                'nama' => 'Indomie Soto Lamongan' ,
+                'harga_cafe' => 12000,
+                'kategori' => 'makanan'
+            ],
+            [
+                'nama' => 'Dimsum Ayam/Udang' ,
+                'harga_cafe' => 20000,
+                'kategori' => 'makanan'
+            ],
+            [
+                'nama' => 'Chicken Pop' ,
+                'harga_cafe' => 12000,
+                'kategori' => 'makanan'
+            ],
+            [
+                'nama' => 'French Fires' ,
+                'harga_cafe' => 12000,
+                'kategori' => 'makanan'
+            ],
+            [
+                'nama' => 'Pisang Krispy Cokelat Keju' ,
+                'harga_cafe' => 12000,
+                'kategori' => 'makanan'
+            ],          
+            [
+                'nama' => 'Kopi Koktong' ,
+                'harga_cafe' => 6000,
+                'kategori' => 'minuman'
+            ],
+            [
+                'nama' => 'White Coffee' ,
+                'harga_cafe' => 6000,
+                'kategori' => 'minuman'
+            ],
+            [
+                'nama' => 'Capucino' ,
+                'harga_cafe' => 6000,
+                'kategori' => 'minuman'
+            ],
+            [
+                'nama' => 'Coffeemix' ,
+                'harga_cafe' => 6000,
+                'kategori' => 'minuman'
+            ],
+            [
+                'nama' => 'Tora Bika' ,
+                'harga_cafe' => 6000,
+                'kategori' => 'minuman'
+            ],
+            [
+                'nama' => 'Kopi Ginseng' ,
+                'harga_cafe' => 8000,
+                'kategori' => 'minuman'
+            ],
+            [
+                'nama' => 'Jus Alpukat' ,
+                'harga_cafe' => 12000,
+                'kategori' => 'jus'
+            ],
+            [
+                'nama' => 'Jus Nenas' ,
+                'harga_cafe' => 12000,
+                'kategori' => 'jus'
+            ],
+            [
+                'nama' => 'Jus Wortel' ,
+                'harga_cafe' => 12000,
+                'kategori' => 'jus'
+            ],
+            [
+                'nama' => 'Jus Nenas Sawi' ,
+                'harga_cafe' => 12000,
+                'kategori' => 'jus'
+            ],
+            [
+                'nama' => 'Air Jeruk' ,
+                'harga_cafe' => 12000,
+                'kategori' => 'jus'
+            ]
         ]);
     }
 }

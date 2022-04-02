@@ -1,0 +1,58 @@
+@include('layout.navbar')
+<main id="main">
+
+    <!-- ======= Intro Single ======= -->
+    <section class="intro-single">
+
+    </section><!-- End Intro Single-->
+
+    <!-- ======= Property Grid ======= -->
+    <section class="property-grid grid">
+        <div class="container">
+            <div class="row justify-content-center">
+
+                <!-- Earnings (Monthly) Card Example -->
+                <div class="col-xl-8 col-md-6 mb-4 j">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters ">
+                                <div class="col col-6">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        <img src="{{asset('img')}}/post-1.jpg" alt="" class="img-b img-fluid" width="400px">
+                                    </div>
+
+                                </div>
+                                <div class="col col-1">
+                                </div>
+                                <div class="col col-4">
+                                    <h2 class="title-2">{{$produks->nama}}</h2>
+                                    <h2 class="title-2">@currency($produks->harga)</h2>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800" > </div>
+                                        <div class="price-box d-flex">
+                                        tersisa : &nbsp   {{$produks->kuantitas}}
+                                        </div>
+                                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                                            <div class="row">
+                                                <div class="col-md-6 mb-3">
+                                                    <div class="form-group">
+                                                        <input type="number" name="name" class="form-control form-control-lg form-control-a" required>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                               <br>
+                                    
+                                                <div class="col-md-12 text-center bottom-center" style="margin-Top : 90px;">
+                                                    <button type="submit" class="btn btn-a " >Send Message</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section><!-- End Property Grid Single-->
+
+    @include('layout.footer')
