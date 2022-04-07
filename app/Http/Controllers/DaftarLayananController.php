@@ -11,12 +11,12 @@ class DaftarLayananController extends Controller
     public function index()
     {
         $daftarlayanans = Layanan::all();
-        return view('admin.daftarlayanan', compact('daftarlayanans'));
+        return view('admin.layanan.daftarlayanan', compact('daftarlayanans'));
     }
 
     public function tambah()
     {
-        return view('admin.tambahdaftarlayanan');
+        return view('admin.layanan.tambahdaftarlayanan');
     }
 
     public function store(Request $request)
@@ -39,7 +39,7 @@ class DaftarLayananController extends Controller
     public function edit($id_layanan)
     {
         $editlayanans = Layanan::find($id_layanan);
-        return view('admin.editdaftarlayanan', compact('editlayanans'));
+        return view('admin.layanan.editdaftarlayanan', compact('editlayanans'));
     }
 
     public function update(Request $request, $id_layanan)

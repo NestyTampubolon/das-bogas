@@ -1,25 +1,6 @@
 @include('admin.sidebar')
 <!-- Content Wrapper -->
 <div id="content-wrapper" class="d-flex flex-column">
-
-    <!-- Main Content -->
-    <div id="content">
-
-        <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-            <!-- Sidebar Toggle (Topbar) -->
-            <form class="form-inline">
-                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                    <i class="fa fa-bars"></i>
-                </button>
-            </form>
-
-
-
-        </nav>
-        <!-- End of Topbar -->
-
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
@@ -51,12 +32,12 @@
                                             <th>Harga</th>
                                             <th>Kategori</th>
                                             <th>Action</th>
-                                        </tr>
+                                        </tr><?php $nomor = 1; ?>
                                     </thead>
                                     <tbody>
                                         @foreach($daftarcafes as $daftarcafe)
                                         <tr>
-                                            <td></td>
+                                            <td><?php echo $nomor++; ?></td>
                                             <td>{{$daftarcafe->nama}}</td>
                                             <td>{{$daftarcafe->harga_cafe}}</td>
                                             <td>{{$daftarcafe->kategori}}</td>

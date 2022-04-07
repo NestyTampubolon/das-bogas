@@ -27,8 +27,9 @@
 
   ======================================================== -->
 </head>
+
 <body>
-      <!-- ======= Property Search Section ======= -->
+  <!-- ======= Property Search Section ======= -->
   <div class="click-closed"></div>
   <!--/ Form Search Star /-->
 
@@ -61,7 +62,7 @@
           <li class="nav-item">
             <a class="nav-link " href="/cafe">Cafe</a>
           </li>
-<!-- 
+          <!-- 
           <li class="nav-item">
             <a class="nav-link " href="/gallery">Gallery</a>
           </li> -->
@@ -69,13 +70,33 @@
           <li class="nav-item">
             <a class="nav-link " href="/about">About</a>
           </li>
-
+          @guest
+          @if (Route::has('login'))
           <li class="nav-item">
-            <a class="nav-link " href="login.html">Login</a>
+            <a class="nav-link " href="{{ route('login') }}">{{ __('Login') }}</a>
           </li>
+          @endif
+          @else
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{ Auth::user()->name }}</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item " href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+              @csrf
+            </form>
+                <a class="dropdown-item " href="/checkout/produk/{{ Auth::user()->user_id}}">Checkout Produk</a>
+                <a class="dropdown-item " href="/checkout/layanan/{{ Auth::user()->user_id}}">Checkout Layanan</a>
+                <a class="dropdown-item " href="agent-single.html">Agent Single</a>
+            </div>
+          </li>
+          @endguest
         </ul>
       </div>
     </div>
   </nav><!-- End Header/Navbar -->
+
 </body>
+
 </html>

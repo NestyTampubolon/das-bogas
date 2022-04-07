@@ -29,30 +29,29 @@
                                     <h4 class="title-3">TIPE A : @currency($layanans->harga_tipea)</h4>
                                     <h4 class="title-3">TIPE B : @currency($layanans->harga_tipeb)</h4>
                                     <div class="h5 mb-0 font-weight-bold text-gray-800"> </div>
-                                    <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                                    <form action="{{route('pesan.layanan')}}" method="post" enctype="multipart/form-data">
+                                        {{ csrf_field() }}
                                         <div class="row">
                                             <div class="col-md-12 mb-3">
+                                            <input type="hidden" name="id_layanan" class="form-control" value="{{$layanans->id_layanan}}">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="Tipe A" checked>
+                                                    <input class="form-check-input" type="radio" name="tipe_kendaraan" id="exampleRadios1" value="{{$layanans->harga_tipea}}" checked>
                                                     <label class="form-check-label" for="exampleRadios1">
                                                         TIPE A
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="Tipe B" checked>
+                                                    <input class="form-check-input" type="radio" name="tipe_kendaraan" id="exampleRadios1" value="{{$layanans->harga_tipea}}" checked>
                                                     <label class="form-check-label" for="exampleRadios1">
                                                         TIPE B
                                                     </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="number" name="name" class="form-control form-control-lg form-control-a" required>
                                                 </div>
                                             </div>
                                         </div>
                                         <br>
 
                                         <div class="col-md-12 text-center bottom-center" style="margin-Top : 90px;">
-                                            <button type="submit" class="btn btn-a ">Send Message</button>
+                                            <button type="submit" class="btn btn-a ">Kirim</button>
                                         </div>
                                 </div>
                                 </form>

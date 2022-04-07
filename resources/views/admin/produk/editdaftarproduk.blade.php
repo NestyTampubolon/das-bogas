@@ -5,20 +5,6 @@
     <!-- Main Content -->
     <div id="content">
 
-        <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-            <!-- Sidebar Toggle (Topbar) -->
-            <form class="form-inline">
-                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                    <i class="fa fa-bars"></i>
-                </button>
-            </form>
-
-
-        </nav>
-        <!-- End of Topbar -->
-
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
@@ -56,16 +42,17 @@
                                 <div class="form-group row">
                                     <label for="hargatipea" class="col-sm-2 col-form-label">Kuantitas</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="kuantitas" name="kuantitas" value="{{$editproduks->kuantitas}}">
+                                        <input type="text" class="form-control" id="stok" name="stok" value="{{$editproduks->stok}}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="hargatipea" class="col-sm-2 col-form-label">Gambar</label>
-                                    <div class="col-sm-10">
+                                    <div class="col-sm-10"> 
+                                        <img src="{{url('gbr_produk/'.$editproduks->gambar)}}" class="img-preview mb-3 col-sm-5" alt="">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="gambar_produk" name="gambar_produk" value="">
+                                            <input type="file" class="custom-file-input" id="gambar" name="gambar" value="" onchange="previewImage()">
                                             <label class="custom-file-label" for="customFile">Pilih File</label>
-                                            <img src="{{url('gbr_produk/'.$editproduks->gambar_produk)}}" class="py-1 width="50" height="100" alt="">
+                                           
                                         </div>
                                     </div>
                                 </div>

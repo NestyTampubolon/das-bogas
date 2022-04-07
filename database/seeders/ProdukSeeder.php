@@ -19,7 +19,7 @@ class ProdukSeeder extends Seeder
                 'nama' => 'Wiper Blade Forch 24',
                 'harga' =>  100000,
                 'kategori' => 'sparepart',
-                'kuantitas' => 5,
+                'stok' => 5,
                 'gambar' => 'aa'
             ]
         ]);

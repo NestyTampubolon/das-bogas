@@ -24,11 +24,11 @@ class DaftarProdukController extends Controller
         $daftarproduk->nama = $request->nama;
         $daftarproduk->harga = $request->harga;
         $daftarproduk->kategori = $request->kategori;
-        $daftarproduk->kuantitas = $request->kuantitas;
+        $daftarproduk->stok = $request->stok;
 
-        if ($request->hasFile('gambar')) {
-            $file = $request->file('gambar')->getClientOriginalName();
-            $request->file('gambar')->move('gbr_produk', $file);
+        if ($request->hasFile('gambar_produk')) {
+            $file = $request->file('gambar_produk')->getClientOriginalName();
+            $request->file('gambar_produk')->move('gbr_produk', $file);
             $daftarproduk->gambar = $file;
         }
         $daftarproduk->save();
@@ -48,15 +48,23 @@ class DaftarProdukController extends Controller
             $file = $update->gambar;
             $file = $request->file('gambar')->getClientOriginalName();
             $request->file('gambar')->move('gbr_produk', $file);
-            $update->gambar_produk = $file;
+            $update->gambar = $file;
             
         }
         $update->nama = $request->nama;
         $update->harga = $request->harga;
         $update->kategori = $request->kategori;
-        $update->kuantitas = $request->kuantitas;
+        $update->stok = $request->stok;
         $update->save();
 
         return redirect('daftarproduk');
+    }
+
+    public function delete($id_produk)
+    {
+        $deleteproduk = Produk::find($id_produk);
+        if ($deleteproduk->delete()) {
+            return redirect()->back();
+        }
     }
 }

@@ -27,32 +27,35 @@
                                 <div class="col col-4">
                                     <h2 class="title-2">{{$produks->nama}}</h2>
                                     <h2 class="title-2">@currency($produks->harga)</h2>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800" > </div>
-                                        <div class="price-box d-flex">
-                                        tersisa : &nbsp   {{$produks->kuantitas}}
-                                        </div>
-                                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                                            <div class="row">
-                                                <div class="col-md-6 mb-3">
-                                                    <div class="form-group">
-                                                        <input type="number" name="name" class="form-control form-control-lg form-control-a" required>
-                                                    </div>
-                                                </div>
-                                                </div>
-                                               <br>
-                                    
-                                                <div class="col-md-12 text-center bottom-center" style="margin-Top : 90px;">
-                                                    <button type="submit" class="btn btn-a " >Send Message</button>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"> </div>
+                                    <div class="price-box d-flex">
+                                        tersisa : &nbsp {{$produks->stok}}
+                                    </div>
+                                    <form action="{{route('pesan.produk')}}" method="post" enctype="multipart/form-data">
+                                        {{ csrf_field() }}
+                                        <input type="hidden" name="id_produk" class="form-control" value="{{$produks->id_produk}}">
+                                        <input type="hidden" name="harga" required="required" class="form-control" value="{{$produks->harga}}">
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <div class="form-group">
+                                                    <input type="number" name="stok" class="form-control form-control-lg form-control-a" required>
                                                 </div>
                                             </div>
-                                        </form>
-                                    </div>
+                                        </div>
+                                        <br>
+
+                                        <div class="col-md-12 text-center bottom-center" style="margin-Top : 90px;">
+                                            <button type="submit" class="btn btn-a ">Kirim</button>
+                                        </div>
                                 </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        </div>
     </section><!-- End Property Grid Single-->
 
     @include('layout.footer')

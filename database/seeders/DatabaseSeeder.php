@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(LayananSeeder::class);
         $this->call(CafeSeeder::class);
         $this->call(ProdukSeeder::class);
+        $this->call(SosialMediaSeeder::class);
     }
 }

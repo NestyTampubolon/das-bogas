@@ -5,19 +5,6 @@
     <!-- Main Content -->
     <div id="content">
 
-        <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-            <!-- Sidebar Toggle (Topbar) -->
-            <form class="form-inline">
-                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                    <i class="fa fa-bars"></i>
-                </button>
-            </form>
-
-        </nav>
-        <!-- End of Topbar -->
-
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
@@ -53,12 +40,12 @@
                                             <th>Tipe B</th>
                                             <th>Gambar</th>
                                             <th>Action</th>
-                                        </tr>
+                                        </tr><?php $nomor = 1; ?>
                                     </thead>
                                     <tbody>
                                         @foreach($daftarlayanans as $daftarlayanan)
                                         <tr>
-                                            <td></td>
+                                            <td><?php echo $nomor++; ?></td>
                                             <td>{{$daftarlayanan->jenisservice}}</td>
                                             <td>{{$daftarlayanan->harga_tipea}}</td>
                                             <td>{{$daftarlayanan->harga_tipeb}}</td>

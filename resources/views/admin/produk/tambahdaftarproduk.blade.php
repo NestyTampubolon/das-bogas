@@ -5,20 +5,6 @@
     <!-- Main Content -->
     <div id="content">
 
-        <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-            <!-- Sidebar Toggle (Topbar) -->
-            <form class="form-inline">
-                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                    <i class="fa fa-bars"></i>
-                </button>
-            </form>
-
-
-        </nav>
-        <!-- End of Topbar -->
-
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
@@ -49,20 +35,22 @@
                                 <div class="form-group row">
                                     <label for="hargatipea" class="col-sm-2 col-form-label">Kategori</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="kategori" name="kategori" placeholder="Kategori makanan">
+                                        <input type="text" class="form-control" id="kategori" name="kategori" placeholder="Kategori Produk">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="hargatipea" class="col-sm-2 col-form-label">Kuantitas</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="kuantitas" name="kuantitas" placeholder="Jumlah Stok">
+                                        <input type="text" class="form-control" id="stok" name="stok" placeholder="Jumlah Stok">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="hargatipea" class="col-sm-2 col-form-label">Gambar</label>
                                         <div class="col-sm-10">
+                                        <img class="img-preview img-fluid mb-3 col-sm-5" alt="">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="gambar_produk" name="gambar_produk">
+                                            <img class="img-preview img-fluid mb-3 col-sm-5" alt="">
+                                                <input type="file" class="custom-file-input" id="gambar" name="gambar_produk" onchange="previewImage()">
                                                 <label class="custom-file-label" for="customFile">Pilih File</label>
                                             </div>
                                         </div>

@@ -5,22 +5,8 @@
     <!-- Main Content -->
     <div id="content">
 
-        <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-            <!-- Sidebar Toggle (Topbar) -->
-            <form class="form-inline">
-                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                    <i class="fa fa-bars"></i>
-                </button>
-            </form>
-
-        </nav>
-        <!-- End of Topbar -->
-
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
 
             <main>
                 <div class="container-fluid">
@@ -51,17 +37,17 @@
                                             <th>Kuantitas</th>
                                             <th>Gambar</th>
                                             <th>Action</th>
-                                        </tr>
+                                        </tr><?php $nomor = 1; ?>
                                     </thead>
                                     <tbody>
                                         @foreach($daftarproduks as $daftarproduk)
                                         <tr>
-                                            <td></td>
+                                            <td><?php echo $nomor++; ?></td>
                                             <td>{{$daftarproduk->nama}}</td>
                                             <td>{{$daftarproduk->harga}}</td>
                                             <td>{{$daftarproduk->kategori}}</td>
-                                            <td>{{$daftarproduk->kuantitas}}</td>
-                                            <td><img src="{{url('gbr_produk/'.$daftarproduk->gambar_produk)}}" class="py-1 width="50" height="100" alt=""></td>
+                                            <td>{{$daftarproduk->stok}}</td>
+                                            <td><img src="{{url('gbr_produk/'.$daftarproduk->gambar)}}" class="py-1 width=" 50" height="100" alt=""></td>
                                             <td>
                                                 <a href="/daftarproduk/edit/{{$daftarproduk->id_produk}}" class="btn btn-primary btn-icon-split">
                                                     <span class="icon text-white-50">
@@ -77,31 +63,31 @@
                                                 </a>
                                             </td>
                                         </tr>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Hapus Data</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Anda yakin menghapusnya?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        <a href="daftarproduk/delete/{{$daftarproduk->id_produk}}" class="btn btn-danger btn-icon-split">
+                                                            <span class="text">Hapus</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         @endforeach
                                     </tbody>
                                 </table>
 
 
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Hapus Data</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Anda yakin menghapusnya?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <a href="daftarproduk/delete/{{$daftarproduk->id_produk}}" class="btn btn-danger btn-icon-split">
-                                                    <span class="text">Hapus</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
 
                             </div>
