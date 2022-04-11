@@ -21,6 +21,7 @@ class CreatePemesananprodukTable extends Migration
             $table->integer('id_customer');
             $table->string('nama_penerima',100);
             $table->text('alamat_penerima');
+            $table->string('bukti_pembayaran',500);
             $table->timestamps();
         });
     }

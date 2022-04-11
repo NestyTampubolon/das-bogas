@@ -20,6 +20,17 @@ class DaftarProdukController extends Controller
 
     public function store(Request $request)
     {
+        $validatedData = $request->validate(
+            [
+                'nama' => 'required|unique:produk,nama',
+                'harga' => 'required|integer',
+                'kategori' => 'required',
+                'stok' => 'required|integer',
+                'gambar' => 'required|mimes:jpg,bmp,png'
+
+            ]
+        );
+
         $daftarproduk = new Produk();
         $daftarproduk->nama = $request->nama;
         $daftarproduk->harga = $request->harga;
@@ -43,6 +54,16 @@ class DaftarProdukController extends Controller
 
     public function update(Request $request, $id_produk)
     {
+        $validatedData = $request->validate(
+            [
+                'nama' => 'required',
+                'harga' => 'required|integer',
+                'kategori' => 'required',
+                'stok' => 'required|integer',
+                'gambar' => 'mimes:jpg,bmp,png'
+
+            ]
+        );
         $update = Produk::find($id_produk);
         if ($request->hasFile('gambar')) {
             $file = $update->gambar;

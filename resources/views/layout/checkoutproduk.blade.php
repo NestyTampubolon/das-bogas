@@ -25,12 +25,12 @@
     @else
     <!-- ======= Property Grid ======= -->
     <section class="property-grid grid">
-       
+
         <div class="container">
             <div class="row justify-content-center">
 
                 <!-- Earnings (Monthly) Card Example -->
-                <div class="col-xl-10 col-md-6 mb-4"> 
+                <div class="col-xl-10 col-md-6 mb-4">
                     <h2 class="title-2 justify-content-center">Produk</h2>
                     <div class="card border-left-primary shadow py-2">
                         <div class="card-body">
@@ -90,26 +90,52 @@
 
 
                                         <!-- Modal -->
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
+                                        <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Data</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
                                                         @foreach($total as $totals)
                                                         <input type="hidden" name="total_harga" value="{{$totals->total}}">
+
+                                                        <h5>{{ Auth::user()->name}}, Silahkan lakukan pembayaran @currency($totals->total)</h5>
+                                                        <h6>Payment Information</h6>
+                                                        <p>Silahkan transfer ke salah satu rekening berikut : </p>
                                                         @endforeach
                                                         <div class="form-group">
                                                             <label for="nama">Nama Penerima</label>
-                                                            <input type="text" class="form-control form-control-user" name="nama_penerima" id="nama_penerima" placeholder="nama penerima">
+                                                            <input type="text" class="form-control form-control-user @error('nama_penerima') is-invalid @enderror" name=" nama_penerima" id="nama_penerima" placeholder="nama penerima" autofocus value="{{ old('jenisservice') }}">
+                                                            @error('nama_penerima')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                            @enderror
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="alamat_penerima">Alamat</label>
-                                                            <textarea class="form-control" id="alamat_penerima" name="alamat_penerima" rows="3"></textarea>
+                                                            <textarea class="form-control @error('alamat_penerima') is-invalid @enderror" id="alamat_penerima" name="alamat_penerima" rows="3" autofocus value="{{ old('alamat_penerima') }}"></textarea>
+                                                            @error('alamat_penerima')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                            @enderror
                                                         </div>
-
+                                                        <div class="form-group">
+                                                            <label for="bukti_pembayaran">Bukti Pembayaran</label>
+                                                            <img class="img-preview img-fluid mb-3 col-sm-5" alt="">
+                                                            <input class="form-control  @error('bukti_pembayaran') is-invalid @enderror" type="file" id="formFile" id="gambar" name="bukti_pembayaran" onchange="previewImage()" autofocus value="{{ old('bukti_pembayaran') }}">
+                                                            @error('bukti_pembayaran')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                            @enderror
+                                                        </div>
+                                                        <h6>Note : Silahkan transfer sesuai dengan total pembayaran yang tertera, tidak kurang dan tidak lebih. Kemudian masukkan bukti pembayaran dan tunggu hingga kami
+                                                            mengkonfirmasinya. Terimakasih
+                                                        </h6>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>

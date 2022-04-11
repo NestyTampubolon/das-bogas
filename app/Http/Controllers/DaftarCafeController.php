@@ -21,6 +21,13 @@ class DaftarCafeController extends Controller
 
     public function store(Request $request)
     {
+        $this ->validate($request, 
+        [
+            'nama' => 'required',
+            'harga_cafe' => 'required',
+            'kategori' => 'required'
+        ]
+    );
         $daftarcafe = new Cafe();
         $daftarcafe->nama = $request->nama;
         $daftarcafe->harga_cafe = $request->harga_cafe;
@@ -37,6 +44,13 @@ class DaftarCafeController extends Controller
 
     public function update(Request $request, $id_cafe)
     {
+        $this ->validate($request, 
+        [
+            'nama' => 'required',
+            'harga_cafe' => 'required',
+            'kategori' => 'required'
+        ]);
+
         $update = cafe::find($id_cafe);
         $update->nama = $request->nama;
         $update->harga_cafe = $request->harga_cafe;

@@ -28,13 +28,22 @@ class CheckoutProdukController extends Controller
             ->where('id_customer', '=', auth()->id())
             ->get();
 
-            return view('layout.checkoutproduk', compact('pesan', 'total'));    
+        return view('layout.checkoutproduk', compact('pesan', 'total'));
     }
 
 
 
     public function storepemesananproduk(Request $request)
     {
+
+        $this->validate(
+            $request,
+            [
+                'nama_penerima' => 'required',
+                'alamat_penerima' => 'required',
+                'bukti_pembayaran' => 'required'
+            ]
+        );
         $keranjang = KeranjangProduk::where('id_customer', auth()->id())->get();
 
         $pemesanan = new PemesananProduk();
@@ -43,6 +52,7 @@ class CheckoutProdukController extends Controller
         $pemesanan->total_pembayaran = $request->total_harga;
         $pemesanan->nama_penerima = $request->nama_penerima;
         $pemesanan->alamat_penerima = $request->alamat_penerima;
+        $pemesanan->bukti_pembayaran = $request->bukti_pembayaran;
         $pemesanan->status = "Verifikasi";
         if ($pemesanan->save()) {
             foreach ($keranjang as $keranjangs) {

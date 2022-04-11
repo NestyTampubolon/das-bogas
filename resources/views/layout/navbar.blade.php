@@ -21,9 +21,13 @@
   <link href="{{asset('vendor')}}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="{{asset('vendor')}}/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="{{asset('vendor')}}/swiper/swiper-bundle.min.css" rel="stylesheet">
-
+  <link href="{{asset('vendor')}}/jquery/jquery.min.js" rel="stylesheet">
   <!-- Template Main CSS File -->
   <link href="{{asset('css')}}/style.css" rel="stylesheet">
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
 
   ======================================================== -->
 </head>
@@ -62,10 +66,6 @@
           <li class="nav-item">
             <a class="nav-link " href="/cafe">Cafe</a>
           </li>
-          <!-- 
-          <li class="nav-item">
-            <a class="nav-link " href="/gallery">Gallery</a>
-          </li> -->
 
           <li class="nav-item">
             <a class="nav-link " href="/about">About</a>
@@ -80,15 +80,16 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{ Auth::user()->name }}</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item " href="{{ route('logout') }}" onclick="event.preventDefault();
+             
+                <a class="dropdown-item " href="/checkout/produk/{{ Auth::user()->user_id}}">Checkout Produk</a>
+                <a class="dropdown-item " href="/checkout/layanan/{{ Auth::user()->user_id}}">Checkout Layanan</a>
+                <a class="dropdown-item " href="/statuspesanan">Status Pemesanan</a>
+                <a class="dropdown-item " href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                 {{ __('Logout') }}</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
               @csrf
             </form>
-                <a class="dropdown-item " href="/checkout/produk/{{ Auth::user()->user_id}}">Checkout Produk</a>
-                <a class="dropdown-item " href="/checkout/layanan/{{ Auth::user()->user_id}}">Checkout Layanan</a>
-                <a class="dropdown-item " href="agent-single.html">Agent Single</a>
             </div>
           </li>
           @endguest

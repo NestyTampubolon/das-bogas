@@ -49,7 +49,7 @@
                                                     </span>
                                                     <span class="text">Edit</span>
                                                 </a>
-                                                <a href="#" class="btn btn-danger btn-icon-split" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                <a href="#" class="btn btn-danger btn-icon-split" data-bs-toggle="modal" data-bs-target="#exampleModal{{$daftargaleri->id_galeri}}">
                                                     <span class="icon text-white-50">
                                                         <i class="fas fa-trash"></i>
                                                     </span>
@@ -58,7 +58,7 @@
                                             </td>
                                         </tr>
                                         <!-- Modal -->
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="exampleModal{{$daftargaleri->id_galeri}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">

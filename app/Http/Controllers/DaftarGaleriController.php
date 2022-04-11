@@ -8,9 +8,10 @@ use App\Models\Galeri;
 class DaftarGaleriController extends Controller
 {
     //
-    public function index(){
+    public function index()
+    {
         $daftargaleris = Galeri::all();
-        return view('admin.galeri.daftargaleri',compact('daftargaleris'));
+        return view('admin.galeri.daftargaleri', compact('daftargaleris'));
     }
 
     public function tambah()
@@ -20,12 +21,19 @@ class DaftarGaleriController extends Controller
 
     public function store(Request $request)
     {
+        $this ->validate($request, 
+            [
+                'judul' => 'required',
+                'gambar' => 'required|mimes:jpeg,jpg,png,gif'
+            ]
+        );
+
         $daftargaleri = new Galeri();
         $daftargaleri->judul = $request->judul;
 
-        if ($request->hasFile('gambar_galeri')) {
-            $file = $request->file('gambar_galeri')->getClientOriginalName();
-            $request->file('gambar_galeri')->move('gbr_galeri', $file);
+        if ($request->hasFile('gambar')) {
+            $file = $request->file('gambar')->getClientOriginalName();
+            $request->file('gambar')->move('gbr_galeri', $file);
             $daftargaleri->gambar = $file;
         }
         $daftargaleri->save();
@@ -40,13 +48,18 @@ class DaftarGaleriController extends Controller
 
     public function update(Request $request, $id_galeri)
     {
+        $validatedData = $request->validate(
+            [
+                'judul' => 'required',
+                'gambar' => 'mimes:jpeg,jpg,png,gif'
+            ]
+        );
         $update = Galeri::find($id_galeri);
         if ($request->hasFile('gambar')) {
             $file = $update->gambar;
             $file = $request->file('gambar')->getClientOriginalName();
             $request->file('gambar')->move('gbr_galeri', $file);
-            $update->gambar_galeri = $file;
-            
+            $update->gambar = $file;
         }
         $update->judul = $request->judul;
         $update->save();

@@ -74,7 +74,7 @@
                                                     </a>
                                                 </button>
                                                 <button class="btn btn-danger btn-icon-split">
-                                                    <a href="#" class="btn btn-danger btn-icon-split" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    <a href="#" class="btn btn-danger btn-icon-split" data-bs-toggle="modal" data-bs-target="#exampleModal{{$pemesanan->id_pemesananproduk}}">
                                                         <span class="icon text-white-50">
                                                             <i class="fas fa-trash"></i>
                                                         </span>
@@ -83,31 +83,33 @@
                                                 </button>
                                             </td>
                                         </tr>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal{{$pemesanan->id_pemesananproduk}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Hapus Data</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Anda yakin menghapusnya?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        <a href="daftarpemesanan/delete/{{$pemesanan->id_pemesananproduk}}" class="btn btn-danger btn-icon-split">
+                                                            <span class="text">Hapus</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         @endforeach
                                     </tbody>
                                 </table>
 
 
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Hapus Data</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Anda yakin menghapusnya?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <a href="" class="btn btn-danger btn-icon-split">
-                                                    <span class="text">Hapus</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
 
 
                             </div>

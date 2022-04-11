@@ -43,4 +43,13 @@ class DaftarPemesananController extends Controller
                     ->get();
         return view('admin.daftarpemesanandetail',compact('pemesanandetail','pemesanan','daftarjoin'));
     }
+
+
+    public function delete($id_pemesananproduk)
+    {
+        $deletepemesanan = PemesananProduk::find($id_pemesananproduk);
+        if ($deletepemesanan->delete()) {
+            return redirect()->back();
+        }
+    }
 }

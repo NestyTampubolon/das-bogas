@@ -14,7 +14,7 @@
 
                     <!-- Basic Card Example -->
                     <div class="card shadow col-xl-10 col-md-6 mb-4">
-                        <div class="card-header py-3">
+                        <div class="card-header">
                             <h6 class="m-0 font-weight-bold text-primary">Edit Daftar Layanan</h6>
                         </div>
                         <div class="card-body">
@@ -24,34 +24,55 @@
                                     <label for="inputjenisservice" class="col-sm-2 col-form-label">Jenis Service</label>
                                     <div class="col-sm-10">
                                         <input type="hidden" name="id_produk" value="{{$editlayanans->id_layanan}}">
-                                        <input type="text" class="form-control" id="jenisservice" name="jenisservice" value="{{$editlayanans->jenisservice}}">
+                                        <input type="text" class="form-control  @error('jenisservice') is-invalid @enderror" id="jenisservice" name="jenisservice" value="{{$editlayanans->jenisservice}}">
+                                        @error('jenisservice')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="hargatipea" class="col-sm-2 col-form-label">Harga Tipe A</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="harga_tipea" name="harga_tipea"  value="{{$editlayanans->harga_tipea}}">
+                                        <input type="text" class="form-control  @error('harga_tipea') is-invalid @enderror" id="harga_tipea" name="harga_tipea" value="{{$editlayanans->harga_tipea}}">
+                                        @error('harga_tipea')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="hargatipea" class="col-sm-2 col-form-label">Harga Tipe B</label>
+                                    <label for="hargatipeb" class="col-sm-2 col-form-label">Harga Tipe B</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="harga_tipeb" name="harga_tipeb" value="{{$editlayanans->harga_tipeb}}">
+                                        <input type="text" class="form-control  @error('harga_tipeb') is-invalid @enderror" id="harga_tipeb" name="harga_tipeb" value="{{$editlayanans->harga_tipeb}}">
+                                        @error('harga_tipeb')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="hargatipea" class="col-sm-2 col-form-label">Gambar</label>
+                                    <label for="gambar" class="col-sm-2 col-form-label">Gambar</label>
                                     <div class="col-sm-10">
+                                        <img src="{{url('gbr_layanan/'.$editlayanans->gambar_layanan)}}" class="img-preview img-fluid mb-3 col-sm-5" alt="">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="gambar_layanan" name="gambar_layanan" value="">
+                                            <input type="file" class="custom-file-input  @error('gambar_layanan') is-invalid @enderror" id="gambar" name="gambar_layanan" onchange="previewImage()">
                                             <label class="custom-file-label" for="customFile">Pilih File</label>
-                                            <img src="{{url('gbr_layanan/'.$editlayanans->gambar_layanan)}}" class="py-1 width="50" height="100" alt="">
+                                            @error('gambar_layanan')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
-
-
-                                <div class="form-group row py-xl-5">
+                                <div class="form-group row">
                                     <div class="col-sm-10">
                                         <button type="submit" class="btn btn-success">Edit</button>
                                         <button type="submit" class="btn btn-primary">Kembali</button>

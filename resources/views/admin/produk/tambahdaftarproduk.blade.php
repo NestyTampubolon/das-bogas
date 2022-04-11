@@ -18,46 +18,71 @@
                             <h6 class="m-0 font-weight-bold text-primary">Tambah Daftar Produk</h6>
                         </div>
                         <div class="card-body">
-                            <form  action="{{route('daftarproduk.store')}}" method="post" enctype="multipart/form-data">
-                            {{ csrf_field() }}
+                            <form action="{{route('daftarproduk.store')}}" method="post" enctype="multipart/form-data">
+                                {{ csrf_field() }}
                                 <div class="form-group row">
                                     <label for="inputnama" class="col-sm-2 col-form-label">Nama</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Produk">
+                                        <input type="text" class="form-control form-control @error('nama') is-invalid @enderror" id="nama" name="nama" placeholder="Nama Produk" autofocus value="{{ old('nama') }}">
+                                        @error('nama')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="hargatipea" class="col-sm-2 col-form-label">Harga</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="harga" name="harga" placeholder="cth: 150000">
+                                        <input type="number" class="form-control form-control @error('harga') is-invalid @enderror" id="harga" name="harga" placeholder="cth: 150000" autofocus value="{{ old('harga') }}">
+                                        @error('harga')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="hargatipea" class="col-sm-2 col-form-label">Kategori</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="kategori" name="kategori" placeholder="Kategori Produk">
+                                        <input type="text" class="form-control form-control @error('kategori') is-invalid @enderror" id="kategori" name="kategori" placeholder="Kategori Produk" autofocus value="{{ old('kategori') }}">
+                                        @error('kategori')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="hargatipea" class="col-sm-2 col-form-label">Kuantitas</label>
+                                    <label for="hargatipea" class="col-sm-2 col-form-label">Stok</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="stok" name="stok" placeholder="Jumlah Stok">
+                                        <input type="number" class="form-control form-control @error('stok') is-invalid @enderror" id="stok" name="stok" placeholder="Jumlah Stok" autofocus value="{{ old('stok') }}">
+                                        @error('stok')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="hargatipea" class="col-sm-2 col-form-label">Gambar</label>
-                                        <div class="col-sm-10">
+                                    <div class="col-sm-10">
                                         <img class="img-preview img-fluid mb-3 col-sm-5" alt="">
-                                            <div class="custom-file">
+                                        <div class="custom-file">
                                             <img class="img-preview img-fluid mb-3 col-sm-5" alt="">
-                                                <input type="file" class="custom-file-input" id="gambar" name="gambar_produk" onchange="previewImage()">
-                                                <label class="custom-file-label" for="customFile">Pilih File</label>
+                                            <input type="file" class="custom-file-input form-control @error('gambar') is-invalid @enderror" id="gambar" name="gambar_produk" onchange="previewImage()" autofocus value="{{ old('gambar') }}">
+                                            <label class="custom-file-label" for="customFile">Pilih File</label>
+                                            @error('gambar')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
                                             </div>
+                                            @enderror
                                         </div>
+                                    </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-10">
-                                        <button type="submit" class="btn btn-success">Tambah</button>                                
+                                        <button type="submit" class="btn btn-success">Tambah</button>
                                         <a href="/daftarproduk" class="btn btn-primary btn-icon-split">
                                             <span class="text">Kembali</span>
                                         </a>

@@ -21,6 +21,16 @@ class DaftarLayananController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate(
+            $request,
+            [
+                'jenisservice' => 'required',
+                'harga_tipea' => 'required',
+                'harga_tipeb' => 'required',
+                'gambar_layanan' => 'required|mimes:jpeg,jpg,png,gif'
+            ]
+        );
+
         $daftarlayanan = new Layanan();
         $daftarlayanan->jenisservice = $request->jenisservice;
         $daftarlayanan->harga_tipea = $request->harga_tipea;
@@ -44,13 +54,21 @@ class DaftarLayananController extends Controller
 
     public function update(Request $request, $id_layanan)
     {
+        $this->validate(
+            $request,
+            [
+                'jenisservice' => 'required',
+                'harga_tipea' => 'required',
+                'harga_tipeb' => 'required',
+                'gambar_layanan' => 'mimes:jpeg,jpg,png,gif'
+            ]
+        );
         $update = Layanan::find($id_layanan);
         if ($request->hasFile('gambar_layanan')) {
             $file = $update->gambar;
             $file = $request->file('gambar_layanan')->getClientOriginalName();
             $request->file('gambar_layanan')->move('gbr_layanan', $file);
             $update->gambar_layanan = $file;
-            
         }
         $update->jenisservice = $request->jenisservice;
         $update->harga_tipea = $request->harga_tipea;

@@ -25,12 +25,13 @@
     @else
     <!-- ======= Property Grid ======= -->
     <section class="property-grid grid">
-        <h2 class="title-2">Produk</h2>
+        
         <div class="container">
             <div class="row justify-content-center">
 
                 <!-- Earnings (Monthly) Card Example -->
                 <div class="col-xl-10 col-md-6 mb-4">
+                    <h2 class="title-2">Layanan</h2>
                     <div class="card border-left-primary shadow py-2">
                         <div class="card-body">
                             <div class="row no-gutters ">

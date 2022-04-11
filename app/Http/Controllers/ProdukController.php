@@ -12,4 +12,11 @@ class ProdukController extends Controller
         $produks = Produk::all();
         return view('layout.produk', compact('produks'));
     }
+
+    public function search(Request $request){
+        $kategori = $request->kategori;
+
+        $produks = Produk::where('kategori','LIKE','%'.$kategori.'%')->get();
+        return view('layout.produk', compact('produks'));
+    }
 }

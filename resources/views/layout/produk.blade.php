@@ -35,42 +35,48 @@
         <div class="col-sm-12">
           <div class="grid-option">
             <form>
-              <select class="custom-select">
+              <select id="assigned-user-filter" class="custom-select">
                 <option selected>All</option>
-                <option value="1">New to Old</option>
-                <option value="2">For Rent</option>
-                <option value="3">For Sale</option>
+                <option value="Sparepart">Sparepart</option>
+                <option value="Eksterior">Eksterior</option>
+                <option value="Interior">Interior</option>
+                <option value="Filter">Filter</option>
               </select>
             </form>
           </div>
         </div>
-        @foreach($produks as $produk)
-        <div class="col-md-4">
-          <div class="card-box-b card-shadow news-box">
-            <div class="img-box-b">
-              <img src="{{asset('img')}}/post-1.jpg" alt="" class="img-b img-fluid">
-            </div>
-            <div class="card-overlay">
-              <div class="card-header-b">
-                <div class="card-title-b">
-                  <h2 class="title-2">
-                    <a href="blog-single.html">{{$produk->nama}}
-                  </h2>
-                </div>
-                <div class="price-box d-flex">
-                  <span class="price-a">@currency($produk->harga)</span>
-                </div>
-                <br>
-                <div class="card-date">
-                  <a href="produk/detail/{{$produk->id_produk}}" class="link-a">Click here to view
-                    <span class="bi bi-chevron-right"></span>
-                  </a>
+        <div class="row menu-container" data-aos="fade-up" data-aos-delay="200">
+          @foreach($produks as $produk)
+          <div class="col-md-4 task-list-row" data-assigned-user="{{$produk->kategori}}">
+            <div class="card-box-b card-shadow news-box">
+              <div class="img-box-b">
+                <img src="{{asset('gbr_produk')}}/{{$produk->gambar}}" alt="" class="img-b img-fluid">
+              </div>
+              <div class="card-overlay">
+                <div class="card-header-b">
+                  <div class="card-title-b">
+                    <h2 class="title-2">
+                      <a href="blog-single.html">{{$produk->nama}}
+                    </h2>
+                  </div>
+                  <div class="price-box d-flex">
+                    <span class="price-a">@currency($produk->harga)</span>
+                  </div>
+                  <h6>
+                    {{$produk->kategori}}
+                  </h6>
+                  <br>
+                  <div class="card-date">
+                    <a href="produk/detail/{{$produk->id_produk}}" class="link-a">Click here to view
+                      <span class="bi bi-chevron-right"></span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          @endforeach
         </div>
-        @endforeach
       </div>
       <div class="row">
         <div class="col-sm-12">
@@ -101,9 +107,22 @@
       </div>
     </div>
   </section><!-- End Property Grid Single-->
-
 </main><!-- End #main -->
 
-
+<script>
+$('#assigned-user-filter').on('change', function() {
+  var assignedUser = this.value;
+  
+  if(assignedUser === 'None'){
+    $('.task-list-row').hide().filter(function() {
+      return $(this).data('assigned-user') != assignedUser;
+    }).show();
+  }else{
+    $('.task-list-row').hide().filter(function() {
+      return $(this).data('assigned-user') == assignedUser;
+    }).show();   
+  }
+});
+</script>
 
 @include('layout.footer')

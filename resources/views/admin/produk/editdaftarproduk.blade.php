@@ -24,35 +24,59 @@
                                     <label for="inputnama" class="col-sm-2 col-form-label">Nama</label>
                                     <div class="col-sm-10">
                                         <input type="hidden" name="id_produk" value="{{$editproduks->id_produk}}">
-                                        <input type="text" class="form-control" id="nama" name="nama" value="{{$editproduks->nama}}">
+                                        <input type="text" class="form-control  @error('nama') is-invalid @enderror" id="nama" name="nama" value="{{$editproduks->nama}}">
+                                        @error('nama')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="hargatipea" class="col-sm-2 col-form-label">Harga</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="harga" name="harga"  value="{{$editproduks->harga}}">
+                                        <input type="text" class="form-control @error('harga') is-invalid @enderror" id="harga" name="harga" value="{{$editproduks->harga}}">
+                                        @error('harga')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="hargatipea" class="col-sm-2 col-form-label">Kategori</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="kategori" name="kategori" value="{{$editproduks->kategori}}">
+                                        <input type="text" class="form-control  @error('kategori') is-invalid @enderror" id="kategori" name="kategori" value="{{$editproduks->kategori}}">
+                                        @error('kategori')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="hargatipea" class="col-sm-2 col-form-label">Kuantitas</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="stok" name="stok" value="{{$editproduks->stok}}">
+                                        <input type="number" class="form-control  @error('stok') is-invalid @enderror" id="stok" name="stok" value="{{$editproduks->stok}}">
+                                        @error('stok')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="hargatipea" class="col-sm-2 col-form-label">Gambar</label>
-                                    <div class="col-sm-10"> 
-                                        <img src="{{url('gbr_produk/'.$editproduks->gambar)}}" class="img-preview mb-3 col-sm-5" alt="">
+                                    <div class="col-sm-10">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="gambar" name="gambar" value="" onchange="previewImage()">
+                                            <img src="{{url('gbr_produk/'.$editproduks->gambar)}}" class="img-preview mb-3 col-sm-5" alt="">
+                                            <input type="file" class="custom-file-input  @error('gambar') is-invalid @enderror" id="gambar" name="gambar" value="{{url('gbr_produk/'.$editproduks->gambar)}}" onchange="previewImage()">
                                             <label class="custom-file-label" for="customFile">Pilih File</label>
-                                           
+                                            @error('gambar')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>

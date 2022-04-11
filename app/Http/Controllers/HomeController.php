@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Produk;
 use App\Models\Layanan;
 use App\Models\sosial_media;
+use App\Models\Galeri;
+
 
 class HomeController extends Controller
 {
@@ -28,7 +30,8 @@ class HomeController extends Controller
     {
         $produks = Produk::inRandomOrder()->limit(8)->get();
         $layanans = Layanan::inRandomOrder()->limit(8)->get();
-        return view('layout.home',compact('produks','layanans'));
+        $galeris =  Galeri::all();
+        return view('layout.home',compact('produks','layanans','galeris'));
     }
 
     public function sosial_media(){

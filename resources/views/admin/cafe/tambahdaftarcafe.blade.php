@@ -20,25 +20,39 @@
                                 <div class="form-group row">
                                     <label for="inputjenisservice" class="col-sm-2 col-form-label">Nama</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama">
+                                        <input type="text" class="form-control  @error('nama') is-invalid @enderror" id="nama" name="nama" placeholder="Nama" autofocus value="{{ old('nama') }}">
+                                        @error('nama')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="hargatipea" class="col-sm-2 col-form-label">Harga</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="harga_cafe" name="harga_cafe" placeholder="cth: 150000">
+                                        <input type="number" class="form-control  @error('harga_cafe') is-invalid @enderror" id="harga_cafe" name="harga_cafe" placeholder="cth: 150000"  autofocus value="{{ old('harga_cafe') }}">
+                                        @error('harga_cafe')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="exampleFormControlSelect1" class="col-sm-2 col-form-label">Kategori</label>
                                     <div class="col-sm-10">
-                                        <select class="form-control" id="exampleFormControlSelect1" id="kategori" name="kategori">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
+                                        <select class="form-control  @error('kategori') is-invalid @enderror" id="exampleFormControlSelect1" id="kategori" name="kategori" autofocus value="{{ old('kategori') }}">
+                                            <option value="Makanan">Makanan</option>
+                                            <option value="Makanan Ringan">Makanan Ringan</option>
+                                            <option value="Minuman">Minuman</option>
+                                            <option value="Aneka Jus">Aneka Jus</option>
                                         </select>
+                                        @error('kategori')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
 

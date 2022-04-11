@@ -8,8 +8,9 @@ use App\Models\Layanan;
 class LayananController extends Controller
 {
     //
-    public function index(){
-        $layanans = Layanan::all();
-        return view('layout.layanan',compact('layanans'));
+    public function index()
+    {
+
+        return view('layout.layanan', ["layanans" => Layanan::latest()->filter(request(['search']))->get()]);
     }
 }

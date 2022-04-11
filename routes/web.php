@@ -11,6 +11,7 @@ use App\Http\Controllers\ProdukDetailController;
 use App\Http\Controllers\LayananDetailController;
 use App\Http\Controllers\CheckoutProdukController;
 use App\Http\Controllers\CheckoutLayananController;
+use App\Http\Controllers\StatusPesananController;
 
 
 use App\Http\Controllers\DaftarProdukController;
@@ -56,6 +57,11 @@ Route::post('checkout/storepemesanan', [CheckoutProdukController::class, 'storep
 Route::get('/checkout/layanan/{id_customer}', [CheckoutLayananController::class, 'index']);
 Route::get('checkout/deletelayanan/{id}', [CheckoutLayananController::class, 'delete'])->name('checkout.deletelayanan');
 Route::post('checkout/storepembookingan', [CheckoutLayananController::class, 'storepembookinganlayanan'])->name('checkout.storepembookinganlayanan');
+
+Route::get('/statuspesanan', [StatusPesananController::class, 'index']);
+Route::get('/statuspesanan/detail/{id}', [StatusPesananController::class, 'detail']);
+Route::post('statuspesanan/update/{id_produk}', [StatusPesananController::class, 'update'])->name('statuspesanan.update');
+Route::get('/statuspesananlayanan/detail/{id}', [StatusPesananController::class, 'detaillayanan']);
 // ADMIN
 Route::get('/daftarproduk', [DaftarProdukController::class, 'index']);
 Route::get('/daftarproduk/tambah', [DaftarProdukController::class, 'tambah']);
@@ -82,6 +88,7 @@ Route::get('daftarcafe/delete/{id_cafe}', [DaftarCafeController::class, 'delete'
 Route::get('/daftarpemesanan', [DaftarPemesananController::class, 'index']);
 Route::post('daftarpemesanan/{id}', [DaftarpemesananController::class, 'update'])->name('daftarpemesanan.update');
 Route::get('pemesanandetail/{id_pemesanan}', [DaftarpemesananController::class, 'detail']);
+Route::get('daftarpemesanan/delete/{id}', [DaftarpemesananController::class, 'delete'])->name('daftarpemesanan.delete');
 
 Route::get('/daftarpembookingan', [DaftarPembookinganController::class, 'index']);
 Route::post('daftarpembookingan/{id}', [DaftarPembookinganController::class, 'update'])->name('daftarpembookingan.update');

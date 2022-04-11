@@ -18,38 +18,59 @@
                             <h6 class="m-0 font-weight-bold text-primary">Tambah Daftar Layanan</h6>
                         </div>
                         <div class="card-body">
-                            <form  action="{{route('daftarlayanan.store')}}" method="post" enctype="multipart/form-data">
-                            {{ csrf_field() }}
+                            <form action="{{route('daftarlayanan.store')}}" method="post" enctype="multipart/form-data">
+                                {{ csrf_field() }}
                                 <div class="form-group row">
                                     <label for="inputjenisservice" class="col-sm-2 col-form-label">Jenis Service</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="jenisservice" name="jenisservice" placeholder="Jenis Service">
+                                        <input type="text" class="form-control  @error('jenisservice') is-invalid @enderror" id="jenisservice" name="jenisservice" placeholder="Jenis Service" autofocus value="{{ old('jenisservice') }}">
+                                        @error('jenisservice')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="hargatipea" class="col-sm-2 col-form-label">Harga Tipe A</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="harga_tipea" name="harga_tipea" placeholder="cth: 150000">
+                                        <input type="text" class="form-control  @error('harga_tipea') is-invalid @enderror" id="harga_tipea" name="harga_tipea" placeholder="cth: 150000" autofocus value="{{ old('harga_tipea') }}">
+                                        @error('harga_tipea')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="hargatipea" class="col-sm-2 col-form-label">Harga Tipe B</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="harga_tipeb" name="harga_tipeb" placeholder="cth: 150000">
+                                        <input type="text" class="form-control  @error('harga_tipeb') is-invalid @enderror" id="harga_tipeb" name="harga_tipeb" placeholder="cth: 150000" autofocus value="{{ old('harga_tipeb') }}">
+                                        @error('harga_tipeb')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="hargatipea" class="col-sm-2 col-form-label">Gambar</label>
-                                        <div class="col-sm-10">
-                                            <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="gambar_layanan" name="gambar_layanan">
-                                                <label class="custom-file-label" for="customFile">Pilih File</label>
+                                    <div class="col-sm-10">
+                                        <img class="img-preview img-fluid mb-3 col-sm-5" alt="">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input  @error('gambar_layanan') is-invalid @enderror" id="gambar" name="gambar_layanan" onchange="previewImage()" autofocus value="{{ old('gambar_layanan') }}">
+                                            <label class="custom-file-label" for="customFile">Pilih File</label>
+                                            @error('gambar_layanan')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
                                             </div>
+                                            @enderror
                                         </div>
+                                    </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-10">
-                                        <button type="submit" class="btn btn-success">Tambah</button>                                
+                                        <button type="submit" class="btn btn-success">Tambah</button>
                                         <a href="/daftarlayanan" class="btn btn-primary btn-icon-split">
                                             <span class="text">Kembali</span>
                                         </a>
