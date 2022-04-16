@@ -10,6 +10,19 @@
     <section class="property-grid grid">
         <div class="container">
             <div class="row justify-content-center">
+                <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href={{url('/')}}>Home</a>
+                        </li>
+                        <li class="breadcrumb-item" aria-current="page">
+                            <a href={{url('/layanan')}}>Layanan</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <a>Layanan Detail</a>
+                        </li>
+                    </ol>
+                </nav>
 
                 <!-- Earnings (Monthly) Card Example -->
                 <div class="col-xl-8 col-md-6 mb-4 j">
@@ -33,7 +46,7 @@
                                         {{ csrf_field() }}
                                         <div class="row">
                                             <div class="col-md-12 mb-3">
-                                            <input type="hidden" name="id_layanan" class="form-control" value="{{$layanans->id_layanan}}">
+                                                <input type="hidden" name="id_layanan" class="form-control" value="{{$layanans->id_layanan}}">
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="radio" name="tipe_kendaraan" id="exampleRadios1" value="{{$layanans->harga_tipea}}" checked>
                                                     <label class="form-check-label" for="exampleRadios1">

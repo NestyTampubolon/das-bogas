@@ -42,6 +42,7 @@ Route::get('/layanan', [LayananController::class, 'index']);
 Route::get('/cafe', [CafeController::class, 'index']);
 Route::get('/gallery', [GalleryController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
+Route::post('/testimoni', [AboutController::class, 'testimoni'])->name('testimoni');
 
 Route::get('/produk/detail/{id_produk}', [ProdukDetailController::class, 'index']);
 Route::post('pesan/produk', [ProdukDetailController::class, 'simpanpesanan'])->name('pesan.produk');

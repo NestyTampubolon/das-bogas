@@ -251,8 +251,6 @@
 
       <div id="news-carousel" class="swiper">
         <div class="swiper-wrapper">
-
-
           @foreach($layanans as $layanan)
           <div class="carousel-item-c swiper-slide">
             <div class="card-box-b card-shadow news-box">
@@ -329,5 +327,32 @@
   </div>
 </section><!-- End Latest News Section -->
 
+<section class="property-single  section-t8">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-12">
+        <div id="property-single-carousel" class="swiper">
+          <div class="swiper-wrapper">
+            @foreach($testimonis as $testimoni)
+            <div class="card p-5 carousel-item-c swiper-slide">
+              <div class="border-primary news-box">
+                <div class="testimonial-block_user">
+                  <div class="testimonial-block_user_info">
+                    <h3 class="testimonial-block_user_info_name">{{$testimoni->name}}</h3>
+                    <h4>{{$testimoni->judul}}</h4>
+                  </div>
+                </div>
+                <div class="testimonial-block_content">
+                  <p>{{$testimoni->pesan}}</p>
+                </div>
+              </div>
+            </div>
+            @endforeach
+          </div>
+        </div>
+        <div class="property-single-carousel-pagination carousel-pagination"></div>
+      </div>
+    </div>
+</section>
 
 @include('layout.footer')

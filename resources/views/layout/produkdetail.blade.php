@@ -9,6 +9,19 @@
     <!-- ======= Property Grid ======= -->
     <section class="property-grid grid">
         <div class="container">
+            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href={{url('/')}}>Home</a>
+                    </li>
+                    <li class="breadcrumb-item" aria-current="page">
+                        <a href={{url('/produk')}}>Produk</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        Produk Detail
+                    </li>
+                </ol>
+            </nav>
             <div class="row justify-content-center">
 
                 <!-- Earnings (Monthly) Card Example -->
@@ -35,10 +48,16 @@
                                         {{ csrf_field() }}
                                         <input type="hidden" name="id_produk" class="form-control" value="{{$produks->id_produk}}">
                                         <input type="hidden" name="harga" required="required" class="form-control" value="{{$produks->harga}}">
+                                        <input type="hidden" name="stok" required="required" class="form-control" value="{{$produks->stok}}">
                                         <div class="row">
                                             <div class="col-md-6 mb-3">
                                                 <div class="form-group">
-                                                    <input type="number" name="stok" class="form-control form-control-lg form-control-a" required>
+                                                    <input type="number" name="kuantitas" class="form-control form-control-lg form-control-a  @error('kuantitas') is-invalid @enderror" autofocus value="{{ old('kuantitas') }}">
+                                                    @error('kuantitas')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                    @enderror
                                                 </div>
                                             </div>
                                         </div>

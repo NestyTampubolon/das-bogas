@@ -17,6 +17,7 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
+  <link href="{{asset('vendor')}}/aos/aos.css" rel="stylesheet">
   <link href="{{asset('vendor')}}/animate.css/animate.min.css" rel="stylesheet">
   <link href="{{asset('vendor')}}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="{{asset('vendor')}}/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -24,12 +25,14 @@
   <link href="{{asset('vendor')}}/jquery/jquery.min.js" rel="stylesheet">
   <!-- Template Main CSS File -->
   <link href="{{asset('css')}}/style.css" rel="stylesheet">
-  <script
-  src="https://code.jquery.com/jquery-3.6.0.js"
-  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-  crossorigin="anonymous"></script>
+  <script src="{{asset('js')}}/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+  <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
-  ======================================================== -->
+
 </head>
 
 <body>
@@ -80,16 +83,16 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{ Auth::user()->name }}</a>
             <div class="dropdown-menu">
-             
-                <a class="dropdown-item " href="/checkout/produk/{{ Auth::user()->user_id}}">Checkout Produk</a>
-                <a class="dropdown-item " href="/checkout/layanan/{{ Auth::user()->user_id}}">Checkout Layanan</a>
-                <a class="dropdown-item " href="/statuspesanan">Status Pemesanan</a>
-                <a class="dropdown-item " href="{{ route('logout') }}" onclick="event.preventDefault();
+
+              <a class="dropdown-item " href="/checkout/produk/{{ Auth::user()->user_id}}">Checkout Produk</a>
+              <a class="dropdown-item " href="/checkout/layanan/{{ Auth::user()->user_id}}">Checkout Layanan</a>
+              <a class="dropdown-item " href="/statuspesanan">Status Pemesanan</a>
+              <a class="dropdown-item " href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                 {{ __('Logout') }}</a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-              @csrf
-            </form>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+              </form>
             </div>
           </li>
           @endguest

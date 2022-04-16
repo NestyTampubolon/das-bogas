@@ -36,7 +36,7 @@
                                 @csrf
 
                                 <div class="form-group">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror form-control-user" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Enter Email Address...">
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror form-control-user" name="email" value="{{ old('email') }}" autocomplete="email" autofocus placeholder="Enter Email Address...">
 
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -46,7 +46,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror form-control-user" name="password" required autocomplete="current-password" placeholder="Password">
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror form-control-user" name="password" autocomplete="current-password" placeholder="Password">
 
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -76,7 +76,7 @@
                                         <hr>
                                         @if (Route::has('password.request'))
                                         <a class="btn btn-link" href="{{ route('password.request') }}">
-                                            {{ __('Forgot Your Password?') }}
+                                            {{ __('Lupa Password?') }}
                                         </a>
                                         @endif
                                         <a class="btn btn-link" href="{{ route('register') }}">

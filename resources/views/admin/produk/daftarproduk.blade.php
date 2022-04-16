@@ -44,7 +44,7 @@
                                         <tr>
                                             <td><?php echo $nomor++; ?></td>
                                             <td>{{$daftarproduk->nama}}</td>
-                                            <td>{{$daftarproduk->harga}}</td>
+                                            <td>@currency($daftarproduk->harga)</td>
                                             <td>{{$daftarproduk->kategori}}</td>
                                             <td>{{$daftarproduk->stok}}</td>
                                             <td><img src="{{url('gbr_produk/'.$daftarproduk->gambar)}}" class="py-1 width=" 50" height="100" alt=""></td>

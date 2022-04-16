@@ -85,7 +85,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Addons
+                Pesan
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -103,6 +103,11 @@
             </li>
 
             <hr class="sidebar-divider">
+            
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Informasi
+            </div>
             <li class="nav-item">
                 <a class="nav-link" href="/daftarsosialmedia">
                     <i class="fas fa-fw fa-chart-area"></i>
@@ -112,6 +117,11 @@
                 <a class="nav-link" href="/daftargaleri">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Galeri</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/testimoni">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Testimoni</span></a>
             </li>
 
             <!-- Divider -->
