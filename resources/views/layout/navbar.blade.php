@@ -71,7 +71,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="/about">About</a>
+            <a class="nav-link " href="/about">Tentang</a>
           </li>
           @guest
           @if (Route::has('login'))

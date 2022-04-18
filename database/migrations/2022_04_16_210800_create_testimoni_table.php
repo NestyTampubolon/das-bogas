@@ -18,6 +18,7 @@ class CreateTestimoniTable extends Migration
             $table->string('judul',200);
             $table->text('pesan');
             $table->integer('id_customer');
+            $table->string('status');
             $table->timestamps();
         });
     }

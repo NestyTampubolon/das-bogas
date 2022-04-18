@@ -13,7 +13,7 @@ use App\Http\Controllers\CheckoutProdukController;
 use App\Http\Controllers\CheckoutLayananController;
 use App\Http\Controllers\StatusPesananController;
 
-
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DaftarProdukController;
 use App\Http\Controllers\DaftarLayananController;
 use App\Http\Controllers\DaftarCafeController;
@@ -21,6 +21,7 @@ use App\Http\Controllers\DaftarPemesananController;
 use App\Http\Controllers\DaftarPembookinganController;
 use App\Http\Controllers\DaftarSosialMediaController;
 use App\Http\Controllers\DaftarGaleriController;
+use App\Http\Controllers\DaftarTestimoniController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -63,7 +64,11 @@ Route::get('/statuspesanan', [StatusPesananController::class, 'index']);
 Route::get('/statuspesanan/detail/{id}', [StatusPesananController::class, 'detail']);
 Route::post('statuspesanan/update/{id_produk}', [StatusPesananController::class, 'update'])->name('statuspesanan.update');
 Route::get('/statuspesananlayanan/detail/{id}', [StatusPesananController::class, 'detaillayanan']);
+
 // ADMIN
+
+Route::get('/dashboard', [DashboardController::class, 'index']);
+
 Route::get('/daftarproduk', [DaftarProdukController::class, 'index']);
 Route::get('/daftarproduk/tambah', [DaftarProdukController::class, 'tambah']);
 Route::post('daftarproduk/store', [DaftarProdukController::class, 'store'])->name('daftarproduk.store');
@@ -77,7 +82,6 @@ Route::post('daftarlayanan/store', [DaftarLayananController::class, 'store'])->n
 Route::get('/daftarlayanan/edit/{id_layanan}', [DaftarLayananController::class, 'edit']);
 Route::post('daftarlayanan/update/{id_layanan}', [DaftarLayananController::class, 'update'])->name('daftarlayanan.update');
 Route::get('daftarlayanan/delete/{id_layanan}', [DaftarLayananController::class, 'delete'])->name('daftarlayanan.delete');
-
 
 Route::get('/daftarcafe', [DaftarCafeController::class, 'index']);
 Route::get('/daftarcafe/tambah', [DaftarCafeController::class, 'tambah']);
@@ -99,7 +103,6 @@ Route::get('daftarpembokinganlayanan/delete/{id}', [DaftarPembookinganController
 Route::get('/daftarsosialmedia', [DaftarSosialMediaController::class, 'index']);
 Route::post('daftarsosialmedia/{id}', [DaftarSosialMediaController::class, 'update'])->name('daftarsosialmedia.update');
 
-
 Route::get('/daftargaleri', [DaftarGaleriController::class, 'index']);
 Route::get('/daftargaleri/tambah', [DaftarGaleriController::class, 'tambah']);
 Route::post('daftargaleri/store', [DaftarGaleriController::class, 'store'])->name('daftargaleri.store');
@@ -107,6 +110,9 @@ Route::get('/daftargaleri/edit/{id_galeri}', [DaftarGaleriController::class, 'ed
 Route::post('daftargaleri/update/{id_galeri}', [DaftarGaleriController::class, 'update'])->name('daftargaleri.update');
 Route::get('daftargaleri/delete/{id_galeri}', [DaftarGaleriController::class, 'delete']);
 
+Route::get('/daftartestimoni', [DaftarTestimoniController::class, 'index']);
+Route::get('daftartestimoni/delete/{id}', [DaftarTestimoniController::class, 'delete']);
+Route::post('daftartestimoni/update/{id}', [DaftarTestimoniController::class, 'update'])->name('daftartestimoni.update');
 
 Auth::routes();
 

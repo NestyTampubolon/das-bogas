@@ -30,6 +30,7 @@ class AboutController extends Controller
         $testimoni->judul = $request->judul;
         $testimoni->pesan = $request->pesan;
         $testimoni->id_customer = auth()->id();
+        $testimoni->status = "Tidak Ditampilkan";
         $testimoni->save();
         return redirect('about');
     }

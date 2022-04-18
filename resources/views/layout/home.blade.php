@@ -338,8 +338,8 @@
               <div class="border-primary news-box">
                 <div class="testimonial-block_user">
                   <div class="testimonial-block_user_info">
-                    <h3 class="testimonial-block_user_info_name">{{$testimoni->name}}</h3>
-                    <h4>{{$testimoni->judul}}</h4>
+                    <h3 class="testimonial-block_user_info_name">{{$testimoni->judul}}</h3>
+                    <h4>{{$testimoni->name}}</h4>
                   </div>
                 </div>
                 <div class="testimonial-block_content">

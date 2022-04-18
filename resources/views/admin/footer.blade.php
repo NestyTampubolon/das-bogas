@@ -53,6 +53,11 @@
 <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
 <script src="{{asset('js')}}/demo/datatables-demo.js"></script>
 
+<script src="{{asset('vendor')}}/chart.js/Chart.min.js"></script>
+
+<script src="{{asset('js')}}/demo/chart-area-demo.js"></script>
+<script src="{{asset('js')}}/demo/chart-pie-demo.js"></script>
+
 </body>
 
 </html>

@@ -43,7 +43,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="/dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -119,7 +119,7 @@
                     <span>Galeri</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/testimoni">
+                <a class="nav-link" href="/daftartestimoni">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Testimoni</span></a>
             </li>
