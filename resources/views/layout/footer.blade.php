@@ -48,7 +48,7 @@
                   <i class="bi bi-chevron-right"></i> <a href="#">Cafe</a>
                 </li>
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">About</a>
+                  <i class="bi bi-chevron-right"></i> <a href="#">Tentang</a>
                 </li>
                 <li class="item-list-a">
                   <i class="bi bi-chevron-right"></i> <a href="#">Login</a>
@@ -111,7 +111,6 @@
             </p>
           </div>
           <div class="credits">
-
             By <a href="">INSTITUT TEKNOLOGI DEL</a>
           </div>
         </div>
@@ -122,9 +121,20 @@
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+  @if(Session::has('success'))
+  <script>
+    toastr.success("{{Session::get('success') }}")
+  </script>
+  @endif
+  @if(Session::has('warning'))
+  <script>
+    toastr.warning("{{Session::get('warning') }}")
+  </script>
+  @endif
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- Vendor JS Files -->
   <script src="{{asset('js')}}/previewimg.js"></script>
-  <script src="{{asset('js')}}/owl.carousel.js"></script>  
+  <script src="{{asset('js')}}/owl.carousel.js"></script>
   <script src="{{asset('js')}}/jquery-3.3.1.slim.min.js"></script>
   <script src="{{asset('vendor')}}/aos/aos.js"></script>
   <script src="{{asset('vendor')}}/bootstrap/js/bootstrap.bundle.min.js"></script>

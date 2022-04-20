@@ -8,10 +8,20 @@
         <div class="container-fluid">
             <main>
                 <div class="container-fluid">
-                    <h1 class="mt-4">Daftar pembookingan</h1>
-                    <!-- <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">Dashboard</li>
-                    </ol> -->
+                    <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href={{url('/dashboard')}}>Dashboard</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a href={{url('/daftarpembookingan')}}>Daftar Pemesanan</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                <a>Daftar Pemesanan Detail</a>
+                            </li>
+                        </ol>
+                    </nav>
+                    
                     <div class="col-md-6">
                         @foreach($pembookingan as $pembookingans)
                         <form>
@@ -20,7 +30,7 @@
                                 <input type="email" class="form-control" disabled id="exampleFormControlInput1" value="{{$pembookingans->nomor_telephone}}">
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlInput1">Jadwal Service</label>
+                                <label for="exampleFormControlInput1">Jadwal Servis</label>
                                 <input type="email" class="form-control" disabled id="exampleFormControlInput1" value="{{ Carbon\Carbon::parse($pembookingans->tanggal_pembookingan)->format('d-m-Y') }} || {{$pembookingans->pukul}}"">
                             </div>
                             
@@ -35,7 +45,7 @@
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table mr-1"></i>
-                            DataTable Example
+                            Data Tabel Daftar Pemesanan Layanan
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -59,15 +69,6 @@
                                 </table>
                             </div>
                         </div>
-                    </div>
-
-                    <div class=" py-3">
-                        <div><a href="/daftarpembookingan" class="btn btn-primary btn-icon-split" style="text-align: right;">
-                                <span class="icon text-white-50">
-                                    <i class="fas fa-plus"></i>
-                                </span>
-                                <span class="text">Kembali</span>
-                            </a></div>
                     </div>
                 </div>
             </main>

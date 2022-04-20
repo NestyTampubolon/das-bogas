@@ -11,7 +11,16 @@
             <main>
                 <div class="container-fluid">
                     <h1 class="mt-4">Daftar Produk</h1>
-
+                    <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href={{url('/dashboard')}}>Dashboard</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                <a>Daftar Produk</a>
+                            </li>
+                        </ol>
+                    </nav>
                     <div class=" py-3">
                         <div><a href="/daftarproduk/tambah" class="btn btn-success btn-icon-split" style="text-align: right;">
                                 <span class="icon text-white-50">
@@ -23,7 +32,7 @@
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table mr-1"></i>
-                            DataTable Example
+                            Data Tabel Produk
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -53,7 +62,7 @@
                                                     <span class="icon text-white-50">
                                                         <i class="fas fa-pen"></i>
                                                     </span>
-                                                    <span class="text">Edit</span>
+                                                    <span class="text">Ubah</span>
                                                 </a>
                                                 <a href="#" class="btn btn-danger btn-icon-split" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                     <span class="icon text-white-50">

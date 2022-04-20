@@ -11,11 +11,23 @@
             <!-- Page Heading -->
             <main>
                 <div class="container-fluid">
-
+                <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href={{url('/dashboard')}}>Dashboard</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a href={{url('/daftarproduk')}}>Daftar Produk</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                <a>Ubah Produk</a>
+                            </li>
+                        </ol>
+                    </nav>
                     <!-- Basic Card Example -->
                     <div class="card shadow col-xl-10 col-md-6 mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Edit Daftar produk</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Ubah Daftar produk</h6>
                         </div>
                         <div class="card-body">
                             <form action="{{route('daftarproduk.update',$editproduks->id_produk)}}" method="post" enctype="multipart/form-data">
@@ -67,9 +79,9 @@
                                 </div>
                                 <div class="form-group row">
                                     <label for="hargatipea" class="col-sm-2 col-form-label">Gambar</label>
-                                    <div class="col-sm-10">
+                                    <div class="col-sm-10">  
+                                        <img src="{{url('gbr_produk/'.$editproduks->gambar)}}" class="img-preview mb-3 col-sm-5" alt="">
                                         <div class="custom-file">
-                                            <img src="{{url('gbr_produk/'.$editproduks->gambar)}}" class="img-preview mb-3 col-sm-5" alt="">
                                             <input type="file" class="custom-file-input  @error('gambar') is-invalid @enderror" id="gambar" name="gambar" value="{{url('gbr_produk/'.$editproduks->gambar)}}" onchange="previewImage()">
                                             <label class="custom-file-label" for="customFile">Pilih File</label>
                                             @error('gambar')
@@ -80,12 +92,9 @@
                                         </div>
                                     </div>
                                 </div>
-
-
                                 <div class="form-group row py-xl-5">
                                     <div class="col-sm-10">
-                                        <button type="submit" class="btn btn-success">Edit</button>
-                                        <button type="submit" class="btn btn-primary">Kembali</button>
+                                        <button type="submit" class="btn btn-success">Ubah</button>
                                     </div>
                                 </div>
                             </form>

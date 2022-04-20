@@ -25,7 +25,7 @@ class DaftarPembookinganController extends Controller
         $update->keterangan = $request->keterangan;
         $update-> save();
         
-        return redirect('daftarpembookingan');  
+        return redirect('daftarpembookingan')->with('success', "Berhasil mengubah status pemesanan!");    
 
     }
 

@@ -33,7 +33,7 @@ class DaftarCafeController extends Controller
         $daftarcafe->harga_cafe = $request->harga_cafe;
         $daftarcafe->kategori = $request->kategori;
         $daftarcafe->save();
-        return redirect('daftarcafe');
+        return redirect('daftarcafe')->with('success', "Menu Cafe berhasil ditambahkan!");
     }
 
     public function edit($id_cafe)
@@ -57,14 +57,14 @@ class DaftarCafeController extends Controller
         $update->kategori = $request->kategori;
         $update->save();
 
-        return redirect('daftarcafe');
+        return redirect('daftarcafe')->with('success', "Menu Cafe berhasil diubah!");
     }
 
     public function delete($id_cafe)
     {
         $deletecafe = Cafe::find($id_cafe);
         if ($deletecafe->delete()) {
-            return redirect()->back();
+            return redirect()->back()->with('success', "Menu Cafe berhasil dihapus!");
         }
     }
 }

@@ -10,7 +10,17 @@
 
             <main>
                 <div class="container-fluid">
-                    <h1 class="mt-4">Daftar Pemesanan</h1>
+                    <h1 class="mt-4">Daftar Ulasan</h1>
+                    <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href={{url('/dashboard')}}>Dashboard</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                <a>Daftar Ulasan</a>
+                            </li>
+                        </ol>
+                    </nav>
                     <!-- <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item active">Dashboard</li>
                     </ol> -->
@@ -18,7 +28,7 @@
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table mr-1"></i>
-                            Tabel Daftar Testimoni
+                            Data Tabel Ulasan
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -52,10 +62,10 @@
                                                     </div>
                                             </td>
                                             <td>
-                                                <button type="submit" class="btn btn-primary btn-icon-split">
-                                                    <a href="" type="submit" class="btn btn-primary btn-icon-split">
+                                                <button type="submit" class="btn btn-success btn-icon-split">
+                                                    <a href="" type="submit" class="btn btn-success btn-icon-split">
                                                         <span class="icon text-white-50">
-                                                            <i class="fas fa-pen"></i>
+                                                            <i class="fas fa-check"></i>
                                                         </span>
                                                         <span class="text">Simpan</span>
                                                     </a></button>

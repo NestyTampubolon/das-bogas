@@ -11,7 +11,19 @@
             <!-- Page Heading -->
             <main>
                 <div class="container-fluid">
-
+                    <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href={{url('/dashboard')}}>Dashboard</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a href={{url('/daftarproduk')}}>Daftar Produk</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                <a>Tambah Produk</a>
+                            </li>
+                        </ol>
+                    </nav>
                     <!-- Basic Card Example -->
                     <div class="card shadow col-xl-10 col-md-6 mb-4">
                         <div class="card-header py-3">
@@ -70,7 +82,7 @@
                                         <img class="img-preview img-fluid mb-3 col-sm-5" alt="">
                                         <div class="custom-file">
                                             <img class="img-preview img-fluid mb-3 col-sm-5" alt="">
-                                            <input type="file" class="custom-file-input form-control @error('gambar') is-invalid @enderror" id="gambar" name="gambar_produk" onchange="previewImage()" autofocus value="{{ old('gambar') }}">
+                                            <input type="file" class="custom-file-input @error('gambar') is-invalid @enderror" id="gambar" name="gambar_produk" onchange="previewImage()" autofocus value="{{ old('gambar') }}">
                                             <label class="custom-file-label" for="customFile">Pilih File</label>
                                             @error('gambar')
                                             <div class="invalid-feedback">
@@ -83,9 +95,6 @@
                                 <div class="form-group row">
                                     <div class="col-sm-10">
                                         <button type="submit" class="btn btn-success">Tambah</button>
-                                        <a href="/daftarproduk" class="btn btn-primary btn-icon-split">
-                                            <span class="text">Kembali</span>
-                                        </a>
                                     </div>
                                 </div>
                             </form>

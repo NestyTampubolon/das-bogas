@@ -37,7 +37,7 @@ class DaftarGaleriController extends Controller
             $daftargaleri->gambar = $file;
         }
         $daftargaleri->save();
-        return redirect('daftargaleri');
+        return redirect('daftargaleri')->with('success', "Galeri berhasil ditambahkan!");
     }
 
     public function edit($id_galeri)
@@ -64,14 +64,14 @@ class DaftarGaleriController extends Controller
         $update->judul = $request->judul;
         $update->save();
 
-        return redirect('daftargaleri');
+        return redirect('daftargaleri')->with('success', "Galeri berhasil diubah!");
     }
 
     public function delete($id_galeri)
     {
         $deletegaleri = Galeri::find($id_galeri);
         if ($deletegaleri->delete()) {
-            return redirect()->back();
+            return redirect()->back()->with('success', "Galeri berhasil dihapus!");
         }
     }
 }

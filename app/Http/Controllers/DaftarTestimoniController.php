@@ -19,7 +19,7 @@ class DaftarTestimoniController extends Controller
         $update->status = $request->status;
         $update-> save();
         
-        return redirect('daftartestimoni');  
+        return redirect('daftartestimoni')->with('success', "Status ulasan berhasil diubah!");   
 
     }
 
@@ -27,7 +27,7 @@ class DaftarTestimoniController extends Controller
     {
         $deletetestimoni = Testimoni::find($id_testimoni);
         if ($deletetestimoni->delete()) {
-            return redirect()->back();
+            return redirect()->back()->with('success', "Status ulasan berhasil dihapus!");  
         }
     }
 }

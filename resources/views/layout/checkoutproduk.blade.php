@@ -9,6 +9,16 @@
     <section class="property-grid grid">
         <div class="container">
             <div class="row justify-content-center">
+                <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href={{url('/')}}>Home</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <a>Keranjang Produk</a>
+                        </li>
+                    </ol>
+                </nav>
 
                 <!-- Earnings (Monthly) Card Example -->
                 <div class="col-xl-10 col-md-6 mb-4">
@@ -28,7 +38,16 @@
 
         <div class="container">
             <div class="row justify-content-center">
-
+            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href={{url('/')}}>Home</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <a>Keranjang Produk</a>
+                        </li>
+                    </ol>
+                </nav>
                 <!-- Earnings (Monthly) Card Example -->
                 <div class="col-xl-10 col-md-6 mb-4">
                     <h2 class="title-2 justify-content-center">Produk</h2>
@@ -52,10 +71,10 @@
                                                         <input type="hidden" name="kuantitas" value="{{$pesan->kuantitas}}">
                                                         <input type="hidden" name="total" value="{{$pesan->total}}">
                                                         <div class="price-box d-flex">
-                                                            {{$pesan->kuantitas}}
+                                                            Kuantitas : {{$pesan->kuantitas}}
                                                         </div>
                                                         <div class="price-box d-flex">
-                                                            @currency($pesan->total)
+                                                            Total : @currency($pesan->total)
                                                         </div>
                                                     </div>
                                                     <div class="col col-2">

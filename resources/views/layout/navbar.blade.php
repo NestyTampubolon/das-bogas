@@ -31,8 +31,8 @@
   <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
   <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'></script>
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
@@ -55,28 +55,28 @@
         <ul class="navbar-nav">
 
           <li class="nav-item">
-            <a class="nav-link active" href="/">Home</a>
+            <a class="nav-link active" href={{url('/')}}>Home</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="/produk">Produk</a>
+            <a class="nav-link " href={{url('/produk')}}>Produk</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="/layanan">Layanan</a>
+            <a class="nav-link " href={{url('/layanan')}}>Layanan</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="/cafe">Cafe</a>
+            <a class="nav-link " href={{url('/cafe')}}>Cafe</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href="/about">Tentang</a>
+            <a class="nav-link " href={{url('/about')}}>Tentang</a>
           </li>
           @guest
           @if (Route::has('login'))
           <li class="nav-item">
-            <a class="nav-link " href="{{ route('login') }}">{{ __('Login') }}</a>
+            <a class="nav-link " href={{ route('login') }}>{{ __('Login') }}</a>
           </li>
           @endif
           @else
@@ -84,9 +84,9 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{ Auth::user()->name }}</a>
             <div class="dropdown-menu">
 
-              <a class="dropdown-item " href="/checkout/produk/{{ Auth::user()->user_id}}">Checkout Produk</a>
-              <a class="dropdown-item " href="/checkout/layanan/{{ Auth::user()->user_id}}">Checkout Layanan</a>
-              <a class="dropdown-item " href="/statuspesanan">Status Pemesanan</a>
+              <a class="dropdown-item " href="/checkout/produk/{{ Auth::user()->user_id}}">Keranjang Produk</a>
+              <a class="dropdown-item " href="/checkout/layanan/{{ Auth::user()->user_id}}">Keranjang Layanan</a>
+              <a class="dropdown-item " href={{url('/statuspesanan')}}>Status Pemesanan</a>
               <a class="dropdown-item " href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                 {{ __('Logout') }}</a>

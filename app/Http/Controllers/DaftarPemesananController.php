@@ -24,7 +24,7 @@ class DaftarPemesananController extends Controller
         $update->status = $request->status;
         $update-> save();
         
-        return redirect('daftarpemesanan');  
+        return redirect('daftarpemesanan')->with('success', "Berhasil mengubah status pemesanan!");  
 
     }
 
@@ -49,7 +49,7 @@ class DaftarPemesananController extends Controller
     {
         $deletepemesanan = PemesananProduk::find($id_pemesananproduk);
         if ($deletepemesanan->delete()) {
-            return redirect()->back();
+            return redirect()->back()->with('success', "Berhasil menghapus pemesanan!");
         }
     }
 }

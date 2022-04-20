@@ -12,7 +12,7 @@
           <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
-                <a href="#">Home</a>
+                <a href={{url('/')}}>Home</a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">
                 Menu Cafe

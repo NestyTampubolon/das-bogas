@@ -15,10 +15,13 @@ class CreatePembookinganlayanandetailTable extends Migration
     {
         Schema::create('pembookinganlayanandetail', function (Blueprint $table) {
             $table->increments('id_pembookinganlayanandetail');
-            $table->integer('id_layanan');
-            $table->integer('id_pembookinganlayanan');
+            $table->integer('id_layanan')->unsigned();
+            $table->integer('id_pembookinganlayanan')->unsigned();
             $table->integer('total_harga');
             $table->timestamps();
+
+            $table->foreign('id_layanan')->references('id_layanan')->on('layanan')->onDelete('cascade');
+            $table->foreign('id_pembookinganlayanan')->references('id_pembookinganlayanan')->on('pembookinganlayanan')->onDelete('cascade');
         });
     }
 

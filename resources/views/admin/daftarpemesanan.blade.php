@@ -10,15 +10,21 @@
 
             <main>
                 <div class="container-fluid">
-                    <h1 class="mt-4">Daftar Pemesanan</h1>
-                    <!-- <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">Dashboard</li>
-                    </ol> -->
-
+                    <h1 class="mt-4">Daftar Pemesanan Produk</h1>
+                    <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href={{url('/dashboard')}}>Dashboard</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                <a>Daftar Pemesanan Produk</a>
+                            </li>
+                        </ol>
+                    </nav>
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table mr-1"></i>
-                            DataTable Example
+                            Data Tabel Pemesanan Produk
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -26,8 +32,9 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama</th>
-                                            <th>Tanggal Pemesanan</th>
+                                            <th>ID Pemesanan</th>
+                                            <!-- <th>Nama</th> -->
+                                            <!-- <th>Tanggal Pemesanan</th> -->
                                             <th>Total Pembayaran</th>
                                             <th>Status</th>
                                             <th>Action</th>
@@ -37,8 +44,9 @@
                                         @foreach($pemesanans as $pemesanan)
                                         <tr>
                                             <td><?php echo $nomor++; ?></td>
-                                            <td>{{$pemesanan->name}}</td>
-                                            <td>{{ Carbon\Carbon::parse($pemesanan->tanggal_pemesanan)->format('d-m-Y') }}</td>
+                                            <td>{{$pemesanan->id_pemesananproduk}}</td>
+                                            <!-- <td>{{$pemesanan->name}}</td> -->
+                                           <!-- <td>{{ Carbon\Carbon::parse($pemesanan->tanggal_pemesanan)->format('d-m-Y') }}</td> -->
                                             <td>@currency($pemesanan->total_pembayaran)</td>
                                             <td>
                                                 <form action="{{route('daftarpemesanan.update',$pemesanan->id_pemesananproduk)}}" method="post" enctype="multipart/form-data">
@@ -56,10 +64,10 @@
                                                     </div>
                                             </td>
                                             <td>
-                                                <button type="submit" class="btn btn-primary btn-icon-split">
-                                                    <a href="" type="submit" class="btn btn-primary btn-icon-split">
+                                                <button type="submit" class="btn btn-success btn-icon-split">
+                                                    <a href="" type="submit" class="btn btn-success btn-icon-split">
                                                         <span class="icon text-white-50">
-                                                            <i class="fas fa-pen"></i>
+                                                            <i class="fas fa-check"></i>
                                                         </span>
                                                         <span class="text">Simpan</span>
                                                     </a></button>

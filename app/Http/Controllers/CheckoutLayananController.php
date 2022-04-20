@@ -8,6 +8,7 @@ use App\Models\Layanan;
 use App\Models\PembookinganLayanan;
 use App\Models\PembookinganLayananDetail;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class CheckoutLayananController extends Controller
 {
@@ -28,11 +29,25 @@ class CheckoutLayananController extends Controller
             ->where('id_customer', '=', auth()->id())
             ->get();
 
-            return view('layout.checkoutlayanan', compact('pesan', 'total'));    
+        return view('layout.checkoutlayanan', compact('pesan', 'total'));
     }
 
     public function storepembookinganlayanan(Request $request)
     {
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'tanggal_pembookingan' => 'required|date',
+                'tipe_kendaraan' => 'required',
+                'pukul' => 'required',
+                'keluhan_service' => 'required',
+            ]
+        );
+
+        if ($validator->fails()) {
+            return redirect()->back()->with('warning', "Gagal memproses. Silahkan coba kembali!");
+        }
+
         $keranjang = KeranjangLayanan::where('id_customer', auth()->id())->get();
 
         $pembookingan = new PembookinganLayanan();
@@ -54,17 +69,17 @@ class CheckoutLayananController extends Controller
 
             $deletekeranjang = KeranjangLayanan::where('id_customer', auth()->id());
             if ($deletekeranjang->delete()) {
-                return redirect('/');
+            } else {
             }
         }
-        return redirect()->back()->with('error', "Pemesanan sedang di proses");
+        return redirect()->back()->with('success', "Pesanan Anda sedang diproses. Lihat Status Pemesanan!");
     }
 
     public function delete(Request $request, $id_keranjanglayanan)
     {
         $delete = KeranjangLayanan::find($id_keranjanglayanan);
         if ($delete->delete()) {
-            return redirect()->back();
+            return redirect()->back()->with('success', "Berhasil menghapus pesanan!");
         }
     }
 }

@@ -20,11 +20,18 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-2"> <label for="exampleFormControlInput1">{{$sosial->judul}}</label></div>
-                                    <div class="col-md-8"> <input type="text" class="form-control" name="hyperlink" id="exampleFormControlInput1" value="{{$sosial->hyperlink}}"></div>
+                                    <div class="col-md-8"> 
+                                        <input type="text" class="form-control  @error('hyperlink') is-invalid @enderror" name="hyperlink" id="exampleFormControlInput1" value="{{$sosial->hyperlink}}">
+                                        @error('hyperlink')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+                                </div>
                                     <div class="col-md-2"> <button type="submit" class="btn btn-success btn-icon-split">
                                             <a href="" class="btn btn-success btn-icon-split" style="text-align: right;">
                                                 <span class="icon text-white-50">
-                                                    <i class="fas fa-plus"></i>
+                                                    <i class="fas fa-check"></i>
                                                 </span>
                                                 <span class="text">Simpan</span>
                                             </a>

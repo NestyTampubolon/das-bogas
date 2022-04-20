@@ -32,6 +32,6 @@ class AboutController extends Controller
         $testimoni->id_customer = auth()->id();
         $testimoni->status = "Tidak Ditampilkan";
         $testimoni->save();
-        return redirect('about');
+        return redirect('about')->with('success', "Ulasan Anda berhasil disampaikan!");
     }
 }

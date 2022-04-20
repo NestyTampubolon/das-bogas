@@ -9,7 +9,16 @@
     <section class="property-grid grid">
         <div class="container">
             <div class="row justify-content-center">
-
+            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href={{url('/')}}>Home</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <a>Status Pesanan</a>
+                        </li>
+                    </ol>
+                </nav>
                 <!-- Earnings (Monthly) Card Example -->
                 <div class="col-xl-10 col-md-6 mb-4">
                     <div class="card border-left-primary shadow py-2 text-center">
@@ -28,6 +37,16 @@
         <div class="container">
             <div class="row justify-content-center">
                 <!-- Earnings (Monthly) Card Example -->
+                <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href={{url('/')}}>Home</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <a>Status Pesanan</a>
+                        </li>
+                    </ol>
+                </nav>
                 <div class="col-xl-10 col-md-6 mb-4">
                     <h2 class="title-2 justify-content-center">Produk</h2>
                     <div class="card border-left-primary shadow py-2">

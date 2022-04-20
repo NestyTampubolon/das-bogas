@@ -25,8 +25,8 @@ class DaftarLayananController extends Controller
             $request,
             [
                 'jenisservice' => 'required',
-                'harga_tipea' => 'required',
-                'harga_tipeb' => 'required',
+                'harga_tipea' => 'required|integer',
+                'harga_tipeb' => 'required|integer',
                 'gambar_layanan' => 'required|mimes:jpeg,jpg,png,gif'
             ]
         );
@@ -40,10 +40,10 @@ class DaftarLayananController extends Controller
         if ($request->hasFile('gambar_layanan')) {
             $file = $request->file('gambar_layanan')->getClientOriginalName();
             $request->file('gambar_layanan')->move('gbr_layanan', $file);
-            $daftarlayanan->gambar = $file;
+            $daftarlayanan->gambar_layanan= $file;
         }
         $daftarlayanan->save();
-        return redirect('daftarlayanan');
+        return redirect('daftarlayanan')->with('success', "Layanan berhasil ditambahkan!");
     }
 
     public function edit($id_layanan)
@@ -75,14 +75,14 @@ class DaftarLayananController extends Controller
         $update->harga_tipeb = $request->harga_tipeb;
         $update->save();
 
-        return redirect('daftarlayanan');
+        return redirect('daftarlayanan')->with('success', "Layanan berhasil diubah!");
     }
 
     public function delete($id_layanan)
     {
         $deletelayanan = Layanan::find($id_layanan);
         if ($deletelayanan->delete()) {
-            return redirect()->back();
+            return redirect()->back()->with('success', "Layanan berhasil dihapus!");
         }
     }
 }

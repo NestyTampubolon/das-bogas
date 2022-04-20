@@ -77,4 +77,10 @@
         </div>
     </section><!-- End Property Grid Single-->
 
+    <!-- @if(Session::has('success'))
+    <script>
+        toastr.success("{{Session::get('success') }}")
+    </script>
+    @endif
+    -->
     @include('layout.footer')

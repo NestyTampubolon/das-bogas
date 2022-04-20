@@ -19,7 +19,7 @@ class CreateProdukTable extends Migration
             $table->integer('harga');
             $table->string('kategori',200);
             $table->integer('stok');
-            $table->string('gambar',200);
+            $table->string('gambar',200)->default('logo1.png');
             $table->timestamps();
         });
     }

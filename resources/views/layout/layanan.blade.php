@@ -78,21 +78,23 @@
         <div class="col-md-4">
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
-              <img src="{{asset('img')}}/post-1.jpg" alt="" class="img-b img-fluid">
+              <a href="layanan/detail/{{$layanan->id_layanan}}" class="link-a">
+                <img src="{{asset('img')}}/post-1.jpg" alt="" class="img-b img-fluid">
+              </a>
             </div>
             <div class="card-overlay">
               <div class="card-header-b">
                 <div class="card-title-b">
                   <h2 class="title-2">
-                    <a href="blog-single.html">{{$layanan->jenisservice}}
+                    <a href="layanan/detail/{{$layanan->id_layanan}}">{{$layanan->jenisservice}}
                   </h2>
                 </div>
                 <div class="card-category-b">
-                  <a href="#" class="category-b">TIPE A | @currency($layanan->harga_tipea)</a>
+                  <a class="category-b">TIPE A | @currency($layanan->harga_tipea)</a>
                 </div>
                 <br>
                 <div class="card-category-b">
-                  <a href="#" class="category-b">TIPE B | @currency($layanan->harga_tipeb)</a>
+                  <a class="category-b">TIPE B | @currency($layanan->harga_tipeb)</a>
                 </div>
                 <br>
                 <div class="card-date">

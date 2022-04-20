@@ -22,8 +22,10 @@ class CreatePembookinganlayananTable extends Migration
             $table->string('status',100);
             $table->text('keterangan')->nullable();
             $table->text('keluhan_service');
-            $table->integer('id_customer');
+            $table->integer('id_customer')->unsigned();
             $table->timestamps();
+
+            $table->foreign('id_customer')->references('user_id')->on('users')->onDelete('cascade');
         });
     }
 

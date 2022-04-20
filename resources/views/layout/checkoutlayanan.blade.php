@@ -9,6 +9,16 @@
     <section class="property-grid grid">
         <div class="container">
             <div class="row justify-content-center">
+            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href={{url('/')}}>Home</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <a>Keranjang Layanan</a>
+                        </li>
+                    </ol>
+                </nav>
 
                 <!-- Earnings (Monthly) Card Example -->
                 <div class="col-xl-10 col-md-6 mb-4">
@@ -25,9 +35,19 @@
     @else
     <!-- ======= Property Grid ======= -->
     <section class="property-grid grid">
-        
+
         <div class="container">
             <div class="row justify-content-center">
+                <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href={{url('/')}}>Home</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            <a>Keranjang Layanan</a>
+                        </li>
+                    </ol>
+                </nav>
 
                 <!-- Earnings (Monthly) Card Example -->
                 <div class="col-xl-10 col-md-6 mb-4">
@@ -60,7 +80,7 @@
                                                     </div>
                                                     <div class="col col-2">
                                                         <div class="col-md-6 text-center">
-                                                            <button type="button" class="btn btn-danger  bottom-50 end-50" onclick="window.location.href='/checkout/deletelayanan/{{$pesan->id_keranjanglayanan}}'">Hapus</button>
+                                                            <button type="button" class="btn btn-danger bottom-50 end-50" onclick="window.location.href='/checkout/deletelayanan/{{$pesan->id_keranjanglayanan}}'">Hapus</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -95,7 +115,7 @@
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Data</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
                                                         @foreach($total as $totals)
@@ -125,20 +145,35 @@
                                                                 <label for="nama">Tanggal Service</label>
                                                             </div>
                                                             <div class="form-group col-md-8">
-                                                                <input type="date" class="form-control" name="tanggal_pembookingan" id="tanggal_pembookingan" min="Carbon::now()">
+                                                                <input type="date" class="form-control @error('tanggal_pembookingan') is-invalid @enderror" name="tanggal_pembookingan" id="tanggal_pembookingan" min="Carbon::now()" autofocus value="{{ old('tanggal_pembookingan') }}">
+                                                                @error('tanggal_pembookingan')
+                                                                <div class="invalid-feedback">
+                                                                    {{ $message }}
+                                                                </div>
+                                                                @enderror
                                                             </div>
                                                         </div>
-                                                        <div class="row">
+                                                        <div class="row form-group mt-3">
                                                             <div class="form-group col-md-4">
                                                                 <label for="nama">Pukul</label>
                                                             </div>
                                                             <div class="form-group col-md-8">
-                                                                <input type="time" class="form-control" name="pukul" id="pukul">
+                                                                <input type="time" class="form-control @error('pukul') is-invalid @enderror" name="pukul" id="pukul" autofocus value="{{ old('pukul') }}">
+                                                                @error('pukul')
+                                                                <div class="invalid-feedback">
+                                                                    {{ $message }}
+                                                                </div>
+                                                                @enderror
                                                             </div>
                                                         </div>
-                                                        <div class="form-group">
+                                                        <div class="form-group mt-3">
                                                             <label for="keluhan">Keluhan</label>
-                                                            <textarea class="form-control" id="keluhan_service" name="keluhan_service" rows="3"></textarea>
+                                                            <textarea class="form-control @error('keluhan_service') is-invalid @enderror" id="keluhan_service" name="keluhan_service" rows="3"></textarea>
+                                                            @error('keluhan_service')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                            </div>
+                                                            @enderror
                                                         </div>
 
                                                     </div>

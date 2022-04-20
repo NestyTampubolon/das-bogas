@@ -11,11 +11,20 @@
 
             <main>
                 <div class="container-fluid">
-                    <h1 class="mt-4">Dashboard</h1>
+                    <h1 class="mt-4">Daftar Layanan</h1>
                     <!-- <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item active">Dashboard</li>
                     </ol> -->
-
+                    <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href={{url('/dashboard')}}>Dashboard</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                <a>Daftar Layanan</a>
+                            </li>
+                        </ol>
+                    </nav>
                     <div class=" py-3">
                         <div><a href="/daftarlayanan/tambah" class="btn btn-success btn-icon-split" style="text-align: right;">
                                 <span class="icon text-white-50">
@@ -27,7 +36,7 @@
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table mr-1"></i>
-                            DataTable Example
+                            Data Tabel Layanan
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -47,15 +56,15 @@
                                         <tr>
                                             <td><?php echo $nomor++; ?></td>
                                             <td>{{$daftarlayanan->jenisservice}}</td>
-                                            <td>{{$daftarlayanan->harga_tipea}}</td>
-                                            <td>{{$daftarlayanan->harga_tipeb}}</td>
+                                            <td>@currency($daftarlayanan->harga_tipea)</td>
+                                            <td>@currency($daftarlayanan->harga_tipeb)</td>
                                             <td><img src="{{url('gbr_layanan/'.$daftarlayanan->gambar_layanan)}}" class="py-1 width="50" height="100" alt=""></td>
                                             <td>
                                                 <a href="/daftarlayanan/edit/{{$daftarlayanan->id_layanan}}" class="btn btn-primary btn-icon-split">
                                                     <span class="icon text-white-50">
                                                         <i class="fas fa-pen"></i>
                                                     </span>
-                                                    <span class="text">Edit</span>
+                                                    <span class="text">Ubah</span>
                                                 </a>
                                                 <a href="#" class="btn btn-danger btn-icon-split" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                     <span class="icon text-white-50">

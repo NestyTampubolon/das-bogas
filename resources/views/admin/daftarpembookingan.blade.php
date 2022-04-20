@@ -11,15 +11,24 @@
 
             <main>
                 <div class="container-fluid">
-                    <h1 class="mt-4">Daftar Pembookingan</h1>
+                    <h1 class="mt-4">Daftar Pemesanan Layanan</h1>
                     <!-- <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item active">Dashboard</li>
                     </ol> -->
-
+                    <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href={{url('/dashboard')}}>Dashboard</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                <a>Daftar Pemesanan Layanan</a>
+                            </li>
+                        </ol>
+                    </nav>
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table mr-1"></i>
-                            DataTable Example
+                            Data Tabel Pemesanan Layanan
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -27,8 +36,10 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
+                                            <th>ID Pemesanan</th>
                                             <th>Nama</th>
                                             <th>Total Pembayaran</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr><?php $nomor = 1; ?>
                                     </thead>
@@ -36,8 +47,10 @@
                                         @foreach($pembookingans as $pembookingan)
                                         <tr>
                                             <td><?php echo $nomor++; ?> </td>
+                                            <td>{{$pembookingan->id_pembookinganlayanan}}</td>
                                             <td>{{$pembookingan->name}}</td>
                                             <td>@currency($pembookingan->total_pembayaran)</td>
+                                            <td>{{$pembookingan->status}}</td>
                                             <td>
                                                 <button type="submit" class="btn btn-primary btn-icon-split">
                                                     <a href="" type="submit" class="btn btn-primary btn-icon-split" data-bs-toggle="modal" data-bs-target="#exampleModal{{$pembookingan->id_pembookinganlayanan}}">

@@ -8,11 +8,23 @@
             <!-- Page Heading -->
             <main>
                 <div class="container-fluid">
-
+                <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href={{url('/dashboard')}}>Dashboard</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a href={{url('/daftarcafe')}}>Daftar Kafe</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                <a>Tambah Kafe</a>
+                            </li>
+                        </ol>
+                    </nav>
                     <!-- Basic Card Example -->
                     <div class="card shadow col-xl-8 col-md-6 mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Tambah Daftar Cafe</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Tambah Daftar Kafe</h6>
                         </div>
                         <div class="card-body">
                             <form action="{{route('daftarcafe.store')}}" method="post" enctype="multipart/form-data">
@@ -59,9 +71,6 @@
                                 <div class="form-group row">
                                     <div class="col-sm-10">
                                         <button type="submit" class="btn btn-success">Tambah</button>
-                                        <a href="/daftarcafe" class="btn btn-primary btn-icon-split">
-                                            <span class="text">Kembali</span>
-                                        </a>
                                     </div>
                                 </div>
                             </form>

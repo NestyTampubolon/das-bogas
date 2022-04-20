@@ -26,8 +26,7 @@ class DaftarProdukController extends Controller
                 'harga' => 'required|integer',
                 'kategori' => 'required',
                 'stok' => 'required|integer',
-                'gambar' => 'required|mimes:jpg,bmp,png'
-
+                'gambar_produk' => 'required',
             ]
         );
 
@@ -43,7 +42,7 @@ class DaftarProdukController extends Controller
             $daftarproduk->gambar = $file;
         }
         $daftarproduk->save();
-        return redirect('daftarproduk');
+        return redirect('daftarproduk')->with('success', "Produk berhasil ditambahkan!");
     }
 
     public function edit($id_produk)
@@ -78,14 +77,14 @@ class DaftarProdukController extends Controller
         $update->stok = $request->stok;
         $update->save();
 
-        return redirect('daftarproduk');
+        return redirect('daftarproduk')->with('success', "Produk berhasil diubah!");
     }
 
     public function delete($id_produk)
     {
         $deleteproduk = Produk::find($id_produk);
         if ($deleteproduk->delete()) {
-            return redirect()->back();
+            return redirect()->back()->with('success', "Produk berhasil dihapus!");
         }
     }
 }

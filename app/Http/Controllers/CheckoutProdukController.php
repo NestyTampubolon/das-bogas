@@ -8,6 +8,7 @@ use App\Models\KeranjangProduk;
 use App\Models\PemesananProduk;
 use App\Models\PemesananProdukDetail;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class CheckoutProdukController extends Controller
 {
@@ -35,7 +36,19 @@ class CheckoutProdukController extends Controller
 
     public function storepemesananproduk(Request $request)
     {
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'nama_penerima' => 'required',
+                'alamat_penerima' => 'required',
+                'bukti_pembayaran' => 'required'
+            ]
+        );
 
+        if ($validator->fails()) {
+            return redirect()->back()->with('warning', "Gagal memproses. Silahkan coba kembali!");
+        }
+        
         $this->validate(
             $request,
             [
@@ -52,8 +65,13 @@ class CheckoutProdukController extends Controller
         $pemesanan->total_pembayaran = $request->total_harga;
         $pemesanan->nama_penerima = $request->nama_penerima;
         $pemesanan->alamat_penerima = $request->alamat_penerima;
-        $pemesanan->bukti_pembayaran = $request->bukti_pembayaran;
         $pemesanan->status = "Verifikasi";
+        
+        if ($request->hasFile('bukti_pembayaran')) {
+            $file = $request->file('bukti_pembayaran')->getClientOriginalName();
+            $request->file('bukti_pembayaran')->move('gbr_bukti_pembayaran', $file);
+            $pemesanan->bukti_pembayaran = $file;
+        }
         if ($pemesanan->save()) {
             foreach ($keranjang as $keranjangs) {
                 $pemesanandetail = new PemesananProdukDetail();
@@ -66,10 +84,9 @@ class CheckoutProdukController extends Controller
 
             $deletekeranjang = KeranjangProduk::where('id_customer', auth()->id());
             if ($deletekeranjang->delete()) {
-                return redirect('/');
             }
         }
-        return redirect()->back()->with('error', "Pemesanan sedang di proses");
+        return redirect()->back()->with('success', "Pesanan Anda sedang diproses. Lihat Status Pemesanan!");
     }
 
     public function delete(Request $request, $id_keranjangproduk)
@@ -81,7 +98,7 @@ class CheckoutProdukController extends Controller
         $deleteproduks->stok = $deleteproduks->stok + $kuantitas;
         $deleteproduks->save();
         if ($delete->delete()) {
-            return redirect()->back();
+            return redirect()->back()->with('success', "Berhasil menghapus pesanan!");
         }
     }
 }

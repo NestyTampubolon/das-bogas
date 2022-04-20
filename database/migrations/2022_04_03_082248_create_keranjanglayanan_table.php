@@ -15,10 +15,13 @@ class CreateKeranjanglayananTable extends Migration
     {
         Schema::create('keranjanglayanan', function (Blueprint $table) {
             $table->increments('id_keranjanglayanan');
-            $table->integer('id_customer');
-            $table->integer('id_layanan');
+            $table->integer('id_customer')->unsigned();
+            $table->integer('id_layanan')->unsigned();
             $table->integer('harga');
             $table->timestamps();
+
+            $table->foreign('id_customer')->references('user_id')->on('users')->onDelete('cascade');
+            $table->foreign('id_layanan')->references('id_layanan')->on('layanan')->onDelete('cascade');
         });
     }
 

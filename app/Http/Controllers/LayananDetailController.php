@@ -20,6 +20,6 @@ class LayananDetailController extends Controller
         $keranjang->harga = $request->input('tipe_kendaraan');
         $keranjang->id_customer = auth()->id();
         $keranjang->save();
-        return redirect()->back()->with('success', "Pesanan Anda berhasil disimpan di keranjang!");;
+        return redirect()->back()->with('success', "Pesanan Anda berhasil disimpan di Checkout Layanan!");;
     }
 }

@@ -17,9 +17,11 @@ class CreateTestimoniTable extends Migration
             $table->increments('id_testimoni');
             $table->string('judul',200);
             $table->text('pesan');
-            $table->integer('id_customer');
+            $table->integer('id_customer')->unsigned();
             $table->string('status');
             $table->timestamps();
+
+            $table->foreign('id_customer')->references('user_id')->on('users')->onDelete('cascade');
         });
     }
 

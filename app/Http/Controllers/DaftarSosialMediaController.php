@@ -15,11 +15,18 @@ class DaftarSosialMediaController extends Controller
 
     public function update(Request $request, $id_sosialmedia)
     {
+        $this->validate(
+            $request,
+            [
+                'hyperlink' => 'required',
+            ]
+        );
+        
         $update = sosial_media::find($id_sosialmedia);
         $update->hyperlink = $request->hyperlink;
         $update->save();
 
-        return redirect()->back();
+        return redirect()->back()->with('success', "Sosial Media berhasil diubah!");
     }
 
     

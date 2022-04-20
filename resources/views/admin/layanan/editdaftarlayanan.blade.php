@@ -8,6 +8,19 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
+            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href={{url('/dashboard')}}>Dashboard</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href={{url('/daftarlayanan')}}>Daftar Layanan</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <a>Tambah Layanan</a>
+                    </li>
+                </ol>
+            </nav>
             <!-- Page Heading -->
             <main>
                 <div class="container-fluid">
@@ -15,7 +28,7 @@
                     <!-- Basic Card Example -->
                     <div class="card shadow col-xl-10 col-md-6 mb-4">
                         <div class="card-header">
-                            <h6 class="m-0 font-weight-bold text-primary">Edit Daftar Layanan</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Ubah Daftar Layanan</h6>
                         </div>
                         <div class="card-body">
                             <form action="{{route('daftarlayanan.update',$editlayanans->id_layanan)}}" method="post" enctype="multipart/form-data">
@@ -74,8 +87,7 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-10">
-                                        <button type="submit" class="btn btn-success">Edit</button>
-                                        <button type="submit" class="btn btn-primary">Kembali</button>
+                                        <button type="submit" class="btn btn-primary">Ubah</button>
                                     </div>
                                 </div>
                             </form>

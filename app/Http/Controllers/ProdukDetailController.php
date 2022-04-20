@@ -36,6 +36,6 @@ class ProdukDetailController extends Controller
         $produks = Produk::find($request->id_produk);
         $produks->stok = $produks->stok - $request->kuantitas;
         $produks->save();
-        return redirect()->back()->with('success', "Pesanan Anda berhasil disimpan di keranjang!");;
+        return redirect()->back()->with('success', "Pesanan Anda berhasil disimpan di Keranjang Produk!");
     }
 }

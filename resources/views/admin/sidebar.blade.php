@@ -15,6 +15,9 @@
     <link href="{{asset('vendor')}}/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- Custom styles for this template-->
     <link href="{{asset('css')}}/sb-admin-2.css" rel="stylesheet">
@@ -45,7 +48,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="/dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Beranda</span></a>
             </li>
 
             <!-- Divider -->
@@ -76,7 +79,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="/daftarcafe" aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Menu</span>
+                    <span>Kafe</span>
                 </a>
             </li>
 
@@ -92,18 +95,18 @@
             <li class="nav-item">
                 <a class="nav-link" href="/daftarpemesanan">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Pemesanan</span></a>
+                    <span>Pemesanan Produk</span></a>
             </li>
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="/daftarpembookingan">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Pembookingan</span></a>
+                    <span>Pemesanan Layanan</span></a>
             </li>
 
             <hr class="sidebar-divider">
-            
+
             <!-- Heading -->
             <div class="sidebar-heading">
                 Informasi
@@ -121,7 +124,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="/daftartestimoni">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Testimoni</span></a>
+                    <span>Ulasan</span></a>
             </li>
 
             <!-- Divider -->
@@ -148,10 +151,9 @@
 
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-gray-600" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
-                            <img class="img-profile rounded-circle"
-                                    src="{{asset('img')}}/undraw_profile.svg">  
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">&nbsp; {{ Auth::user()->name }}</span>  
+                            <a class="nav-link dropdown-toggle text-gray-600" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="img-profile rounded-circle" src="{{asset('img')}}/undraw_profile.svg">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">&nbsp; {{ Auth::user()->name }}</span>
                             </a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item " href="{{ route('logout') }}" onclick="event.preventDefault();

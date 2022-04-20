@@ -18,11 +18,12 @@ class CreatePemesananprodukTable extends Migration
             $table->date('tanggal_pemesanan');
             $table->integer('total_pembayaran');
             $table->string('status',20);
-            $table->integer('id_customer');
+            $table->integer('id_customer')->unsigned();
             $table->string('nama_penerima',100);
             $table->text('alamat_penerima');
             $table->string('bukti_pembayaran',500);
             $table->timestamps();
+            $table->foreign('id_customer')->references('user_id')->on('users')->onDelete('cascade');
         });
     }
 
