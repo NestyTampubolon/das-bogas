@@ -30,8 +30,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $carousels = Galeri::inRandomOrder()->limit(3)->get();
         $status = "Tampilkan";
-        
         $produks = Produk::inRandomOrder()->limit(8)->get();
         $layanans = Layanan::inRandomOrder()->limit(8)->get();
         $galeris =  Galeri::all();
@@ -39,7 +39,7 @@ class HomeController extends Controller
         ->join('users', 'testimoni.id_customer', '=', 'users.user_id')
         ->where('testimoni.status','=', $status)
         ->get();
-        return view('layout.home',compact('produks','layanans','galeris','testimonis'));
+        return view('layout.home',compact('produks','layanans','galeris','testimonis','carousels'));
     }
 
     public function sosial_media(){

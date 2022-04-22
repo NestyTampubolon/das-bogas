@@ -28,19 +28,6 @@
   <section class="property-grid grid">
     <div class="container">
       <div class="row">
-        <div class="col-sm-12">
-          <div class="grid-option">
-            <form>
-              <select  id="assigned-user-filter" class="custom-select">
-                <option value="All" selected>All</option>
-                <option value="makanan">Makanan</option>
-                <option value="Makanan Ringan">Makanan Ringan</option>
-                <option value="minuman">Minuman</option>
-                <option value="jus">Jus</option>
-              </select>
-            </form>
-          </div>
-        </div>
 
         @foreach($cafes as $cafe)
         <!-- Earnings (Monthly) Card Example -->

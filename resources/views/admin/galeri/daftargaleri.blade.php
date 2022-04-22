@@ -50,7 +50,7 @@
                                         <tr>
                                             <td><?php echo $nomor++; ?></td>
                                             <td>{{$daftargaleri->judul}}</td>
-                                            <td><img src="{{url('gbr_galeri/'.$daftargaleri->gambar)}}" class="py-1 width=" 50" height="100" alt=""></td>
+                                            <td><img src="{{url('gbr_galeri/'.$daftargaleri->gambar)}}" class="py-1 width=" 50" height="100" alt="" data-bs-toggle="modal" data-bs-target="#myModals{{$daftargaleri->id_galeri}}"></td>
                                             <td>
                                                 <a href="/daftargaleri/edit/{{$daftargaleri->id_galeri}}" class="btn btn-primary btn-icon-split">
                                                     <span class="icon text-white-50">
@@ -66,6 +66,18 @@
                                                 </a>
                                             </td>
                                         </tr>
+
+                                          <!-- Modal Gambar -->
+                                          <div id="myModals{{$daftargaleri->id_galeri}}" class="modal fade" tabindex="-1" role="dialog">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <div class="modal-body">
+                                                        <img src="{{url('gbr_galeri/'.$daftargaleri->gambar)}}" class="img-fluid">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModal{{$daftargaleri->id_galeri}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">

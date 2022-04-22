@@ -18,6 +18,9 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('css')}}/sb-admin-2.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </head>
 
@@ -36,7 +39,7 @@
                                 @csrf
 
                                 <div class="form-group">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror form-control-user" name="email" value="{{ old('email') }}" autocomplete="email" autofocus placeholder="Enter Email Address...">
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" autofocus placeholder="Masukkan Email">
 
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -46,7 +49,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror form-control-user" name="password" autocomplete="current-password" placeholder="Password">
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="current-password" placeholder="Masukkan Password">
 
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -70,7 +73,7 @@
                                 <div class="row mb-0">
                                     <!-- <div class="col-md-8 offset-md-4"> -->
                                     <div class="col-md-8 text-center offset-md-2 ">
-                                        <button type="submit" class="btn btn-primary btn-user btn-block text-center">
+                                        <button type="submit" class="btn btn-primary btn-block text-center">
                                             {{ __('Login') }}
                                         </button>
                                         <hr>
@@ -80,7 +83,7 @@
                                         </a>
                                         @endif
                                         <a class="btn btn-link" href="{{ route('register') }}">
-                                            {{ __('Buat Akun?') }}
+                                            {{ __('Daftar Akun?') }}
                                         </a>
                                     </div>
                                 </div>
@@ -91,7 +94,6 @@
             </div>
         </div>
     </div>
-
     <!-- Bootstrap core JavaScript-->
     <script src="{{asset('vendor')}}/jquery/jquery.min.js"></script>
     <script src="{{asset('vendor')}}/bootstrap/js/bootstrap.bundle.min.js"></script>

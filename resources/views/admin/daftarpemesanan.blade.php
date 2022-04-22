@@ -36,6 +36,7 @@
                                             <!-- <th>Nama</th> -->
                                             <!-- <th>Tanggal Pemesanan</th> -->
                                             <th>Total Pembayaran</th>
+                                            <th>Bukti Pembayaran</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr><?php $nomor = 1; ?>
@@ -46,8 +47,9 @@
                                             <td><?php echo $nomor++; ?></td>
                                             <td>{{$pemesanan->id_pemesananproduk}}</td>
                                             <!-- <td>{{$pemesanan->name}}</td> -->
-                                           <!-- <td>{{ Carbon\Carbon::parse($pemesanan->tanggal_pemesanan)->format('d-m-Y') }}</td> -->
+                                            <!-- <td>{{ Carbon\Carbon::parse($pemesanan->tanggal_pemesanan)->format('d-m-Y') }}</td> -->
                                             <td>@currency($pemesanan->total_pembayaran)</td>
+                                            <td><img src="{{url('gbr_bukti_pembayaran/'.$pemesanan->bukti_pembayaran)}}" width="100px" height="100px" alt="" data-bs-toggle="modal" data-bs-target="#myModals{{$pemesanan->id_pemesananproduk}}"></td>
                                             <td>
                                                 <form action="{{route('daftarpemesanan.update',$pemesanan->id_pemesananproduk)}}" method="post" enctype="multipart/form-data">
                                                     {{ csrf_field() }}
@@ -63,7 +65,7 @@
                                                         </div>
                                                     </div>
                                             </td>
-                                            <td>
+                                            <td class="text-center">
                                                 <button type="submit" class="btn btn-success btn-icon-split">
                                                     <a href="" type="submit" class="btn btn-success btn-icon-split">
                                                         <span class="icon text-white-50">
@@ -91,6 +93,17 @@
                                                 </button>
                                             </td>
                                         </tr>
+
+                                        <!-- Modal Gambar -->
+                                        <div id="myModals{{$pemesanan->id_pemesananproduk}}" class="modal fade" tabindex="-1" role="dialog">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <div class="modal-body">
+                                                        <img src="{{url('gbr_bukti_pembayaran/'.$pemesanan->bukti_pembayaran)}}" class="img-fluid">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModal{{$pemesanan->id_pemesananproduk}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

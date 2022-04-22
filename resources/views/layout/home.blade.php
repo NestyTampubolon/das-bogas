@@ -4,8 +4,9 @@
 <div class="intro intro-carousel swiper position-relative">
 
   <div class="swiper-wrapper">
-
-    <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url({{asset('img')}}/slide-1.jpg)">
+  @foreach($carousels as $carousel)
+    <div class="swiper-slide carousel-item-a intro-item ">
+    <img src="{{url('gbr_galeri/'.$carousel->gambar)}}" class="bg-image" style="object-fit: contain;" width="100%" alt="">
       <div class="overlay overlay-a"></div>
       <div class="intro-content display-table">
         <div class="table-cell">
@@ -30,56 +31,7 @@
         </div>
       </div>
     </div>
-    <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url({{asset('img')}}/slide-2.jpg)">
-      <div class="overlay overlay-a"></div>
-      <div class="intro-content display-table">
-        <div class="table-cell">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8">
-                <div class="intro-body">
-                  <p class="intro-title-top">Doral, Florida
-                    <br> 78345
-                  </p>
-                  <h1 class="intro-title mb-4">
-                    <span class="color-b">204 </span> Rino
-                    <br> Venda Road Five
-                  </h1>
-                  <p class="intro-subtitle intro-price">
-                    <a href="#"><span class="price-a">rent | $ 12.000</span></a>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="swiper-slide carousel-item-a intro-item bg-image" style="background-image: url({{asset('img')}}/slide-3.jpg)">
-      <div class="overlay overlay-a"></div>
-      <div class="intro-content display-table">
-        <div class="table-cell">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8">
-                <div class="intro-body">
-                  <p class="intro-title-top">Doral, Florida
-                    <br> 78345
-                  </p>
-                  <h1 class="intro-title mb-4">
-                    <span class="color-b">204 </span> Alira
-                    <br> Roan Road One
-                  </h1>
-                  <p class="intro-subtitle intro-price">
-                    <a href="#"><span class="price-a">rent | $ 12.000</span></a>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    @endforeach
   </div>
   <div class="swiper-pagination"></div>
 </div><!-- End Intro Section -->
@@ -200,7 +152,7 @@
           <div class="carousel-item-c swiper-slide">
             <div class="card-box-b card-shadow news-box">
               <div class="img-box-b">
-                <img src="{{asset('img')}}/post-2.jpg" alt="" class="img-b img-fluid">
+                <img src="{{url('gbr_produk/'.$produk->gambar)}}" alt="" class="img-b img-fluid">
               </div>
               <div class="card-overlay">
                 <div class="card-header-b">
@@ -255,7 +207,7 @@
           <div class="carousel-item-c swiper-slide">
             <div class="card-box-b card-shadow news-box">
               <div class="img-box-b">
-                <img src="{{asset('img')}}/post-2.jpg" alt="" class="img-b img-fluid">
+                <img src="{{url('gbr_produk/'.$layanan->gambar_layanan)}}" alt="" class="img-b img-fluid">
               </div>
               <div class="card-overlay">
                 <div class="card-header-b">

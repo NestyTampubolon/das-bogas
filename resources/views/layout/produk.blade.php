@@ -63,7 +63,7 @@
                   </h6>
                   <br>
                   <div class="card-date">
-                    <a href="produk/detail/{{$produk->id_produk}}" class="link-a">Click here to view
+                    <a href="produk/detail/{{$produk->id_produk}}" class="link-a">Lihat selengkapnya
                       <span class="bi bi-chevron-right"></span>
                     </a>
                   </div>

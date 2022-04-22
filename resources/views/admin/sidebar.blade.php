@@ -34,7 +34,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
                 <!-- <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div> -->
@@ -62,7 +62,7 @@
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="/daftarproduk" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
+                    <i class="fas fa-fw fa-list-alt"></i>
                     <span>Produk</span>
                 </a>
             </li>
@@ -70,7 +70,7 @@
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="/daftarlayanan" aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
+                    <i class="fas fa-fw fa-list-alt"></i>
                     <span>Layanan</span>
                 </a>
             </li>
@@ -78,7 +78,7 @@
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="/daftarcafe" aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
+                    <i class="fas fa-fw fa-list-alt"></i>
                     <span>Kafe</span>
                 </a>
             </li>
@@ -94,14 +94,14 @@
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link" href="/daftarpemesanan">
-                    <i class="fas fa-fw fa-folder"></i>
+                    <i class="fas fa-fw fa-shopping-bag"></i>
                     <span>Pemesanan Produk</span></a>
             </li>
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="/daftarpembookingan">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="fas fa-fw fa-shopping-bag"></i>
                     <span>Pemesanan Layanan</span></a>
             </li>
 
@@ -113,17 +113,17 @@
             </div>
             <li class="nav-item">
                 <a class="nav-link" href="/daftarsosialmedia">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="fas fa-fw fa-hashtag"></i>
                     <span>Sosial Media</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/daftargaleri">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="fas fa-fw fa-image"></i>
                     <span>Galeri</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/daftartestimoni">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="fas fa-fw fa-comment"></i>
                     <span>Ulasan</span></a>
             </li>
 

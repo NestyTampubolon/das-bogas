@@ -67,7 +67,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " href={{url('/cafe')}}>Cafe</a>
+            <a class="nav-link " href={{url('/cafe')}}>Kafe</a>
           </li>
 
           <li class="nav-item">

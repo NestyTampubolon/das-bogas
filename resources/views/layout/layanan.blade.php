@@ -79,7 +79,7 @@
           <div class="card-box-b card-shadow news-box">
             <div class="img-box-b">
               <a href="layanan/detail/{{$layanan->id_layanan}}" class="link-a">
-                <img src="{{asset('img')}}/post-1.jpg" alt="" class="img-b img-fluid">
+                <img src="{{url('gbr_layanan/'.$layanan->gambar_layanan)}}" alt="" class="img-b img-fluid">
               </a>
             </div>
             <div class="card-overlay">
@@ -98,7 +98,7 @@
                 </div>
                 <br>
                 <div class="card-date">
-                  <a href="layanan/detail/{{$layanan->id_layanan}}" class="link-a">Click here to view
+                  <a href="layanan/detail/{{$layanan->id_layanan}}" class="link-a">Lihat Selengkapnya
                     <span class="bi bi-chevron-right"></span>
                   </a>
                 </div>

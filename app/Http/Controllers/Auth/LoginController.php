@@ -51,9 +51,9 @@ class LoginController extends Controller
         $input['password'])))
         {
             if(auth()->user()->role == 1){
-                return redirect('/dashboard');
+                return redirect('/dashboard')->with('success', "Berhasil login!");
             }elseif(auth()->user()->role == 0){
-                return redirect()->back();
+                return redirect('/')->with('success', "Berhasil login!");
             }
         }else{
             return redirect()->route('login')
