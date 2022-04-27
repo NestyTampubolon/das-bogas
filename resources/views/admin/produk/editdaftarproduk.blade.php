@@ -81,15 +81,12 @@
                                     <label for="hargatipea" class="col-sm-2 col-form-label">Gambar</label>
                                     <div class="col-sm-10">  
                                         <img src="{{url('gbr_produk/'.$editproduks->gambar)}}" class="img-preview mb-3 col-sm-5" alt="">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input  @error('gambar') is-invalid @enderror" id="gambar" name="gambar" value="{{url('gbr_produk/'.$editproduks->gambar)}}" onchange="previewImage()">
-                                            <label class="custom-file-label" for="customFile">Pilih File</label>
+                                            <input type="file" class="form-control  @error('gambar') is-invalid @enderror" id="gambar" name="gambar" value="{{url('gbr_produk/'.$editproduks->gambar)}}" onchange="previewImage()">
                                             @error('gambar')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
                                             @enderror
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group row py-xl-5">

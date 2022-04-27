@@ -61,6 +61,7 @@
                                                                 <option value="Proses">Proses</option>
                                                                 <option value="Antar">Antar</option>
                                                                 <option value="Selesai">Selesai</option>
+                                                                <option value="Tolak">Tolak</option>
                                                             </select>
                                                         </div>
                                                     </div>

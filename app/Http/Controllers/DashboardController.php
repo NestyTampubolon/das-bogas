@@ -15,7 +15,7 @@ class DashboardController extends Controller
     {
         $users = DB::table('users')->count();
         $pemesanans = DB::table('pemesananproduk')->where('status','=',"Selesai")->count();
-        $pembookingans = DB::table('pembookinganlayanan')->count();
+        $pembookingans = DB::table('pembookinganlayanan')->where('status','=',"Diterima")->count();
         $category[] = ['January', 'February', 'March', 'April', 'May', 'Juni', 'Juli', 'August'];
         $totalpemesanan = PemesananProduk::select(
             DB::raw('sum(total_pembayaran) as total'),
@@ -40,12 +40,13 @@ class DashboardController extends Controller
 
         $bulan2 = PembookinganLayanan::select(
             DB::raw("DATE_FORMAT(tanggal_pembookingan,'%M') as months"),
-        )->groupBy('months')
+        )->where('status','=',"Diterima")
+        ->groupBy('months')
             ->pluck('months');
 
         $data2 =  PembookinganLayanan::select(
             DB::raw('sum(total_pembayaran) as total'),
-        )
+        )->where('status','=',"Diterima")
         ->groupBy(DB::raw("DATE_FORMAT(tanggal_pembookingan,'%M')"))
             ->pluck('total');
 

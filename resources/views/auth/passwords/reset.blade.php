@@ -2,89 +2,170 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <title>Das Bogas Auto Service</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
 
-    <!-- Custom fonts for this template-->
-    <link href="{{asset('vendor')}}/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <!-- Favicons -->
+    <link href="{{asset('logo.jpg')}}" rel="icon">
+    <link href="{{asset('img')}}/apple-touch-icon.png" rel="apple-touch-icon">
 
-    <!-- Custom styles for this template-->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{{asset('vendor')}}/aos/aos.css" rel="stylesheet">
+    <link href="{{asset('vendor')}}/animate.css/animate.min.css" rel="stylesheet">
+    <link href="{{asset('vendor')}}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('vendor')}}/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="{{asset('vendor')}}/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="{{asset('vendor')}}/jquery/jquery.min.js" rel="stylesheet">
+    <!-- Template Main CSS File -->
     <link href="{{asset('css')}}/sb-admin-2.min.css" rel="stylesheet">
+    <link href="{{asset('css')}}/style.css" rel="stylesheet">
+    <script src="{{asset('js')}}/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+    <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Custom styles for this template-->
 
 </head>
 
 <body class="bg-gradient-primary">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card p-5 o-hidden border-0 shadow-lg my-5">
-                    <div class="text-center">
-                        <h1 class="h4 text-gray-900 mb-4">{{ __('Reset Password') }}</h1>
-                    </div>
 
-                    <div class="card-body">
-                        <form  class="user" method="POST" action="{{ route('password.update') }}">
-                            @csrf
+    <!-- ======= Header/Navbar ======= -->
+    <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
+        <div class="container">
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <a class="navbar-brand text-brand" href="/">Das Bogas<span class="color-b"> Auto Service</span></a>
 
-                            <input type="hidden" name="token" value="{{ $token }}">
+            <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+                <ul class="navbar-nav">
 
-                            <div class="row mb-3">
-                                <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                    <li class="nav-item">
+                        <a class="nav-link " href={{url('/')}}>Home</a>
+                    </li>
 
-                                <div class="col-md-8 form-group">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
+                    <li class="nav-item">
+                        <a class="nav-link " href={{url('/produk')}}>Produk</a>
+                    </li>
 
-                                    @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
+                    <li class="nav-item">
+                        <a class="nav-link " href={{url('/layanan')}}>Layanan</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link " href={{url('/cafe')}}>Kafe</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link " href={{url('/about')}}>Tentang</a>
+                    </li>
+                    @guest
+                    @if (Route::has('login'))
+                    <li class="nav-item">
+                        <a class="nav-link active" href={{ route('login') }}>{{ __('Login') }}</a>
+                    </li>
+                    @endif
+                    @else
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{ Auth::user()->name }}</a>
+                        <div class="dropdown-menu">
+
+                            <a class="dropdown-item " href="/checkout/produk/{{ Auth::user()->user_id}}">Keranjang Produk</a>
+                            <a class="dropdown-item " href="/checkout/layanan/{{ Auth::user()->user_id}}">Keranjang Layanan</a>
+                            <a class="dropdown-item " href={{url('/statuspesanan')}}>Status Pemesanan</a>
+                            <a class="dropdown-item " href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                    @endguest
+                </ul>
+            </div>
+        </div>
+    </nav><!-- End Header/Navbar -->
+    <main id="main">
+        <section class="intro-single">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="card p-5 o-hidden border-0 shadow-lg my-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">{{ __('Reset Password') }}</h1>
                             </div>
 
-                            <div class="row mb-3">
-                                <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                            <div class="card-body">
+                                <form class="user" method="POST" action="{{ route('password.update') }}">
+                                    @csrf
 
-                                <div class="col-md-8 form-group ">
-                                    <input id="password" type="password" class="form-control  @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                    <input type="hidden" name="token" value="{{ $token }}">
 
-                                    @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
+                                    <div class="row mb-3">
+                                        <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+
+                                        <div class="col-md-8 form-group">
+                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
+
+                                            @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+
+                                        <div class="col-md-8 form-group ">
+                                            <input id="password" type="password" class="form-control  @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                            @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                        <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Konfirmasi Password') }}</label>
+
+                                        <div class="col-md-8 form-group">
+                                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-0">
+                                        <div class="col-md-8 offset-md-4">
+                                            <button type="submit" class="btn btn-primary">
+                                                {{ __('Reset Password') }}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
-
-                            <div class="row mb-3">
-                                <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Konfirmasi Password') }}</label>
-
-                                <div class="col-md-8 form-group">
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                                </div>
-                            </div>
-
-                            <div class="row mb-0">
-                                <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Reset Password') }}
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
     <!-- Bootstrap core JavaScript-->
     <script src="{{asset('vendor')}}/jquery/jquery.min.js"></script>
     <script src="{{asset('vendor')}}/bootstrap/js/bootstrap.bundle.min.js"></script>

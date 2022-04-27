@@ -17,7 +17,7 @@
                         <a href={{url('/daftarlayanan')}}>Daftar Layanan</a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">
-                        <a>Tambah Layanan</a>
+                        <a>Ubah Layanan</a>
                     </li>
                 </ol>
             </nav>
@@ -74,15 +74,12 @@
                                     <label for="gambar" class="col-sm-2 col-form-label">Gambar</label>
                                     <div class="col-sm-10">
                                         <img src="{{url('gbr_layanan/'.$editlayanans->gambar_layanan)}}" class="img-preview img-fluid mb-3 col-sm-5" alt="">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input  @error('gambar_layanan') is-invalid @enderror" id="gambar" name="gambar_layanan" onchange="previewImage()">
-                                            <label class="custom-file-label" for="customFile">Pilih File</label>
-                                            @error('gambar_layanan')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                            @enderror
+                                        <input type="file" class="form-control  @error('gambar_layanan') is-invalid @enderror" id="gambar" name="gambar_layanan" onchange="previewImage()">
+                                        @error('gambar_layanan')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
                                         </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row">

@@ -11,7 +11,7 @@
             <!-- Page Heading -->
             <main>
                 <div class="container-fluid">
-                <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                    <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
                                 <a href={{url('/dashboard')}}>Dashboard</a>
@@ -69,15 +69,12 @@
                                     <label for="hargatipea" class="col-sm-2 col-form-label">Gambar</label>
                                     <div class="col-sm-10">
                                         <img class="img-preview img-fluid mb-3 col-sm-5" alt="">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input  @error('gambar_layanan') is-invalid @enderror" id="gambar" name="gambar_layanan" onchange="previewImage()" autofocus value="{{ old('gambar_layanan') }}">
-                                            <label class="custom-file-label" for="customFile">Pilih File</label>
-                                            @error('gambar_layanan')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                            @enderror
+                                        <input type="file" class="form-control  @error('gambar_layanan') is-invalid @enderror" id="gambar" name="gambar_layanan" onchange="previewImage()" autofocus value="{{ old('gambar_layanan') }}">
+                                        @error('gambar_layanan')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
                                         </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row">

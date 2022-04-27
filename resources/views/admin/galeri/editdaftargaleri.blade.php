@@ -49,10 +49,7 @@
                                     <label for="hargatipea" class="col-sm-2 col-form-label">Gambar</label>
                                     <div class="col-sm-10">
                                         <img src="{{url('gbr_galeri/'.$editgaleris->gambar)}}" class="img-preview img-fluid mb-3 col-sm-5" alt="">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input @error('gambar') is-invalid @enderror" id="gambar" name="gambar" value="" onchange="previewImage()">
-                                            <label class="custom-file-label" for="customFile">Pilih File</label>
-                                        </div>
+                                        <input type="file" class="form-control @error('gambar') is-invalid @enderror" id="gambar" name="gambar" value="" onchange="previewImage()">
                                     </div>
                                     @error('gambar')
                                     <div class="invalid-feedback">

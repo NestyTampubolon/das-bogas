@@ -24,8 +24,54 @@
     </div>
   </section><!-- End Intro Single-->
 
+      <!-- ======= About Section ======= -->
+      <section class="section-about">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 position-relative">
+            <div class="about-img-box">
+              <img src="{{url('img/das-bogas2.jpg')}}" alt="" height="600px" width="100%">
+            </div>
+            <div class="sinse-box">
+              <p>Berdiri tahun</p>
+              <h3 class="sinse-title">
+                <br> 8 Februari 2010
+              </h3>
+             
+            </div>
+          </div>
+          <div class="col-md-12 section-t8 position-relative">
+            <div class="row">
+              <div class="col-md-6 col-lg-5">
+                <img src="{{url('img/about-2.jpg')}}" alt="" class="img-fluid">
+              </div>
+              <div class="col-lg-2  d-none d-lg-block position-relative">
+                <div class="title-vertical d-flex justify-content-start">
+                 
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-5 section-md-t3">
+                <div class="title-box-d">
+                  <h3 class="title-d">
+                    <span>Latar belakang berdirinya Das Bogas</span>
+                  </h3>
+                </div>
+                <p class="color-text-a">
+                  Arti kata DAS BOGAS yang berasal dari bahasa batak yang artinya pekerjaan yang dilakukan sampai selesai atau tuntas
+                </p>
+                <p class="color-text-a">
+                  Beberapa fasilitas yang tersedia Cafe, free Wi-Fi. Mengatasi berbagai masalah mobil dalam waktu yang singkat dan hasil yang memuaskan.
+                  Menerima derek mobil mogok dan jemput cuci mobil. Layanan dari mulai doorsmeer, ganti oli dan servis.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   <!-- ======= Contact Single ======= -->
-  <section class="contact">
+  <section class="contact mt-5">
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
@@ -70,7 +116,7 @@
               </form>
             </div>
             @endforeach
-            @else
+            @endif
             <div class="col-sm-12 section-t8">
               <div class="row">
                 <div class="col-md-7">
@@ -98,11 +144,7 @@
                         </div>
                       </div>
                       <div class="col-md-12 my-3">
-                        <div class="mb-3">
-                          <div class="loading">Loading</div>
-                          <div class="error-message"></div>
-                          <div class="sent-message">Your message has been sent. Thank you!</div>
-                        </div>
+
                       </div>
 
                       <div class="col-md-12 text-center">
@@ -111,7 +153,7 @@
                     </div>
                   </form>
                 </div>
-                @endif
+               
               </div>
             </div>
           </div>

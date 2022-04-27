@@ -9,7 +9,7 @@
     <section class="property-grid grid">
         <div class="container">
             <div class="row justify-content-center">
-            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
                             <a href={{url('/')}}>Home</a>
@@ -73,7 +73,17 @@
                                                             Total Pembayaran : @currency($pesan->total_pembayaran)
                                                         </div>
                                                         <div class="price-box d-flex">
-                                                            Status : {{$pesan->status}}
+                                                            @if($pesan->status == 'Verifikasi')
+                                                            <span class="badge badge-warning">{{$pesan->status}}</span>
+                                                            @elseif($pesan->status == 'Proses')
+                                                            <span class="badge badge-info">{{$pesan->status}}</span>
+                                                            @elseif($pesan->status == 'Antar')
+                                                            <span class="badge badge-primary">{{$pesan->status}}</span>
+                                                            @elseif($pesan->status == 'Selesai')
+                                                            <span class="badge badge-success">{{$pesan->status}}</span>
+                                                            @elseif($pesan->status == 'Tolak')
+                                                            <span class="badge badge-danger">{{$pesan->status}}</span>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                     <div class="col col-4">
@@ -88,8 +98,8 @@
                                             <div class="col-md-6 mb-3">
                                             </div>
                                         </div>
-    
-                                        @endforeach                      
+
+                                        @endforeach
                                 </div>
                             </div>
                         </div>
@@ -102,7 +112,7 @@
         </div>
         </div>
     </section><!-- End Property Grid Single-->
-<br><br>
+    <br><br>
     <section class="property-grid grid">
         <div class="container">
             <div class="row justify-content-center">
@@ -133,7 +143,13 @@
                                                             Total Pembayaran : @currency($booking->total_pembayaran)
                                                         </div>
                                                         <div class="price-box d-flex">
-                                                            Status : {{$booking->status}}
+                                                            @if($booking->status == 'Verifikasi')
+                                                            <span class="badge badge-warning">{{$booking->status}}</span>
+                                                            @elseif($booking->status == 'Diterima')
+                                                            <span class="badge badge-success">{{$booking->status}}</span>
+                                                            @elseif($booking->status == 'Ditolak')
+                                                            <span class="badge badge-danger">{{$booking->status}}</span>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                     <div class="col col-4">
@@ -148,8 +164,8 @@
                                             <div class="col-md-6 mb-3">
                                             </div>
                                         </div>
-    
-                                        @endforeach                      
+
+                                        @endforeach
                                 </div>
                             </div>
                         </div>

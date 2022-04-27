@@ -43,16 +43,16 @@
         </div>
         <div class="row">
           @foreach($produks as $produk)
-          <div class="col-md-4 task-list-row" data-assigned-user="{{$produk->kategori}}">
-            <div class="card-box-b card-shadow news-box">
+          <div class="col-md-3 task-list-row" data-assigned-user="{{$produk->kategori}}">
+            <div class=" card card-box-b card-shadow news-box">
               <div class="img-box-b">
-                <img src="{{asset('gbr_produk')}}/{{$produk->gambar}}" alt="" class="img-b img-fluid">
+                <img src="{{asset('gbr_produk')}}/{{$produk->gambar}}" alt="" height="400px" width="400px" class="img-b" >
               </div>
               <div class="card-overlay">
                 <div class="card-header-b">
                   <div class="card-title-b">
                     <h2 class="title-2">
-                      <a href="blog-single.html">{{$produk->nama}}
+                      <a href="produk/detail/{{$produk->id_produk}}">{{$produk->nama}}
                     </h2>
                   </div>
                   <div class="price-box d-flex">
@@ -61,7 +61,6 @@
                   <h6>
                     {{$produk->kategori}}
                   </h6>
-                  <br>
                   <div class="card-date">
                     <a href="produk/detail/{{$produk->id_produk}}" class="link-a">Lihat selengkapnya
                       <span class="bi bi-chevron-right"></span>

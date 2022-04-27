@@ -38,7 +38,7 @@
 
         <div class="container">
             <div class="row justify-content-center">
-            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
                             <a href={{url('/')}}>Home</a>
@@ -116,41 +116,86 @@
                                                         <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Data</h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
-                                                    <div class="modal-body">
+                                                    <div class="modal-body ">
                                                         @foreach($total as $totals)
                                                         <input type="hidden" name="total_harga" value="{{$totals->total}}">
 
                                                         <h5>{{ Auth::user()->name}}, Silahkan lakukan pembayaran @currency($totals->total)</h5>
                                                         <h6>Payment Information</h6>
                                                         <p>Silahkan transfer ke salah satu rekening berikut : </p>
+                                                        <div class="row m-2">
+                                                            <div class="col-md-2">
+                                                                <img src="{{url('img/bank_bca.png')}}" alt="" height="20px">
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                No Rek 000000000001
+                                                            </div>
+                                                            <div class="col-md-6">
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="row m-2">
+                                                            <div class="col-md-2">
+                                                                <img src="{{url('img/bank_bni.png')}}" alt="" height="20px">
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                No Rek 000000000001
+                                                            </div>
+                                                            <div class="col-md-6">
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="row m-2">
+                                                            <div class="col-md-2">
+                                                                <img src="{{url('img/bank-mandiri.png')}}" alt="" height="20px">
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                No Rek 000000000001
+                                                            </div>
+                                                            <div class="col-md-6">
+
+                                                            </div>
+                                                        </div>
                                                         @endforeach
-                                                        <div class="form-group">
-                                                            <label for="nama">Nama Penerima</label>
-                                                            <input type="text" class="form-control form-control-user @error('nama_penerima') is-invalid @enderror" name=" nama_penerima" id="nama_penerima" placeholder="nama penerima" autofocus value="{{ old('jenisservice') }}">
-                                                            @error('nama_penerima')
-                                                            <div class="invalid-feedback">
-                                                                {{ $message }}
+                                                        <div class="form-group row m-2">
+                                                            <div class="col-md-3">
+                                                                <label for="nama">Nama Penerima</label>
                                                             </div>
-                                                            @enderror
+                                                            <div class="col-md-9">
+                                                                <input type="text" class="form-control form-control-user @error('nama_penerima') is-invalid @enderror" name=" nama_penerima" id="nama_penerima" placeholder="nama penerima" autofocus value="{{ old('jenisservice') }}">
+                                                                @error('nama_penerima')
+                                                                <div class="invalid-feedback">
+                                                                    {{ $message }}
+                                                                </div>
+                                                                @enderror
+                                                            </div>
                                                         </div>
-                                                        <div class="form-group">
-                                                            <label for="alamat_penerima">Alamat</label>
-                                                            <textarea class="form-control @error('alamat_penerima') is-invalid @enderror" id="alamat_penerima" name="alamat_penerima" rows="3" autofocus value="{{ old('alamat_penerima') }}"></textarea>
-                                                            @error('alamat_penerima')
-                                                            <div class="invalid-feedback">
-                                                                {{ $message }}
+                                                        <div class="form-group row m-2">
+                                                            <div class="col-md-3">
+                                                                <label for="form-control alamat_penerima">Alamat</label>
                                                             </div>
-                                                            @enderror
+                                                            <div class="col-md-9">
+                                                                <textarea class="form-control @error('alamat_penerima') is-invalid @enderror" id="alamat_penerima" name="alamat_penerima" rows="3" autofocus value="{{ old('alamat_penerima') }}"></textarea>
+                                                                @error('alamat_penerima')
+                                                                <div class="invalid-feedback">
+                                                                    {{ $message }}
+                                                                </div>
+                                                                @enderror
+                                                            </div>
                                                         </div>
-                                                        <div class="form-group">
-                                                            <label for="bukti_pembayaran">Bukti Pembayaran</label>
-                                                            <img class="img-preview img-fluid mb-3 col-sm-5" alt="">
-                                                            <input class="form-control  @error('bukti_pembayaran') is-invalid @enderror" type="file" id="formFile" id="gambar" name="bukti_pembayaran" onchange="previewImage()" autofocus value="{{ old('bukti_pembayaran') }}">
-                                                            @error('bukti_pembayaran')
-                                                            <div class="invalid-feedback">
-                                                                {{ $message }}
+                                                        <div class="form-group row m-2">
+                                                            <div class="col-md-3">
+                                                                <label for="bukti_pembayaran">Bukti Pembayaran</label>
                                                             </div>
-                                                            @enderror
+                                                            <div class="col-md-9">
+                                                                <img class="img-preview img-fluid mb-3 col-sm-5" alt="">
+                                                                <input class="form-control  @error('bukti_pembayaran') is-invalid @enderror" type="file" id="formFile" id="gambar" name="bukti_pembayaran" onchange="previewImage()" autofocus value="{{ old('bukti_pembayaran') }}">
+                                                                @error('bukti_pembayaran')
+                                                                <div class="invalid-feedback">
+                                                                    {{ $message }}
+                                                                </div>
+                                                                @enderror
+                                                            </div>
                                                         </div>
                                                         <h6>Note : Silahkan transfer sesuai dengan total pembayaran yang tertera, tidak kurang dan tidak lebih. Kemudian masukkan bukti pembayaran dan tunggu hingga kami
                                                             mengkonfirmasinya. Terimakasih

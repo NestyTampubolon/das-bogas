@@ -31,7 +31,7 @@
                             <div class="row no-gutters ">
                                 <div class="col col-6">
                                     <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                        <img src="{{asset('img')}}/post-1.jpg" alt="" class="img-b img-fluid" width="400px">
+                                        <img src="{{asset('gbr_produk')}}/{{$produks->gambar}}" alt="" class="img-b img-fluid" width="400px">
                                     </div>
 
                                 </div>

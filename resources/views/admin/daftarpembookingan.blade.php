@@ -50,7 +50,16 @@
                                             <td>{{$pembookingan->id_pembookinganlayanan}}</td>
                                             <td>{{$pembookingan->name}}</td>
                                             <td>@currency($pembookingan->total_pembayaran)</td>
-                                            <td>{{$pembookingan->status}}</td>
+                                            <td>
+                                                @if($pembookingan->status == 'Verifikasi')
+                                                <span class="badge badge-warning">{{$pembookingan->status}}</span>
+                                                @elseif($pembookingan->status == 'Diterima')
+                                                <span class="badge badge-success">{{$pembookingan->status}}</span>
+                                                @elseif($pembookingan->status == 'Ditolak')
+                                                <span class="badge badge-danger">{{$pembookingan->status}}</span>
+                                                @endif
+
+                                            </td>
                                             <td>
                                                 <button type="submit" class="btn btn-primary btn-icon-split">
                                                     <a href="" type="submit" class="btn btn-primary btn-icon-split" data-bs-toggle="modal" data-bs-target="#exampleModal{{$pembookingan->id_pembookinganlayanan}}">
@@ -83,7 +92,7 @@
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Status </h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
                                                         <form action="{{route('daftarpembookingan.update',$pembookingan->id_pembookinganlayanan)}}" method="post" enctype="multipart/form-data">
@@ -121,7 +130,7 @@
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLabel">Hapus Data</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
                                                         Anda yakin menghapusnya?

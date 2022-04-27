@@ -4,9 +4,9 @@
 <div class="intro intro-carousel swiper position-relative">
 
   <div class="swiper-wrapper">
-  @foreach($carousels as $carousel)
+    @foreach($carousels as $carousel)
     <div class="swiper-slide carousel-item-a intro-item ">
-    <img src="{{url('gbr_galeri/'.$carousel->gambar)}}" class="bg-image" style="object-fit: contain;" width="100%" alt="">
+      <img src="{{url('gbr_galeri/'.$carousel->gambar)}}" class="bg-image" style="object-fit: contain;" width="100%" alt="">
       <div class="overlay overlay-a"></div>
       <div class="intro-content display-table">
         <div class="table-cell">
@@ -14,16 +14,6 @@
             <div class="row">
               <div class="col-lg-8">
                 <div class="intro-body">
-                  <p class="intro-title-top">Doral, Florida
-                    <br> 78345
-                  </p>
-                  <h1 class="intro-title mb-4 ">
-                    <span class="color-b">204 </span> Mount
-                    <br> Olive Road Two
-                  </h1>
-                  <p class="intro-subtitle intro-price">
-                    <a href="#"><span class="price-a">rent | $ 12.000</span></a>
-                  </p>
                 </div>
               </div>
             </div>
@@ -58,20 +48,13 @@
                 <span class="bi bi-cart"></span>
               </div>
               <div class="card-title-c align-self-center">
-                <h2 class="title-c">Lifestyle</h2>
+                <h2 class="title-c">Produk</h2>
               </div>
             </div>
             <div class="card-body-c">
               <p class="content-c">
-                Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Praesent sapien massa,
-                convallis a pellentesque
-                nec, egestas non nisi.
+                Produk yang kami jual merupakan produk berkualitas dengan harga yang terjangkau untuk perawatan kendaraan.
               </p>
-            </div>
-            <div class="card-footer-c">
-              <a href="#" class="link-c link-icon">Read more
-                <span class="bi bi-chevron-right"></span>
-              </a>
             </div>
           </div>
         </div>
@@ -82,20 +65,13 @@
                 <span class="bi bi-calendar4-week"></span>
               </div>
               <div class="card-title-c align-self-center">
-                <h2 class="title-c">Loans</h2>
+                <h2 class="title-c">Layanan</h2>
               </div>
             </div>
             <div class="card-body-c">
               <p class="content-c">
-                Nulla porttitor accumsan tincidunt. Curabitur aliquet quam id dui posuere blandit. Mauris blandit
-                aliquet elit, eget tincidunt
-                nibh pulvinar a.
+                Jasa yang kami miliki sangat terjamin dapat membuat kendaraan terlihat tetap bagus dan sehat.
               </p>
-            </div>
-            <div class="card-footer-c">
-              <a href="#" class="link-c link-icon">Read more
-                <span class="bi bi-calendar4-week"></span>
-              </a>
             </div>
           </div>
         </div>
@@ -106,25 +82,17 @@
                 <span class="bi bi-card-checklist"></span>
               </div>
               <div class="card-title-c align-self-center">
-                <h2 class="title-c">Sell</h2>
+                <h2 class="title-c">Testimoni</h2>
               </div>
             </div>
             <div class="card-body-c">
               <p class="content-c">
-                Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Praesent sapien massa,
-                convallis a pellentesque
-                nec, egestas non nisi.
+                Kami akan menyarankan jasa dan produk yang paling cocok untuk kendaraan yang anda miliki.
               </p>
-            </div>
-            <div class="card-footer-c">
-              <a href="#" class="link-c link-icon">Read more
-                <span class="bi bi-chevron-right"></span>
-              </a>
             </div>
           </div>
         </div>
       </div>
-    </div>
   </section><!-- End Services Section -->
 
   <!-- ======= Latest Properties Section ======= -->
@@ -152,7 +120,7 @@
           <div class="carousel-item-c swiper-slide">
             <div class="card-box-b card-shadow news-box">
               <div class="img-box-b">
-                <img src="{{url('gbr_produk/'.$produk->gambar)}}" alt="" class="img-b img-fluid">
+                <img src="{{url('gbr_produk/'.$produk->gambar)}}" alt="" height="400px">
               </div>
               <div class="card-overlay">
                 <div class="card-header-b">
@@ -165,8 +133,9 @@
                     <a href="#" class="category-b">@currency($produk->harga)</a>
                   </div>
                   <div class="card-date">
-                    <a href="property-single.html" class="link-a">Click here to view
+                    <a href="produk/detail/{{$produk->id_produk}}" class="link-a">Lihat selengkapnya
                       <span class="bi bi-chevron-right"></span>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -225,7 +194,9 @@
                   </div>
                   <br>
                   <div class="card-date">
-                    <span class="date-b">Lihat disini > </span>
+                    <a href="layanan/detail/{{$layanan->id_layanan}}" class="link-a">Lihat Selengkapnya
+                      <span class="bi bi-chevron-right"></span>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -253,9 +224,6 @@
             <h2 class="title-a">Galeri</h2>
           </div>
           <div class="title-link">
-            <a href="blog-grid.html">All News
-              <span class="bi bi-chevron-right"></span>
-            </a>
           </div>
         </div>
       </div>
