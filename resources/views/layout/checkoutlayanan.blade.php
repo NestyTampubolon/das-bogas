@@ -1,4 +1,5 @@
 @include('layout.navbar')
+@include('sweetalert::alert')
 <main id="main">
 
     <!-- ======= Intro Single ======= -->
@@ -145,7 +146,7 @@
                                                                 <label for="nama">Tanggal Service</label>
                                                             </div>
                                                             <div class="form-group col-md-8">
-                                                                <input type="date" class="form-control @error('tanggal_pembookingan') is-invalid @enderror" name="tanggal_pembookingan" id="tanggal_pembookingan" min="Carbon::now()" autofocus value="{{ old('tanggal_pembookingan') }}">
+                                                                <input type="date" class="form-control @error('tanggal_pembookingan') is-invalid @enderror" name="tanggal_pembookingan" id="tanggal_pembookingan"  autofocus value="{{ old('tanggal_pembookingan') }}">
                                                                 @error('tanggal_pembookingan')
                                                                 <div class="invalid-feedback">
                                                                     {{ $message }}

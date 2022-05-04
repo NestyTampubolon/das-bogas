@@ -43,7 +43,7 @@
         </div>
         <div class="row">
           @foreach($produks as $produk)
-          <div class="col-md-3 task-list-row" data-assigned-user="{{$produk->kategori}}">
+          <div class="col-md-4 task-list-row" data-assigned-user="{{$produk->kategori}}">
             <div class=" card card-box-b card-shadow news-box">
               <div class="img-box-b">
                 <img src="{{asset('gbr_produk')}}/{{$produk->gambar}}" alt="" height="400px" width="400px" class="img-b" >

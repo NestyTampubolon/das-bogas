@@ -43,7 +43,7 @@
           <div class="col-md-12 section-t8 position-relative">
             <div class="row">
               <div class="col-md-6 col-lg-5">
-                <img src="{{url('img/about-2.jpg')}}" alt="" class="img-fluid">
+                <img src="{{url('img/logodasbogas.jpg')}}" alt="" class="img-fluid">
               </div>
               <div class="col-lg-2  d-none d-lg-block position-relative">
                 <div class="title-vertical d-flex justify-content-start">

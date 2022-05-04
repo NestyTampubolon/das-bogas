@@ -1,5 +1,7 @@
+@include('sweetalert::alert')
 @include('admin.sidebar')
 <!-- Content Wrapper -->
+@include('sweetalert::alert')
 <div id="content-wrapper" class="d-flex flex-column">
 
     <!-- Main Content -->
@@ -80,8 +82,8 @@
                                     <label for="hargatipea" class="col-sm-2 col-form-label">Gambar</label>
                                     <div class="col-sm-10">
                                         <img class="img-preview img-fluid mb-3 col-sm-5" alt="">
-                                        <input class="form-control @error('gambar') is-invalid @enderror" type="file" id="gambar" name="gambar_produk" onchange="previewImage()" autofocus value="{{ old('gambar') }}">
-                                        @error('gambar')
+                                        <input class="form-control @error('gambar_produk') is-invalid @enderror" type="file" id="gambar" name="gambar_produk" onchange="previewImage()" autofocus value="{{ old('gambar_produk') }}">
+                                        @error('gambar_produk')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>

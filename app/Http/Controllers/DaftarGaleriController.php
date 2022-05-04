@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Galeri;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class DaftarGaleriController extends Controller
 {
@@ -37,6 +38,7 @@ class DaftarGaleriController extends Controller
             $daftargaleri->gambar = $file;
         }
         $daftargaleri->save();
+        Alert::success('Success', 'Galeri berhasil ditambahkan!');
         return redirect('daftargaleri')->with('success', "Galeri berhasil ditambahkan!");
     }
 
@@ -63,7 +65,7 @@ class DaftarGaleriController extends Controller
         }
         $update->judul = $request->judul;
         $update->save();
-
+        Alert::success('Success', 'Galeri berhasil diubah!');
         return redirect('daftargaleri')->with('success', "Galeri berhasil diubah!");
     }
 
@@ -71,6 +73,7 @@ class DaftarGaleriController extends Controller
     {
         $deletegaleri = Galeri::find($id_galeri);
         if ($deletegaleri->delete()) {
+            Alert::success('Success', 'Galeri berhasil dihapus!');
             return redirect()->back()->with('success', "Galeri berhasil dihapus!");
         }
     }

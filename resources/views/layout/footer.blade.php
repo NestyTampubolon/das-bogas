@@ -121,7 +121,7 @@
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  @if(Session::has('success'))
+  <!-- @if(Session::has('success'))
   <script>
     toastr.success("{{Session::get('success') }}")
   </script>
@@ -130,7 +130,7 @@
   <script>
     toastr.warning("{{Session::get('warning') }}")
   </script>
-  @endif
+  @endif -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- Vendor JS Files -->
   <script src="{{asset('js')}}/previewimg.js"></script>

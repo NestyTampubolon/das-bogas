@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Produk;
 use App\Models\KeranjangProduk;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProdukDetailController extends Controller
 {
@@ -35,7 +36,10 @@ class ProdukDetailController extends Controller
 
         $produks = Produk::find($request->id_produk);
         $produks->stok = $produks->stok - $request->kuantitas;
+        Alert::success('Success', 'Pesanan Anda berhasil disimpan di Keranjang Produk!');
         $produks->save();
+
+       
         return redirect()->back()->with('success', "Pesanan Anda berhasil disimpan di Keranjang Produk!");
     }
 }

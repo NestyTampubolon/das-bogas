@@ -58,7 +58,7 @@
                                             <td>{{$daftarlayanan->jenisservice}}</td>
                                             <td>@currency($daftarlayanan->harga_tipea)</td>
                                             <td>@currency($daftarlayanan->harga_tipeb)</td>
-                                            <td><img src="{{url('gbr_layanan/'.$daftarlayanan->gambar_layanan)}}" class="py-1 width="50" height="100" alt=""></td>
+                                            <td><img src="{{url('gbr_layanan/'.$daftarlayanan->gambar_layanan)}}" class="py-1 width=" 50" height="100" alt=""></td>
                                             <td>
                                                 <a href="/daftarlayanan/edit/{{$daftarlayanan->id_layanan}}" class="btn btn-primary btn-icon-split">
                                                     <span class="icon text-white-50">
@@ -66,7 +66,7 @@
                                                     </span>
                                                     <span class="text">Ubah</span>
                                                 </a>
-                                                <a href="#" class="btn btn-danger btn-icon-split" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                <a href="#" class="btn btn-danger btn-icon-split" data-bs-toggle="modal" data-bs-target="#exampleModal{{$daftarlayanan->id_layanan}}">
                                                     <span class="icon text-white-50">
                                                         <i class="fas fa-trash"></i>
                                                     </span>
@@ -74,31 +74,33 @@
                                                 </a>
                                             </td>
                                         </tr>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal{{$daftarlayanan->id_layanan}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Hapus Data</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Anda yakin menghapusnya?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        <a href="daftarlayanan/delete/{{$daftarlayanan->id_layanan}}" class="btn btn-danger btn-icon-split">
+                                                            <span class="text">Hapus</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         @endforeach
                                     </tbody>
                                 </table>
 
 
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Hapus Data</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Anda yakin menghapusnya?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <a href="daftarlayanan/delete/{{$daftarlayanan->id_layanan}}" class="btn btn-danger btn-icon-split">
-                                                    <span class="text">Hapus</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
 
 
                             </div>

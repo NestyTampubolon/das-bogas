@@ -9,6 +9,7 @@ use App\Models\PemesananProduk;
 use App\Models\PemesananProdukDetail;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CheckoutProdukController extends Controller
 {
@@ -46,7 +47,7 @@ class CheckoutProdukController extends Controller
         );
 
         if ($validator->fails()) {
-            return redirect()->back()->with('warning', "Gagal memproses. Silahkan coba kembali!");
+            Alert::Warning('Error', 'Gagal memproses. Silahkan coba kembali!');
         }
         
         $this->validate(
@@ -86,6 +87,7 @@ class CheckoutProdukController extends Controller
             if ($deletekeranjang->delete()) {
             }
         }
+        Alert::success('Success', 'Pesanan Anda sedang diproses. Lihat Status Pemesanan!');
         return redirect()->back()->with('success', "Pesanan Anda sedang diproses. Lihat Status Pemesanan!");
     }
 
@@ -98,6 +100,7 @@ class CheckoutProdukController extends Controller
         $deleteproduks->stok = $deleteproduks->stok + $kuantitas;
         $deleteproduks->save();
         if ($delete->delete()) {
+            Alert::success('Success', 'Pesanan Anda berhasil dihapus!');
             return redirect()->back()->with('success', "Berhasil menghapus pesanan!");
         }
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Produk;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class DaftarProdukController extends Controller
 {
@@ -41,7 +42,9 @@ class DaftarProdukController extends Controller
             $request->file('gambar_produk')->move('gbr_produk', $file);
             $daftarproduk->gambar = $file;
         }
+        Alert::success('Success', 'Produk berhasil ditambahkan!');
         $daftarproduk->save();
+        
         return redirect('daftarproduk')->with('success', "Produk berhasil ditambahkan!");
     }
 
@@ -76,7 +79,7 @@ class DaftarProdukController extends Controller
         $update->kategori = $request->kategori;
         $update->stok = $request->stok;
         $update->save();
-
+        Alert::success('Success', 'Produk berhasil diubah!');
         return redirect('daftarproduk')->with('success', "Produk berhasil diubah!");
     }
 
@@ -84,6 +87,7 @@ class DaftarProdukController extends Controller
     {
         $deleteproduk = Produk::find($id_produk);
         if ($deleteproduk->delete()) {
+            Alert::success('Success', 'Produk berhasil dihapus!');
             return redirect()->back()->with('success', "Produk berhasil dihapus!");
         }
     }

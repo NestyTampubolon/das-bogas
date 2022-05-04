@@ -14,7 +14,7 @@
                             <li class="breadcrumb-item">
                                 <a href={{url('/dashboard')}}>Dashboard</a>
                             </li> <li class="breadcrumb-item">
-                                <a href={{url('/daftarpembookingan')}}>Daftar Pemesanan</a>
+                                <a href={{url('/daftarpemesanan')}}>Daftar Pemesanan</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
                                 <a>Daftar Pemesanan Detail</a>

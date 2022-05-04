@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cafe;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class DaftarCafeController extends Controller
 {
@@ -33,6 +34,7 @@ class DaftarCafeController extends Controller
         $daftarcafe->harga_cafe = $request->harga_cafe;
         $daftarcafe->kategori = $request->kategori;
         $daftarcafe->save();
+        Alert::success('Success', 'Menu Kafe berhasil ditambahkan!');
         return redirect('daftarcafe')->with('success', "Menu Cafe berhasil ditambahkan!");
     }
 
@@ -56,7 +58,7 @@ class DaftarCafeController extends Controller
         $update->harga_cafe = $request->harga_cafe;
         $update->kategori = $request->kategori;
         $update->save();
-
+        Alert::success('Success', 'Menu Kafe berhasil ditambahkan!');
         return redirect('daftarcafe')->with('success', "Menu Cafe berhasil diubah!");
     }
 
@@ -64,6 +66,7 @@ class DaftarCafeController extends Controller
     {
         $deletecafe = Cafe::find($id_cafe);
         if ($deletecafe->delete()) {
+            Alert::success('Success', 'Menu Kafe berhasil dihapus!');
             return redirect()->back()->with('success', "Menu Cafe berhasil dihapus!");
         }
     }

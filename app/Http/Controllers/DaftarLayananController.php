@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Layanan;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class DaftarLayananController extends Controller
 {
@@ -43,6 +44,7 @@ class DaftarLayananController extends Controller
             $daftarlayanan->gambar_layanan= $file;
         }
         $daftarlayanan->save();
+        Alert::success('Success', 'Layanan berhasil ditambahkan!');
         return redirect('daftarlayanan')->with('success', "Layanan berhasil ditambahkan!");
     }
 
@@ -74,7 +76,7 @@ class DaftarLayananController extends Controller
         $update->harga_tipea = $request->harga_tipea;
         $update->harga_tipeb = $request->harga_tipeb;
         $update->save();
-
+        Alert::success('Success', 'Layanan berhasil diubah!');
         return redirect('daftarlayanan')->with('success', "Layanan berhasil diubah!");
     }
 
@@ -82,6 +84,7 @@ class DaftarLayananController extends Controller
     {
         $deletelayanan = Layanan::find($id_layanan);
         if ($deletelayanan->delete()) {
+            Alert::success('Success', 'Layanan berhasil dihapus!');
             return redirect()->back()->with('success', "Layanan berhasil dihapus!");
         }
     }

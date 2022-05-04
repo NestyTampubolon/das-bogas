@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\PemesananProduk;
 use App\Models\PemesananProdukDetail;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class DaftarPemesananController extends Controller
 {
@@ -23,7 +24,7 @@ class DaftarPemesananController extends Controller
         $update = PemesananProduk::find($id_pemesananproduk);
         $update->status = $request->status;
         $update-> save();
-        
+        Alert::success('Success', 'Berhasil mengubah status pemesanan!');
         return redirect('daftarpemesanan')->with('success', "Berhasil mengubah status pemesanan!");  
 
     }
@@ -49,6 +50,7 @@ class DaftarPemesananController extends Controller
     {
         $deletepemesanan = PemesananProduk::find($id_pemesananproduk);
         if ($deletepemesanan->delete()) {
+            Alert::success('Success', 'Berhasil menghapus pesanan!');
             return redirect()->back()->with('success', "Berhasil menghapus pemesanan!");
         }
     }

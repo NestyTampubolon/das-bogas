@@ -98,8 +98,22 @@
                                                         <form action="{{route('daftarpembookingan.update',$pembookingan->id_pembookinganlayanan)}}" method="post" enctype="multipart/form-data">
                                                             {{ csrf_field() }}
                                                             <label for="exampleFormControlInput1">Status</label>
+                                                            @if($pembookingan->status == 'Diterima')
                                                             <div class="form-check">
                                                                 <input class="form-check-input" type="radio" name="status" id="diterima" value=" Diterima" checked>
+                                                                <label class="form-check-label" for="diterima">
+                                                                    Diterima
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="status" id="ditolak" value="Ditolak">
+                                                                <label class="form-check-label" for="diterima">
+                                                                    Ditolak
+                                                                </label>
+                                                            </div>
+                                                            @elseif($pembookingan->status == 'Ditolak')
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="status" id="diterima" value=" Diterima">
                                                                 <label class="form-check-label" for="diterima">
                                                                     Diterima
                                                                 </label>
@@ -110,9 +124,10 @@
                                                                     Ditolak
                                                                 </label>
                                                             </div>
+                                                            @endif
                                                             <div class="form-group">
                                                                 <label for="keterangan">Keterangan</label>
-                                                                <textarea class="form-control" id="keterangan" name="keterangan" rows="3"></textarea>
+                                                                <textarea class="form-control" id="keterangan" name="keterangan" rows="3">{{$pembookingan->keterangan}}</textarea>
                                                             </div>
                                                     </div>
                                                     <div class="modal-footer">

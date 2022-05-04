@@ -9,6 +9,7 @@ use App\Models\PembookinganLayanan;
 use App\Models\PembookinganLayananDetail;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CheckoutLayananController extends Controller
 {
@@ -37,7 +38,7 @@ class CheckoutLayananController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'tanggal_pembookingan' => 'required|date',
+                'tanggal_pembookingan' => 'required',
                 'tipe_kendaraan' => 'required',
                 'pukul' => 'required',
                 'keluhan_service' => 'required',
@@ -45,9 +46,18 @@ class CheckoutLayananController extends Controller
         );
 
         if ($validator->fails()) {
-            return redirect()->back()->with('warning', "Gagal memproses. Silahkan coba kembali!");
+            Alert::warning('Warning', 'Gagal memproses. Silahkan coba kembali!');
         }
 
+        $this->validate(
+            $request,
+            [
+                'tanggal_pembookingan' => 'required',
+                'tipe_kendaraan' => 'required',
+                'pukul' => 'required',
+                'keluhan_service' => 'required',    
+            ]
+        );
         $keranjang = KeranjangLayanan::where('id_customer', auth()->id())->get();
 
         $pembookingan = new PembookinganLayanan();
@@ -79,6 +89,7 @@ class CheckoutLayananController extends Controller
     {
         $delete = KeranjangLayanan::find($id_keranjanglayanan);
         if ($delete->delete()) {
+            Alert::success('Success', 'Pesanan Anda berhasil dihapus!');
             return redirect()->back()->with('success', "Berhasil menghapus pesanan!");
         }
     }

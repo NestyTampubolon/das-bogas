@@ -6,6 +6,7 @@ use App\Models\PembookinganLayanan;
 use App\Models\PembookinganLayananDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class DaftarPembookinganController extends Controller
 {
@@ -24,7 +25,7 @@ class DaftarPembookinganController extends Controller
         $update->status = $request->status;
         $update->keterangan = $request->keterangan;
         $update-> save();
-        
+        Alert::success('Success', 'Berhasil mengubah status pemesanan!');
         return redirect('daftarpembookingan')->with('success', "Berhasil mengubah status pemesanan!");    
 
     }
@@ -50,6 +51,7 @@ class DaftarPembookinganController extends Controller
     {
         $deletelayanan = PembookinganLayanan::find($id_pembokinganlayanan);
         if ($deletelayanan->delete()) {
+            Alert::success('Success', 'Berhasil menghapus pesanan!');
             return redirect()->back();
         }
     }

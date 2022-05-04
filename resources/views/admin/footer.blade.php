@@ -23,12 +23,12 @@
     <i class="fas fa-angle-up"></i>
 </a>
 
-
+<!-- 
 @if(Session::has('success'))
 <script>
     toastr.success("{{Session::get('success') }}")
 </script>
-@endif
+@endif -->
 <script src="{{asset('js')}}/previewimg.js"></script>
 <!-- Bootstrap core JavaScript-->
 <script src="{{asset('vendor')}}/jquery/jquery.min.js"></script>
@@ -48,7 +48,7 @@
 
 <script src="{{asset('js')}}/demo/chart-area-demo.js"></script>
 <script src="{{asset('js')}}/demo/chart-pie-demo.js"></script>
-
+@include('sweetalert::alert')
 </body>
 
 </html>

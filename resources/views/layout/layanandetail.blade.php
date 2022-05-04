@@ -1,4 +1,5 @@
 @include('layout.navbar')
+@include('sweetalert::alert')
 <main id="main">
 
     <!-- ======= Intro Single ======= -->
