@@ -6,14 +6,19 @@ use Illuminate\Http\Request;
 use App\Models\Produk;
 use App\Models\KeranjangProduk;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Models\sosial_media;
 
 class ProdukDetailController extends Controller
 {
     //
     public function index($id)
     {
+        $instagram = sosial_media::where('id_sosialmedia',1)->value('hyperlink');
+        $twitter = sosial_media::where('id_sosialmedia',2)->value('hyperlink');
+        $youtube = sosial_media::where('id_sosialmedia',3)->value('hyperlink');
+        $facebook = sosial_media::where('id_sosialmedia',4)->value('hyperlink');
         $produks = Produk::find($id);
-        return view('layout.produkdetail', compact('produks'));
+        return view('layout.produkdetail', compact('produks','instagram','twitter','youtube','facebook'));
     }
 
     public function simpanpesanan(Request $request)

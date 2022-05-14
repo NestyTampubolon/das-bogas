@@ -59,7 +59,14 @@
                                 <div class="form-group row">
                                     <label for="hargatipea" class="col-sm-2 col-form-label">Kategori</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control @error('kategori') is-invalid @enderror" id="kategori" name="kategori" placeholder="Kategori Produk" autofocus value="{{ old('kategori') }}">
+                                        <!-- <input type="text" class="form-control form-control @error('kategori') is-invalid @enderror" id="kategori" name="kategori" placeholder="Kategori Produk" autofocus value="{{ old('kategori') }}"> -->
+                                        <select class="form-select form-control @error('kategori') is-invalid @enderror" aria-label="Default select example" id="kategori" name="kategori" autofocus>
+                                            <option value="">Pilih Kategori</option>
+                                            <option value="Sparepart">Sparepart</option>
+                                            <option value="Eksterior">Eksterior</option>
+                                            <option value="Interior">Interior</option>
+                                            <option value="Filter">Filter</option>
+                                        </select>
                                         @error('kategori')
                                         <div class="invalid-feedback">
                                             {{ $message }}

@@ -58,7 +58,12 @@
                                 <div class="form-group row">
                                     <label for="hargatipea" class="col-sm-2 col-form-label">Kategori</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control  @error('kategori') is-invalid @enderror" id="kategori" name="kategori" value="{{$editproduks->kategori}}">
+                                        <select class="form-select form-control @error('kategori') is-invalid @enderror" aria-label="Default select example" id="kategori" name="kategori" autofocus>
+                                            <option value="Sparepart"{{$editproduks->kategori == "Sparepart" ? 'selected' : ''}}>Sparepart</option>
+                                            <option value="Eksterior"{{$editproduks->kategori == "Eksterior" ? 'selected' : ''}}>Eksterior</option>
+                                            <option value="Interior"{{$editproduks->kategori == "Interior" ? 'selected' : ''}}>Interior</option>
+                                            <option value="Filter" {{$editproduks->kategori == "Filter" ? 'selected' : ''}}>Filter</option>
+                                        </select>
                                         @error('kategori')
                                         <div class="invalid-feedback">
                                             {{ $message }}

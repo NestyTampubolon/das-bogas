@@ -36,13 +36,13 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>No</th>
                                             <th>Judul</th>
                                             <th>Gambar</th>
-                                            <th>Action</th>
+                                            <th width="220px">Action</th>
                                         </tr><?php $nomor = 1; ?>
                                     </thead>
                                     <tbody>
@@ -67,8 +67,8 @@
                                             </td>
                                         </tr>
 
-                                          <!-- Modal Gambar -->
-                                          <div id="myModals{{$daftargaleri->id_galeri}}" class="modal fade" tabindex="-1" role="dialog">
+                                        <!-- Modal Gambar -->
+                                        <div id="myModals{{$daftargaleri->id_galeri}}" class="modal fade" tabindex="-1" role="dialog">
                                             <div class="modal-dialog modal-dialog-centered">
                                                 <div class="modal-content">
                                                     <div class="modal-body">

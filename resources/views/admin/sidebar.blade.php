@@ -50,8 +50,8 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" href="/dashboard">
+            <li class="nav-item {{Request::segment(1) === 'dashboard' ? 'active' : null }}">
+                <a class="nav-link" href="{{ url('/dashboard' )}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Beranda</span></a>
             </li>
@@ -65,24 +65,24 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="/daftarproduk" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <li class="nav-item {{Request::segment(1) === 'daftarproduk' ? 'active' : null }}">
+                <a class="nav-link collapsed" href="{{ url('/daftarproduk' )}}" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-list-alt"></i>
                     <span>Produk</span>
                 </a>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="/daftarlayanan" aria-expanded="true" aria-controls="collapseUtilities">
+            <li class="nav-item {{Request::segment(1) === 'daftarlayanan' ? 'active' : null }}">
+                <a class="nav-link collapsed" href="{{ url('/daftarlayanan' )}}" aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-list-alt"></i>
                     <span>Layanan</span>
                 </a>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="/daftarcafe" aria-expanded="true" aria-controls="collapseUtilities">
+            <li class="nav-item {{Request::segment(1) === 'daftarcafe' ? 'active' : null }}">
+                <a class="nav-link collapsed" href="{{ url('/daftarcafe' )}}" aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-list-alt"></i>
                     <span>Kafe</span>
                 </a>
@@ -97,15 +97,15 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link" href="/daftarpemesanan">
+            <li class="nav-item {{Request::segment(1) === 'daftarpemesanan' ? 'active' : null }}">
+                <a class="nav-link" href="{{ url('daftarpemesanan' )}}">
                     <i class="fas fa-fw fa-shopping-bag"></i>
                     <span>Pemesanan Produk</span></a>
             </li>
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="/daftarpembookingan">
+            <li class="nav-item {{Request::segment(1) === 'daftarpembookingan' ? 'active' : null }}">
+                <a class="nav-link" href="{{ url('/daftarpembookingan' )}}">
                     <i class="fas fa-fw fa-shopping-bag"></i>
                     <span>Pemesanan Layanan</span></a>
             </li>
@@ -116,18 +116,18 @@
             <div class="sidebar-heading">
                 Informasi
             </div>
-            <li class="nav-item">
-                <a class="nav-link" href="/daftarsosialmedia">
+            <li class="nav-item {{Request::segment(1) === 'daftarsosialmedia' ? 'active' : null }}">
+                <a class="nav-link" href="{{ url('/daftarsosialmedia' )}}">
                     <i class="fas fa-fw fa-hashtag"></i>
                     <span>Sosial Media</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/daftargaleri">
+            <li class="nav-item {{Request::segment(1) === 'daftargaleri' ? 'active' : null }}">
+                <a class="nav-link" href="{{ url('daftargaleri' )}}">
                     <i class="fas fa-fw fa-image"></i>
                     <span>Galeri</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/daftartestimoni">
+            <li class="nav-item {{Request::segment(1) === 'daftartestimoni' ? 'active' : null }}">
+                <a class="nav-link" href="{{ url('/daftartestimoni' )}}">
                     <i class="fas fa-fw fa-comment"></i>
                     <span>Ulasan</span></a>
             </li>
@@ -151,51 +151,44 @@
 
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-gray-600" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="img-profile rounded-circle" src="{{asset('img')}}/undraw_profile.svg">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">&nbsp; {{ Auth::user()->name }} </span>
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"> &nbsp {{ Auth::user()->name }}</span>
                             </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item " href="{{ route('logout') }}" onclick="event.preventDefault();
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}</a>
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    {{ __('Logout') }}
+                                </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
-                            </div>
                         </li>
-
                     </ul>
-
                 </nav>
-                <!-- End of Topbar -->
-                <!-- Logout Modal-->
-                <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                            <div class="modal-footer">
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                <a class="btn btn-primary" href="login.html">Logout</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+           
+
+
+            <!-- End of Topbar -->
+            <!-- Logout Modal-->
 
 
 
-                <!-- End of Content Wrapper -->
+
+            <!-- End of Content Wrapper -->
 </body>
 
 </html>

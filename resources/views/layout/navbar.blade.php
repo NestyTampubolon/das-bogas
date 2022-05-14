@@ -54,28 +54,28 @@
       <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
         <ul class="navbar-nav">
 
-          <li class="nav-item">
-            <a class="nav-link active" href={{url('/')}}>Home</a>
+          <li class="nav-item {{ Request::is('/') ? 'active' : '' }}">
+            <a class="nav-link" href={{url('/')}}>Home</a>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item {{Request::segment(1) === 'produk' ? 'active' : null }}">
             <a class="nav-link " href={{url('/produk')}}>Produk</a>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item {{Request::segment(1) === 'layanan' ? 'active' : null }}">
             <a class="nav-link " href={{url('/layanan')}}>Layanan</a>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item {{Request::segment(1) === 'cafe' ? 'active' : null }}">
             <a class="nav-link " href={{url('/cafe')}}>Kafe</a>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item {{Request::segment(1) === 'about' ? 'active' : null }}">
             <a class="nav-link " href={{url('/about')}}>Tentang</a>
           </li>
           @guest
           @if (Route::has('login'))
-          <li class="nav-item">
+          <li class="nav-item {{Request::segment(1) === 'login' ? 'active' : null }}">
             <a class="nav-link " href={{ route('login') }}>{{ __('Login') }}</a>
           </li>
           @endif

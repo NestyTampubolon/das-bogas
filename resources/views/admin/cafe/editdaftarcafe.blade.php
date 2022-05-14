@@ -55,11 +55,10 @@
                                 <label for="exampleFormControlSelect1" class="col-sm-2 col-form-label">Kategori</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" id="exampleFormControlSelect1" id="kategori" name="kategori" value="{{$editcafes->kategori}}">
-                                        <option value="{{$editcafes->kategori}}">{{$editcafes->kategori}}</option>
-                                        <option value="Makanan">Makanan</option>
-                                        <option value="Makanan Ringan">Makanan Ringan</option>
-                                        <option value="Minuman">Minuman</option>
-                                        <option value="Aneka Jus">Aneka Jus</option>
+                                        <option value="Makanan"{{$editcafes->kategori == "Makanan" ? 'selected' : ''}}>Makanan</option>
+                                        <option value="Makanan Ringan"{{$editcafes->kategori == "Makanan Ringan" ? 'selected' : ''}}>Makanan Ringan</option>
+                                        <option value="Minuman"{{$editcafes->kategori == "Minuman" ? 'selected' : ''}}>Minuman</option>
+                                        <option value="Aneka Jus"{{$editcafes->kategori == "Aneka Jus" ? 'selected' : ''}}>Aneka Jus</option>
                                     </select>
                                     @error('kategori')
                                     <div class="invalid-feedback">

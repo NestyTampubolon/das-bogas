@@ -10,6 +10,7 @@ use App\Models\PembookinganLayananDetail;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Models\sosial_media;
 
 class CheckoutLayananController extends Controller
 {
@@ -30,7 +31,11 @@ class CheckoutLayananController extends Controller
             ->where('id_customer', '=', auth()->id())
             ->get();
 
-        return view('layout.checkoutlayanan', compact('pesan', 'total'));
+        $instagram = sosial_media::where('id_sosialmedia', 1)->value('hyperlink');
+        $twitter = sosial_media::where('id_sosialmedia', 2)->value('hyperlink');
+        $youtube = sosial_media::where('id_sosialmedia', 3)->value('hyperlink');
+        $facebook = sosial_media::where('id_sosialmedia', 4)->value('hyperlink');
+        return view('layout.checkoutlayanan', compact('pesan', 'total', 'instagram', 'twitter', 'youtube', 'facebook'));
     }
 
     public function storepembookinganlayanan(Request $request)
@@ -55,7 +60,7 @@ class CheckoutLayananController extends Controller
                 'tanggal_pembookingan' => 'required',
                 'tipe_kendaraan' => 'required',
                 'pukul' => 'required',
-                'keluhan_service' => 'required',    
+                'keluhan_service' => 'required',
             ]
         );
         $keranjang = KeranjangLayanan::where('id_customer', auth()->id())->get();

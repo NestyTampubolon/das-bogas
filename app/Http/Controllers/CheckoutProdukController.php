@@ -10,6 +10,7 @@ use App\Models\PemesananProdukDetail;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Models\sosial_media;
 
 class CheckoutProdukController extends Controller
 {
@@ -30,7 +31,12 @@ class CheckoutProdukController extends Controller
             ->where('id_customer', '=', auth()->id())
             ->get();
 
-        return view('layout.checkoutproduk', compact('pesan', 'total'));
+        $instagram = sosial_media::where('id_sosialmedia', 1)->value('hyperlink');
+        $twitter = sosial_media::where('id_sosialmedia', 2)->value('hyperlink');
+        $youtube = sosial_media::where('id_sosialmedia', 3)->value('hyperlink');
+        $facebook = sosial_media::where('id_sosialmedia', 4)->value('hyperlink');
+
+        return view('layout.checkoutproduk', compact('pesan', 'total', 'instagram', 'twitter', 'youtube', 'facebook'));
     }
 
 
@@ -49,7 +55,7 @@ class CheckoutProdukController extends Controller
         if ($validator->fails()) {
             Alert::Warning('Error', 'Gagal memproses. Silahkan coba kembali!');
         }
-        
+
         $this->validate(
             $request,
             [
@@ -67,7 +73,7 @@ class CheckoutProdukController extends Controller
         $pemesanan->nama_penerima = $request->nama_penerima;
         $pemesanan->alamat_penerima = $request->alamat_penerima;
         $pemesanan->status = "Verifikasi";
-        
+
         if ($request->hasFile('bukti_pembayaran')) {
             $file = $request->file('bukti_pembayaran')->getClientOriginalName();
             $request->file('bukti_pembayaran')->move('gbr_bukti_pembayaran', $file);

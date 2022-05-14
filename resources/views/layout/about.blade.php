@@ -116,7 +116,7 @@
               </form>
             </div>
             @endforeach
-            @endif
+            @else
             <div class="col-sm-12 section-t8">
               <div class="row">
                 <div class="col-md-7">
@@ -125,22 +125,22 @@
                     <div class="row">
                       <div class="col-md-6 mb-3">
                         <div class="form-group">
-                          <input type="text" name="name" class="form-control form-control-lg form-control-a" placeholder="Your Name" required>
+                          <input type="text" name="name" class="form-control form-control-lg form-control-a" placeholder="Nama Anda" required>
                         </div>
                       </div>
                       <div class="col-md-6 mb-3">
                         <div class="form-group">
-                          <input name="email" type="email" class="form-control form-control-lg form-control-a" placeholder="Your Email" required>
+                          <input name="email" type="email" class="form-control form-control-lg form-control-a" placeholder="Email Anda" required>
                         </div>
                       </div>
                       <div class="col-md-12 mb-3">
                         <div class="form-group">
-                          <input type="text" name="judul" class="form-control form-control-lg form-control-a" placeholder="Subject" required>
+                          <input type="text" name="judul" class="form-control form-control-lg form-control-a" placeholder="Judul" required>
                         </div>
                       </div>
                       <div class="col-md-12">
                         <div class="form-group">
-                          <textarea name="pesan" class="form-control" cols="45" rows="8" placeholder="Message" required></textarea>
+                          <textarea name="pesan" class="form-control" cols="45" rows="8" placeholder="Pesan" required></textarea>
                         </div>
                       </div>
                       <div class="col-md-12 my-3">
@@ -148,7 +148,7 @@
                       </div>
 
                       <div class="col-md-12 text-center">
-                        <button type="submit" class="btn btn-a">Kirim </button>
+                        <button type="submit" class="btn btn-a">Kirim Ulasan</button>
                       </div>
                     </div>
                   </form>
@@ -156,6 +156,7 @@
                
               </div>
             </div>
+            @endif
           </div>
         </div>
   </section><!-- End Contact Single-->
@@ -167,4 +168,161 @@
 </main><!-- End #main -->
 
 
-@include('layout.footer')
+
+<!-- ======= Footer ======= -->
+<section class="section-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-4">
+        <div class="widget-a">
+          <div class="w-header-a">
+            <img src="{{asset('logo2.png')}}" width="300px" alt="">
+            <h3 class="w-title-a text-brand">Das Bogas Auto Service</h3>
+          </div>
+          <div class="w-body-a">
+          </div>
+          <div class="w-footer-a">
+            <ul class="list-unstyled">
+              <li class="color-a">
+                <span class="color-text-a">Jam Operasi : :</span> 08:00 - 17:00 setiap hari
+              </li>
+              <li class="color-a">
+                <span class="color-text-a">Phone :</span> 085262323979
+              </li>
+              <li class="color-a">
+                <span class="color-text-a">Email
+                  :
+                </span> bengkeldasbogas@gmail.com
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-4 section-md-t3">
+        <div class="widget-a">
+          <div class="w-header-a">
+            <h3 class="w-title-a text-brand">PETA</h3>
+          </div>
+          <div class="w-body-a">
+            <div class="w-body-a">
+              <ul class="list-unstyled">
+                <li class="item-list-a">
+                  <i class="bi bi-chevron-right"></i> <a href="#">Home</a>
+                </li>
+                <li class="item-list-a">
+                  <i class="bi bi-chevron-right"></i> <a href="#">Produk</a>
+                </li>
+                <li class="item-list-a">
+                  <i class="bi bi-chevron-right"></i> <a href="#">Layanan</a>
+                </li>
+                <li class="item-list-a">
+                  <i class="bi bi-chevron-right"></i> <a href="#">Cafe</a>
+                </li>
+                <li class="item-list-a">
+                  <i class="bi bi-chevron-right"></i> <a href="#">Tentang</a>
+                </li>
+                <li class="item-list-a">
+                  <i class="bi bi-chevron-right"></i> <a href="#">Login</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-4 section-md-t3">
+        <div class="widget-a">
+          <div class="w-header-a">
+            <h3 class="w-title-a text-brand">LOKASI</h3>
+          </div>
+          <div class="w-body-a">
+            <p>Jl. Pasar Melintang Tambunan, Desa Lumban Pea Timur, Kec. Balige, Kab. Toba</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+
+  <!-- ======= Footer ======= -->
+
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="socials-a">
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <a href="{{$instagram}}" target="_blank">
+                  <i class="bi bi-instagram" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="{{$twitter}}" target="_blank">
+                  <i class="bi bi-twitter" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="{{$youtube}}" target="_blank">
+                  <i class="bi bi-youtube" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="{{$facebook}}" target="_blank">
+                  <i class="bi bi-facebook" aria-hidden="true"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="copyright-footer">
+            <p class="copyright color-text-a">
+              &copy; Copyright
+              <span class="color-a">Kelompok 3 PA2</span> 2022
+            </p>
+          </div>
+          <div class="credits">
+            By <a href="">INSTITUT TEKNOLOGI DEL</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- @if(Session::has('success'))
+  <script>
+    toastr.success("{{Session::get('success') }}")
+  </script>
+  @endif
+  @if(Session::has('warning'))
+  <script>
+    toastr.warning("{{Session::get('warning') }}")
+  </script>
+  @endif -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Vendor JS Files -->
+  <script src="{{asset('js')}}/previewimg.js"></script>
+  <script src="{{asset('js')}}/owl.carousel.js"></script>
+  <script src="{{asset('js')}}/jquery-3.3.1.slim.min.js"></script>
+  <script src="{{asset('vendor')}}/aos/aos.js"></script>
+  <script src="{{asset('vendor')}}/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="{{asset('vendor')}}/swiper/swiper-bundle.min.js"></script>
+  <script src="{{asset('vendor')}}/php-email-form/validate.js"></script>
+  <script>
+    AOS.init({
+      duration: 500,
+      easing: 'ease-in-out',
+      once: false,
+      mirror: false
+    });
+  </script>
+
+  <!-- Template Main JS File -->
+  <script src="{{asset('js')}}/main.js"></script>
+
+  </body>
+
+  </html>

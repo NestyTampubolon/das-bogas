@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class LoginController extends Controller
 {
@@ -39,25 +40,25 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function login(Request $request){
+    public function login(Request $request)
+    {
         $input = $request->all();
 
-        $this->validate($request,[
+        $this->validate($request, [
             'email' => 'required|email',
             'password' => 'required',
         ]);
 
-        if(auth()->attempt(array('email' => $input['email'],'password'=> 
-        $input['password'])))
-        {
-            if(auth()->user()->role == 1){
+        if (auth()->attempt(array('email' => $input['email'], 'password' =>
+        $input['password']))) {
+            if (auth()->user()->role == 1) {
                 return redirect('/dashboard')->with('success', "Berhasil login!");
-            }elseif(auth()->user()->role == 0){
+            } elseif (auth()->user()->role == 0) {
                 return redirect('/')->with('success', "Berhasil login!");
             }
-        }else{
-            return redirect()->route('login')
-            ->with('login','Email-Address atau Password salah ! ');
+        } else {
+            Alert::warning('Failed', 'Email atau Password Salah!');
+            return redirect()->route('login');
         }
     }
 }

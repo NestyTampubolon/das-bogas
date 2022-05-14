@@ -56,12 +56,11 @@
                                                     <div class=" row">
                                                         <div class="col">
                                                             <select class="form-control" border="0px" required="required" name="status" aria-label="Default select example" value="{{$pemesanan->status}}">
-                                                                <option value="{{$pemesanan->status}}">{{$pemesanan->status}}</option>
-                                                                <option value="Verifikasi">Verifikasi</option>
-                                                                <option value="Proses">Proses</option>
-                                                                <option value="Antar">Antar</option>
-                                                                <option value="Selesai">Selesai</option>
-                                                                <option value="Tolak">Tolak</option>
+                                                                <option value="Verifikasi"{{$pemesanan->status == "Verifikasi" ? 'selected' : ''}}>Verifikasi</option>
+                                                                <option value="Proses"{{$pemesanan->status == "Proses" ? 'selected' : ''}}>Proses</option>
+                                                                <option value="Antar"{{$pemesanan->status == "Antar" ? 'selected' : ''}}>Antar</option>
+                                                                <option value="Selesai"{{$pemesanan->status == "Selesai" ? 'selected' : ''}}>Selesai</option>
+                                                                <option value="Tolak"{{$pemesanan->status == "Tolak" ? 'selected' : ''}}>Tolak</option>
                                                             </select>
                                                         </div>
                                                     </div>

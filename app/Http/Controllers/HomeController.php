@@ -30,16 +30,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $carousels = Galeri::inRandomOrder()->limit(3)->get();
+        $carousels = Galeri::inRandomOrder()->limit(8)->get();
         $status = "Tampilkan";
         $produks = Produk::inRandomOrder()->limit(8)->get();
         $layanans = Layanan::inRandomOrder()->limit(8)->get();
         $galeris =  Galeri::all();
+        $instagram = sosial_media::where('id_sosialmedia',1)->value('hyperlink');
+        $twitter = sosial_media::where('id_sosialmedia',2)->value('hyperlink');
+        $youtube = sosial_media::where('id_sosialmedia',3)->value('hyperlink');
+        $facebook = sosial_media::where('id_sosialmedia',4)->value('hyperlink');
         $testimonis = DB::table('testimoni')
         ->join('users', 'testimoni.id_customer', '=', 'users.user_id')
         ->where('testimoni.status','=', $status)
         ->get();
-        return view('layout.home',compact('produks','layanans','galeris','testimonis','carousels'));
+        return view('layout.home',compact('produks','layanans','galeris','testimonis','carousels','instagram','twitter','youtube','facebook'));
     }
 
     public function sosial_media(){
