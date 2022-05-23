@@ -55,7 +55,6 @@
       <div class="row">
         <div class="col-sm-12">
           <nav class="pagination-a">
-         
             <ul class="pagination justify-content-end">
               {{ $cafes -> links()}}            
             </ul>

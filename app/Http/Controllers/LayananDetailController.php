@@ -7,6 +7,7 @@ use App\Models\Layanan;
 use App\Models\KeranjangLayanan;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\sosial_media;
+use Illuminate\Support\Facades\DB;
 
 class LayananDetailController extends Controller
 {
@@ -21,12 +22,23 @@ class LayananDetailController extends Controller
     }
 
     public function simpanpesanan(Request $request){
+        $cekpesanan = DB::table('keranjanglayanan')
+        ->select('id_layanan')
+        ->where('id_customer', '=', auth()->id())
+        ->where('id_layanan', '=', $request->id_layanan)
+        ->get();
+
+    if (empty(json_decode($cekpesanan))) {
         $keranjang = new KeranjangLayanan();
         $keranjang->id_layanan = $request->input('id_layanan');
         $keranjang->harga = $request->input('tipe_kendaraan');
         $keranjang->id_customer = auth()->id();
         $keranjang->save();
         Alert::success('Success', 'Pesanan Anda berhasil disimpan di Keranjang Layanan!');
-        return redirect()->back()->with('success', "Pesanan Anda berhasil disimpan di Keranjang Layanan!");;
+    } else {
+        Alert::warning('Warning', 'Pemesanan Layanan ini sudah ada di Keranjang Layanan!');
+    } 
+       
+        return redirect()->back();
     }
 }

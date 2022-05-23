@@ -47,7 +47,7 @@
                             <div class="row no-gutters ">
                                 @foreach($pembookingan as $pembookingans)
                                 <div>
-                                    <h4>Pembookingan ID</h4>
+                                    <h4>Pemesanan ID</h4>
                                     <h2># {{$pembookingans->id_pembookinganlayanan}}</h2>
                                 </div>
                                 <hr>

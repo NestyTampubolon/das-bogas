@@ -97,7 +97,7 @@ class CheckoutProdukController extends Controller
         return redirect()->back()->with('success', "Pesanan Anda sedang diproses. Lihat Status Pemesanan!");
     }
 
-    public function delete(Request $request, $id_keranjangproduk)
+    public function delete($id_keranjangproduk)
     {
         $delete = KeranjangProduk::find($id_keranjangproduk);
         $produk = $delete->id_produk;
@@ -107,6 +107,47 @@ class CheckoutProdukController extends Controller
         $deleteproduks->save();
         if ($delete->delete()) {
             Alert::success('Success', 'Pesanan Anda berhasil dihapus!');
+            return redirect()->back()->with('success', "Berhasil menghapus pesanan!");
+        }
+    }
+
+    public function kurang($id_keranjangproduk)
+    {
+
+        $kurang = KeranjangProduk::find($id_keranjangproduk);
+        $produk = $kurang->id_produk;
+        $kuantitas = $kurang->kuantitas;
+        if ($kuantitas == 1) {
+            return $this->delete($id_keranjangproduk);
+        }
+        $kurangproduks = Produk::find($produk);
+        $kurangproduks->stok = $kuantitas + 1;
+        $kurang->kuantitas--;
+        $kurang->total = $kurang->kuantitas * $kurangproduks->harga;
+        $kurangproduks->save();
+        if ($kurang->save()) {
+            return redirect()->back()->with('success', "Berhasil menghapus pesanan!");
+        }
+    }
+
+    public function tambah($id_keranjangproduk)
+    {
+
+        $tambah = KeranjangProduk::find($id_keranjangproduk);
+        $produk = $tambah->id_produk;
+        $kuantitas = $tambah->kuantitas;
+        $tambahproduks = Produk::find($produk);
+        if ($tambahproduks->stok == 0) {
+            Alert::warning('Warning', 'Pesanan Anda sudah berada di batas stok produk!');
+            return redirect()->back();
+        } else {
+            $tambahproduks->stok--;
+            $tambah->kuantitas++;
+            $tambah->total = $tambah->kuantitas * $tambahproduks->harga;
+            $tambahproduks->save();
+        }
+
+        if ($tambah->save()) {
             return redirect()->back()->with('success', "Berhasil menghapus pesanan!");
         }
     }

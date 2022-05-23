@@ -30,7 +30,7 @@
                     <div class="card border-left-primary shadow h-100 py-2">
                         <div class="card-body">
                             <div class="row no-gutters ">
-                                <div class="col col-6">
+                                <div class="col col-4">
                                     <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                         <img src="{{asset('gbr_produk')}}/{{$produks->gambar}}" alt="" class="img-b img-fluid" width="400px">
                                     </div>
@@ -38,9 +38,10 @@
                                 </div>
                                 <div class="col col-1">
                                 </div>
-                                <div class="col col-4">
+                                <div class="col col-6">
                                     <h2 class="title-2">{{$produks->nama}}</h2>
-                                    <h2 class="title-2">@currency($produks->harga)</h2>
+                                    <h4 class="title-2">@currency($produks->harga)</h4>
+                                    <span class="badge badge-pill badge-secondary">{{$produks->kategori}}</span>
                                     <div class="h5 mb-0 font-weight-bold text-gray-800"> </div>
                                     <div class="price-box d-flex">
                                         tersisa : &nbsp {{$produks->stok}}

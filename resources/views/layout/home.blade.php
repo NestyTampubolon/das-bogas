@@ -129,9 +129,12 @@
                       <a href="blog-single.html">{{$produk->nama}}
                     </h2>
                   </div>
-                  <div class="card-category-b">
-                    <a href="#" class="category-b">@currency($produk->harga)</a>
+                  <div class="price-box d-flex">
+                    <span class="price-a">@currency($produk->harga)</span>
                   </div>
+                  <h6>
+                    {{$produk->kategori}}
+                  </h6>
                   <div class="card-date">
                     <a href="produk/detail/{{$produk->id_produk}}" class="link-a">Lihat selengkapnya
                       <span class="bi bi-chevron-right"></span>
@@ -322,7 +325,7 @@
                   <i class="bi bi-chevron-right"></i> <a href="#">Layanan</a>
                 </li>
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">Cafe</a>
+                  <i class="bi bi-chevron-right"></i> <a href="#">Kafe</a>
                 </li>
                 <li class="item-list-a">
                   <i class="bi bi-chevron-right"></i> <a href="#">Tentang</a>

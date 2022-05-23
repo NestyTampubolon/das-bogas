@@ -66,23 +66,33 @@
                                                 <div class="row" style="padding: 10px;">
                                                     <div class="col col-1">
                                                     </div>
-                                                    <div class="col col-8">
+                                                    <div class="col col-6">
                                                         <div class="h5 mb-0 text-gray-800">{{$pesan->nama}}</div>
                                                         <input type="hidden" name="id_produk" value="{{$pesan->id_produk}}">
                                                         <input type="hidden" name="kuantitas" value="{{$pesan->kuantitas}}">
                                                         <input type="hidden" name="total" value="{{$pesan->total}}">
                                                         <div class="price-box d-flex">
-                                                            Kuantitas : {{$pesan->kuantitas}}
-                                                        </div>
-                                                        <div class="price-box d-flex">
                                                             Total : @currency($pesan->total)
                                                         </div>
                                                     </div>
-                                                    <div class="col col-2">
-                                                        <div class="col-md-6 text-center">
-                                                            <button type="button" class="btn btn-danger  bottom-50 end-50" onclick="window.location.href='/checkout/delete/{{$pesan->id_keranjangproduk}}'">Hapus</button>
+                                                    <div class="col col-3">
+                                                        <div class="center row">
+                                                            <div class="input-group">
+                                                                <span class="input-group-btn">
+                                                                    <button type="button" class="btn btn-danger btn-number" onclick="window.location.href='/checkout/kurang/{{$pesan->id_keranjangproduk}}'" >
+                                                                        <span>-</span>
+                                                                    </button>
+                                                                </span>
+                                                                <input type="text" class="form-control input-number col-md-4 text-center" value="{{$pesan->kuantitas}}" min="1">
+                                                                <span class="input-group-btn">
+                                                                    <button type="button" class="btn btn-success btn-number" onclick="window.location.href='/checkout/tambah/{{$pesan->id_keranjangproduk}}'" >
+                                                                        <span>+</span>
+                                                                    </button>
+                                                                </span>
+                                                            </div>
                                                         </div>
                                                     </div>
+                                                    <div class="col-md-1"><button type="button" class="btn btn-danger  bottom-50 end-50" onclick="window.location.href='/checkout/delete/{{$pesan->id_keranjangproduk}}'"><i class="bi bi-trash" aria-hidden="true"></i></button></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -98,7 +108,7 @@
                                                 </div>
                                                 <div class="col col-4">
                                                     @foreach($total as $totals)
-                                                    <div class="h5 mb-0 text-gray-800"> @currency($totals->total)</div>
+                                                    <div class="h5 mb-0 text-gray-800"> Total : @currency($totals->total)</div>
                                                     @endforeach
                                                 </div>
                                                 <div class="col col-4"><button type="button" class="btn btn-a" data-bs-toggle="modal" data-bs-target="#exampleModal">Checkout</button>

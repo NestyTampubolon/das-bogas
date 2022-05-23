@@ -55,7 +55,7 @@
                                 <h6>Pesanan Detail</h6>
                                 @foreach($daftarjoin as $daftarjoin)
                                 <p>Produk : {{$daftarjoin->nama}}</p>
-                                <p>Harga : {{$daftarjoin->kuantitas_pesan}}</p>
+                                <p>Kuantitas : {{$daftarjoin->kuantitas_pesan}}</p>
                                 <p>Harga : @currency($daftarjoin->total_harga)</p>
                                 <hr style="width:50%;text-align:left;margin-left:0">
                                 @endforeach

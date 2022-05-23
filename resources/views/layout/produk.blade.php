@@ -141,7 +141,7 @@
                   <i class="bi bi-chevron-right"></i> <a href="#">Layanan</a>
                 </li>
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">Cafe</a>
+                  <i class="bi bi-chevron-right"></i> <a href="#">Kafe</a>
                 </li>
                 <li class="item-list-a">
                   <i class="bi bi-chevron-right"></i> <a href="#">Tentang</a>

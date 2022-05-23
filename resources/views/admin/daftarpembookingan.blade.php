@@ -124,6 +124,19 @@
                                                                     Ditolak
                                                                 </label>
                                                             </div>
+                                                            @else
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="status" id="diterima" value=" Diterima">
+                                                                <label class="form-check-label" for="diterima">
+                                                                    Diterima
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="status" id="ditolak" value="Ditolak">
+                                                                <label class="form-check-label" for="diterima">
+                                                                    Ditolak
+                                                                </label>
+                                                            </div>
                                                             @endif
                                                             <div class="form-group">
                                                                 <label for="keterangan">Keterangan</label>
@@ -131,7 +144,7 @@
                                                             </div>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                                                         <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Kirim</button>
                                                     </div>
                                                     </form>

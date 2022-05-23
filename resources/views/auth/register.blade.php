@@ -107,7 +107,7 @@
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card p-5">
                         <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">{{ __('Register') }}</h1>
+                            <h1 class="h4 text-gray-900 mb-4">{{ __('Daftar Akun') }}</h1>
                         </div>
 
                     <div class="card-body">

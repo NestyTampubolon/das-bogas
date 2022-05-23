@@ -33,7 +33,10 @@
                                 <label for="exampleFormControlInput1">Jadwal Servis</label>
                                 <input type="email" class="form-control" disabled id="exampleFormControlInput1" value="{{ Carbon\Carbon::parse($pembookingans->tanggal_pembookingan)->format('d-m-Y') }} || {{$pembookingans->pukul}}"">
                             </div>
-                            
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Tipe Kendaraan</label>
+                                <input type="email" class="form-control" disabled id="exampleFormControlInput1" value="{{$pembookingans->tipe_kendaraan}}">
+                            </div>
                             <div class="form-group">
                                 <label for="exampleFormControlTextarea1">Keluhan</label>
                                 <textarea class="form-control" id="exampleFormControlTextarea1" disabled rows="3">{{$pembookingans->keluhan_service}}</textarea>

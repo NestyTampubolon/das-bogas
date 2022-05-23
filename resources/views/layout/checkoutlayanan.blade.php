@@ -81,7 +81,7 @@
                                                     </div>
                                                     <div class="col col-2">
                                                         <div class="col-md-6 text-center">
-                                                            <button type="button" class="btn btn-danger bottom-50 end-50" onclick="window.location.href='/checkout/deletelayanan/{{$pesan->id_keranjanglayanan}}'">Hapus</button>
+                                                            <button type="button" class="btn btn-danger bottom-50 end-50" onclick="window.location.href='/checkout/deletelayanan/{{$pesan->id_keranjanglayanan}}'"><i class="bi bi-trash" aria-hidden="true"></i></button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -99,7 +99,7 @@
                                                 </div>
                                                 <div class="col col-4">
                                                     @foreach($total as $totals)
-                                                    <div class="h5 mb-0 text-gray-800"> @currency($totals->total)</div>
+                                                    <div class="h5 mb-0 text-gray-800"> Total : @currency($totals->total)</div>
                                                     @endforeach
                                                 </div>
                                                 <div class="col col-4"><button type="button" class="btn btn-a" data-bs-toggle="modal" data-bs-target="#exampleModal">Checkout</button>

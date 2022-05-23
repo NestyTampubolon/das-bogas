@@ -30,7 +30,7 @@
                     <div class="card border-left-primary shadow h-100 py-2">
                         <div class="card-body">
                             <div class="row no-gutters ">
-                                <div class="col col-6">
+                                <div class="col col-4">
                                     <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                         <img src="{{url('gbr_layanan/'.$layanans->gambar_layanan)}}" alt="" class="img-b img-fluid" width="400px">
                                     </div>
@@ -38,10 +38,10 @@
                                 </div>
                                 <div class="col col-1">
                                 </div>
-                                <div class="col col-4">
+                                <div class="col col-6">
                                     <h2 class="title-2">{{$layanans->jenisservice}}</h2>
-                                    <h4 class="title-3">TIPE A : @currency($layanans->harga_tipea)</h4>
-                                    <h4 class="title-3">TIPE B : @currency($layanans->harga_tipeb)</h4>
+                                    <h4 class="title-2">TIPE A : @currency($layanans->harga_tipea)</h4>
+                                    <h4 class="title-2">TIPE B : @currency($layanans->harga_tipeb)</h4>
                                     <div class="h5 mb-0 font-weight-bold text-gray-800"> </div>
                                     <form action="{{route('pesan.layanan')}}" method="post" enctype="multipart/form-data">
                                         {{ csrf_field() }}

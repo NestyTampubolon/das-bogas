@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Testimoni;
 use App\Models\sosial_media;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AboutController extends Controller
 {
@@ -37,6 +38,7 @@ class AboutController extends Controller
         $testimoni->id_customer = auth()->id();
         $testimoni->status = "Tidak Ditampilkan";
         $testimoni->save();
+        Alert::success('Success', 'Ulasan Anda berhasil disampaikan!');
         return redirect('about')->with('success', "Ulasan Anda berhasil disampaikan!");
     }
 }

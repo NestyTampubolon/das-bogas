@@ -44,19 +44,23 @@ Route::get('/cafe', [CafeController::class, 'index']);
 Route::get('/gallery', [GalleryController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
 Route::post('/testimoni', [AboutController::class, 'testimoni'])->name('testimoni');
-
+Route::get('/produk/detail/{id_produk}', [ProdukDetailController::class, 'index']);    
+Route::get('/layanan/detail/{id_layanan}', [LayananDetailController::class, 'index']);
 Route::group(['middleware' => ['auth']], function () {
     Route::post('/testimoni', [AboutController::class, 'testimoni'])->name('testimoni');
     
-    Route::get('/produk/detail/{id_produk}', [ProdukDetailController::class, 'index']);
+
     Route::post('pesan/produk', [ProdukDetailController::class, 'simpanpesanan'])->name('pesan.produk');
 
-    Route::get('/layanan/detail/{id_layanan}', [LayananDetailController::class, 'index']);
+
     Route::post('pesan/layanan', [LayananDetailController::class, 'simpanpesanan'])->name('pesan.layanan');
 
     Route::get('/checkout/produk/{id_customer}', [CheckoutProdukController::class, 'index']);
     Route::get('checkout/delete/{id}', [CheckoutProdukController::class, 'delete'])->name('checkout.delete');
     Route::post('checkout/storepemesanan', [CheckoutProdukController::class, 'storepemesananproduk'])->name('checkout.storepemesananproduk');
+    Route::get('checkout/kurang/{id}', [CheckoutProdukController::class, 'kurang'])->name('checkout.kurang');
+    Route::get('checkout/tambah/{id}', [CheckoutProdukController::class, 'tambah'])->name('checkout.tambah');
+
 
     Route::get('/checkout/layanan/{id_customer}', [CheckoutLayananController::class, 'index']);
     Route::get('checkout/deletelayanan/{id}', [CheckoutLayananController::class, 'delete'])->name('checkout.deletelayanan');
