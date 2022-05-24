@@ -34,10 +34,10 @@
                             <a href={{url('/')}}>Home</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href={{url('/statuspesanan')}}>Status Pesanan</a>
+                            <a href={{url('/statuspesanan')}}>Riwayat Pemesanan</a>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">
-                            <a>Status Pesanan Detail</a>
+                            <a>Riwayat Pemesanan Detail</a>
                         </li>
                     </ol>
                 </nav>

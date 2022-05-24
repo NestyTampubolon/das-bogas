@@ -85,7 +85,7 @@
             <div class="dropdown-menu">
               <a class="dropdown-item " href="/checkout/produk/{{ Auth::user()->user_id}}">Keranjang Produk</a>
               <a class="dropdown-item " href="/checkout/layanan/{{ Auth::user()->user_id}}">Keranjang Layanan</a>
-              <a class="dropdown-item " href={{url('/statuspesanan')}}>Status Pemesanan</a>
+              <a class="dropdown-item " href={{url('/statuspesanan')}}>Riwayat Pemesanan</a>
               <a class="dropdown-item " href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                 {{ __('Logout') }}</a>

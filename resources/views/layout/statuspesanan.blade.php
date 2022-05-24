@@ -15,7 +15,7 @@
                             <a href={{url('/')}}>Home</a>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">
-                            <a>Status Pesanan</a>
+                            <a>Riwayat Pemesanan</a>
                         </li>
                     </ol>
                 </nav>
@@ -43,65 +43,74 @@
                             <a href={{url('/')}}>Home</a>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">
-                            <a>Status Pesanan</a>
+                            <a>Riwayat Pemesanan</a>
                         </li>
                     </ol>
                 </nav>
                 <div class="col-xl-10 col-md-6 mb-4">
-                    <h2 class="title-2 justify-content-center">Produk</h2>
-                    <div class="card border-left-primary shadow py-2">
-                        <div class="card-body">
-                            <div class="row no-gutters ">
-                                <div class="col col-1">
-                                </div>
-                                <div class="col col-10">
+                    <h2 class="title-2 text-center">Produk</h2>
 
-                                    <form action="" method="post" enctype="multipart/form-data">
-                                        @foreach($pesan as $pesan)
+                    <div class="row no-gutters ">
+                        <div class="col col-1">
+                        </div>
+                        <div class="col col-10">
 
-                                        <div class="card col-xl-12 col-md-6 ">
-                                            <div class="card-body">
-                                                <div class="row" style="padding: 10px;">
-                                                    <div class="col col-1">
-                                                    </div>
-                                                    <div class="col col-6">
-                                                        <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
-                                                        <div class="price-box d-flex">
-                                                            {{$pesan->nama_penerima}}
-                                                        </div>
-                                                        <div class="price-box d-flex">
-                                                            Total Pembayaran : @currency($pesan->total_pembayaran)
-                                                        </div>
-                                                        <div class="price-box d-flex">
-                                                            @if($pesan->status == 'Verifikasi')
-                                                            <span class="badge badge-warning">{{$pesan->status}}</span>
-                                                            @elseif($pesan->status == 'Proses')
-                                                            <span class="badge badge-info">{{$pesan->status}}</span>
-                                                            @elseif($pesan->status == 'Antar')
-                                                            <span class="badge badge-primary">{{$pesan->status}}</span>
-                                                            @elseif($pesan->status == 'Selesai')
-                                                            <span class="badge badge-success">{{$pesan->status}}</span>
-                                                            @elseif($pesan->status == 'Tolak')
-                                                            <span class="badge badge-danger">{{$pesan->status}}</span>
-                                                            @endif
-                                                        </div>
-                                                    </div>
-                                                    <div class="col col-4">
-                                                        <div class="col-md-8">
-                                                            <button type="button" class="btn btn-danger" onclick="window.location.href='/statuspesanan/detail/{{$pesan->id_pemesananproduk}}'">Deskripsi</button>
-                                                        </div>
-                                                    </div>
+                            <form action="" method="post" enctype="multipart/form-data">
+                                @foreach($pesan as $pesan)
+
+                                <div class="card col-xl-12 col-md-6 border-left-primary shadow py-2">
+                                    <div class="card-body">
+                                        <div class="row" style="padding: 10px;">
+                                            <div class="col col-1">
+                                            </div>
+                                            <div class="col col-6">
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                                                <div class="price-box d-flex">
+                                                    ID Pemesanan : {{$pesan->id_pemesananproduk}}
+                                                </div>
+                                                <div class="price-box d-flex">
+                                                    Penerima : {{$pesan->nama_penerima}}
+                                                </div>
+                                                <p class="font-weight-light text-info">{{ Carbon\Carbon::parse($pesan->tanggal_pemesanan)->format('d M Y') }}</p>
+                                            </div>
+                                            <div class="col col-4">
+                                                @currency($pesan->total_pembayaran)
+                                            </div>
+
+                                        </div>
+                                        <hr>
+                                        <div class="row" style="padding: 10px;">
+                                            <div class="col col-1">
+                                            </div>
+                                            <div class="col col-6">
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                                                @if($pesan->status == 'Verifikasi')
+                                                <span class="text-warning font-weight-bold">{{$pesan->status}}</span>
+                                                @elseif($pesan->status == 'Proses')
+                                                <span class="text-info font-weight-bold">{{$pesan->status}}</span>
+                                                @elseif($pesan->status == 'Antar')
+                                                <span class="text-primary font-weight-bold">{{$pesan->status}}</span>
+                                                @elseif($pesan->status == 'Selesai')
+                                                <span class="text-success font-weight-bold">{{$pesan->status}}</span>
+                                                @elseif($pesan->status == 'Tolak')
+                                                <span class="texte-danger font-weight-bold">{{$pesan->status}}</span>
+                                                @endif
+                                            </div>
+                                            <div class="col col-4">
+                                                <div class="col-md-8">
+                                                    <a href="/statuspesanan/detail/{{$pesan->id_pemesananproduk}}" class="link-a font-weight-bold">DESKRIPSI
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-6 mb-3">
-                                            </div>
-                                        </div>
-
-                                        @endforeach
+                                    </div>
                                 </div>
-                            </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                    </div>
+                                </div>
+
+                                @endforeach
                         </div>
                     </div>
                 </div>
@@ -118,56 +127,62 @@
             <div class="row justify-content-center">
                 <!-- Earnings (Monthly) Card Example -->
                 <div class="col-xl-10 col-md-6 mb-4">
-                    <h2 class="title-2 justify-content-center">Layanan</h2>
-                    <div class="card border-left-primary shadow py-2">
-                        <div class="card-body">
-                            <div class="row no-gutters ">
-                                <div class="col col-1">
-                                </div>
-                                <div class="col col-10">
+                    <h2 class="title-2 text-center">Layanan</h2>
 
-                                    <form action="" method="post" enctype="multipart/form-data">
-                                        @foreach($booking as $booking)
+                    <div class="row no-gutters ">
+                        <div class="col col-1">
+                        </div>
+                        <div class="col col-10">
+                            <form action="" method="post" enctype="multipart/form-data">
+                                @foreach($booking as $booking)
 
-                                        <div class="card col-xl-12 col-md-6 ">
-                                            <div class="card-body">
-                                                <div class="row" style="padding: 10px;">
-                                                    <div class="col col-1">
-                                                    </div>
-                                                    <div class="col col-6">
-                                                        <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
-                                                        <div class="price-box d-flex">
-                                                            Tipe Kendaraan : {{$booking->tipe_kendaraan}}
-                                                        </div>
-                                                        <div class="price-box d-flex">
-                                                            Total Pembayaran : @currency($booking->total_pembayaran)
-                                                        </div>
-                                                        <div class="price-box d-flex">
-                                                            @if($booking->status == 'Verifikasi')
-                                                            <span class="badge badge-warning">{{$booking->status}}</span>
-                                                            @elseif($booking->status == 'Diterima')
-                                                            <span class="badge badge-success">{{$booking->status}}</span>
-                                                            @elseif($booking->status == 'Ditolak')
-                                                            <span class="badge badge-danger">{{$booking->status}}</span>
-                                                            @endif
-                                                        </div>
-                                                    </div>
-                                                    <div class="col col-4">
-                                                        <div class="col-md-8">
-                                                            <button type="button" class="btn btn-danger" onclick="window.location.href='/statuspesananlayanan/detail/{{$booking->id_pembookinganlayanan}}'">Deskripsi</button>
-                                                        </div>
-                                                    </div>
+                                <div class="card col-xl-12 col-md-6 border-left-primary shadow py-2">
+                                    <div class="card-body">
+                                        <div class="row" style="padding: 10px;">
+                                            <div class="col col-1">
+                                            </div>
+                                            <div class="col col-6">
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                                                <div class="price-box d-flex">
+                                                    ID Pemesanan : {{$booking->id_pembookinganlayanan}}
+                                                </div>
+                                                <div class="price-box d-flex">
+                                                    Tipe Kendaraan : {{$booking->tipe_kendaraan}}
+                                                </div>
+                                                <p class="font-weight-light text-info">{{ Carbon\Carbon::parse($booking->tanggal_pembookingan)->format('d M Y') }}</p>
+                                            </div>
+                                            <div class="col col-4">
+                                                @currency($booking->total_pembayaran)
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row" style="padding: 10px;">
+                                            <div class="col col-1">
+                                            </div>
+                                            <div class="col col-6">
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                                                @if($booking->status == 'Verifikasi')
+                                                <span class="text-warning font-weight-bold">{{$booking->status}}</span>
+                                                @elseif($booking->status == 'Diterima')
+                                                <span class="text-success font-weight-bold">{{$booking->status}}</span>
+                                                @elseif($booking->status == 'Ditolak')
+                                                <span class="text-danger font-weight-bold">{{$booking->status}}</span>
+                                                @endif
+                                            </div>
+                                            <div class="col col-4">
+                                                <div class="col-md-8">
+                                                    <a href="/statuspesananlayanan/detail/{{$booking->id_pembookinganlayanan}}" class="link-a font-weight-bold">DESKRIPSI
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-6 mb-3">
-                                            </div>
-                                        </div>
-
-                                        @endforeach
+                                    </div>
                                 </div>
-                            </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                    </div>
+                                </div>
+                                @endforeach
                         </div>
                     </div>
                 </div>
