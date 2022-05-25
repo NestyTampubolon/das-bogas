@@ -17,11 +17,4 @@ class ProdukController extends Controller
         $facebook = sosial_media::where('id_sosialmedia',4)->value('hyperlink');
         return view('layout.produk', compact('produks','instagram','twitter','youtube','facebook'));
     }
-
-    public function search(Request $request){
-        $kategori = $request->kategori;
-
-        $produks = Produk::where('kategori','LIKE','%'.$kategori.'%')->get();
-        return view('layout.produk', compact('produks'));
-    }
 }

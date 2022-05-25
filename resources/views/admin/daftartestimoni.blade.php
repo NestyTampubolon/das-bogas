@@ -54,9 +54,8 @@
                                                     <div class=" row">
                                                         <div class="col">
                                                             <select class="form-control" border="0px" required="required" name="status" aria-label="Default select example">
-                                                                <option value="{{$testimoni->status}}">{{$testimoni->status}}</option>
-                                                                <option value="Tampilkan">Tampilkan</option>
-                                                                <option value="Tidak Ditampilkan">Tidak Ditampilkan</option>
+                                                                <option value="Tampilkan"{{$testimoni->status == "Tampilkan" ? 'selected' : ''}}>Tampilkan</option>
+                                                                <option value="Tidak Ditampilkan"{{$testimoni->status == "Tidak Tampilkan" ? 'selected' : ''}}>Tidak Ditampilkan</option>
                                                             </select>
                                                         </div>
                                                     </div>
