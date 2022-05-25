@@ -139,7 +139,7 @@
       },
 
       1200: {
-        slidesPerView: 3,
+        slidesPerView: 4,
         spaceBetween: 20
       }
     }
@@ -168,7 +168,7 @@
       },
 
       1200: {
-        slidesPerView: 3,
+        slidesPerView: 4,
         spaceBetween: 20
       }
     }
@@ -197,7 +197,7 @@
       },
 
       1200: {
-        slidesPerView: 3,
+        slidesPerView: 4,
         spaceBetween: 20
       }
     }

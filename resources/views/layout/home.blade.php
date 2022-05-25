@@ -115,34 +115,32 @@
 
       <div id="property-carousel" class="swiper">
         <div class="swiper-wrapper">
-
           @foreach($produks as $produk)
           <div class="carousel-item-c swiper-slide">
-            <div class="card-box-b card-shadow news-box">
-              <div class="img-box-b">
-                <img src="{{url('gbr_produk/'.$produk->gambar)}}" alt="" height="400px">
-              </div>
-              <div class="card-overlay">
-                <div class="card-header-b">
-                  <div class="card-title-b">
-                    <h2 class="title-2">
-                      <a href="blog-single.html">{{$produk->nama}}
-                    </h2>
-                  </div>
-                  <div class="price-box d-flex">
-                    <span class="price-a">@currency($produk->harga)</span>
-                  </div>
-                  <h6>
-                    {{$produk->kategori}}
-                  </h6>
-                  <div class="card-date">
-                    <a href="produk/detail/{{$produk->id_produk}}" class="link-a">Lihat selengkapnya
-                      <span class="bi bi-chevron-right"></span>
-                    </a>
+            <a href="produk/detail/{{$produk->id_produk}}">
+              <div class="card mycard-lebar">
+                <div class="img-box-b">
+                  <img src="{{url('gbr_produk/'.$produk->gambar)}}" class="mycard-image-lebar" alt="" height="400px">
+                </div>
+                <div class="card-overlay">
+                  <div class="card-header-b">
+                    <div class="card-title-b">
+                      <h3 class="">
+                        <span class="">{{$produk->nama}}</span>
+                      </h3>
+                    </div>
+                    <div class="price-box d-flex">
+                      <h6>
+                        <span class="price-a">@currency($produk->harga)</span>
+                      </h6>
+                    </div>
+                    <h6>
+                      {{$produk->kategori}}
+                    </h6>
                   </div>
                 </div>
               </div>
-            </div>
+            </a>
           </div><!-- End carousel item -->
           @endforeach
 
@@ -177,33 +175,29 @@
         <div class="swiper-wrapper">
           @foreach($layanans as $layanan)
           <div class="carousel-item-c swiper-slide">
-            <div class="card-box-b card-shadow news-box">
-              <div class="img-box-b">
-                <img src="{{url('gbr_produk/'.$layanan->gambar_layanan)}}" alt="" class="img-b img-fluid">
-              </div>
-              <div class="card-overlay">
-                <div class="card-header-b">
-                  <div class="card-title-b">
-                    <h2 class="title-2">
-                      <a href="blog-single.html">{{$layanan->jenisservice}}
-                    </h2>
-                  </div>
-                  <div class="card-category-b">
-                    <a href="#" class="category-b">TIPE A | @currency($layanan->harga_tipea)</a>
-                  </div>
-                  <br>
-                  <div class="card-category-b">
-                    <a href="#" class="category-b">TIPE B | @currency($layanan->harga_tipeb)</a>
-                  </div>
-                  <br>
-                  <div class="card-date">
-                    <a href="layanan/detail/{{$layanan->id_layanan}}" class="link-a">Lihat Selengkapnya
-                      <span class="bi bi-chevron-right"></span>
-                    </a>
+            <a href="layanan/detail/{{$layanan->id_layanan}}"> 
+              <div class="card mycard-lebar">
+                <div class="img-box-b">
+                  <img src="{{url('gbr_produk/'.$layanan->gambar_layanan)}}" alt="" class=" mycard-image-lebar">
+                </div>
+                <div class="card-overlay">
+                  <div class="card-header-b">
+                    <div class="card-title-b">
+                      <h4>
+                        {{$layanan->jenisservice}}
+                      </h4>
+                    </div>
+                    <div class="card-category-b">
+                      <a class="category-b">TIPE A | @currency($layanan->harga_tipea)</a>
+                    </div>
+                    <br>
+                    <div class="card-category-b">
+                      <a class="category-b">TIPE B | @currency($layanan->harga_tipeb)</a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </a>
           </div><!-- End carousel item -->
           @endforeach
         </div>

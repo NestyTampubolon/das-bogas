@@ -75,36 +75,30 @@
     <div class="container">
       <div class="row">
         @foreach($layanans as $layanan)
-        <div class="col-md-4">
-          <div class="card-box-b card-shadow news-box">
-            <div class="img-box-b">
-              <a href="layanan/detail/{{$layanan->id_layanan}}" class="link-a">
-                <img src="{{url('gbr_layanan/'.$layanan->gambar_layanan)}}" alt="" class="img-b img-fluid">
-              </a>
-            </div>
-            <div class="card-overlay">
-              <div class="card-header-b">
-                <div class="card-title-b">
-                  <h2 class="title-2">
-                    <a href="layanan/detail/{{$layanan->id_layanan}}">{{$layanan->jenisservice}}
-                  </h2>
-                </div>
-                <div class="card-category-b">
-                  <a class="category-b">TIPE A | @currency($layanan->harga_tipea)</a>
-                </div>
-                <br>
-                <div class="card-category-b">
-                  <a class="category-b">TIPE B | @currency($layanan->harga_tipeb)</a>
-                </div>
-                <br>
-                <div class="card-date">
-                  <a href="layanan/detail/{{$layanan->id_layanan}}" class="link-a">Lihat Selengkapnya
-                    <span class="bi bi-chevron-right"></span>
-                  </a>
+        <div class="col-md-3">
+          <a href="layanan/detail/{{$layanan->id_layanan}}">
+            <div class="card mycard-lebar">
+              <div class="img-box-b">
+                <img src="{{url('gbr_layanan/'.$layanan->gambar_layanan)}}" alt="" class="mycard-image-lebar">
+              </div>
+              <div class="card-overlay">
+                <div class="card-header-b">
+                  <div class="card-title-b">
+                    <h4 class="title-2">
+                      {{$layanan->jenisservice}}
+                    </h4>
+                  </div>
+                  <div class="card-category-b">
+                    <a class="category-b">TIPE A | @currency($layanan->harga_tipea)</a>
+                  </div>
+                  <br>
+                  <div class="card-category-b">
+                    <a class="category-b">TIPE B | @currency($layanan->harga_tipeb)</a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </a>
         </div>
         @endforeach
       </div>
