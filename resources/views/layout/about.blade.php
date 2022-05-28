@@ -12,7 +12,7 @@
           <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
-                <a href={{url('/')}}>Home</a>
+                <a href={{url('/')}}>Beranda</a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">
                 Tentang
@@ -81,8 +81,14 @@
             </div>
           </div>
         </div>
+
         @guest
         <div class="col-sm-12 section-t8">
+          <div class="title-box-d">
+            <h3 class="title-d">
+              <span>Ulasan</span>
+            </h3>
+          </div>
           <div class="row">
             <div class="col-md-7">
               <form action="" method="post" enctype="multipart/form-data">
@@ -120,7 +126,13 @@
         </div>
         @else
         @foreach($pesan as $pesan)
+
         <div class="col-sm-12 section-t8">
+          <div class="title-box-d">
+            <h3 class="title-d">
+              <span>Ulasan</span>
+            </h3>
+          </div>
           <div class="row">
             <div class="col-md-7">
               <form action="{{route('testimoni')}}" method="post" enctype="multipart/form-data">

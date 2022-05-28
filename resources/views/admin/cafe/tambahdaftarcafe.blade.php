@@ -11,7 +11,7 @@
                 <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href={{url('/dashboard')}}>Dashboard</a>
+                                <a href={{url('/dashboard')}}>Beranda</a>
                             </li>
                             <li class="breadcrumb-item">
                                 <a href={{url('/daftarcafe')}}>Daftar Kafe</a>

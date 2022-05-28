@@ -56,7 +56,7 @@
         <ul class="navbar-nav">
 
           <li class="nav-item {{ Request::is('/') ? 'active' : '' }}">
-            <a class="nav-link" href={{url('/')}}>Home</a>
+            <a class="nav-link" href={{url('/')}}>Beranda</a>
           </li>
 
           <li class="nav-item {{Request::segment(1) === 'produk' ? 'active' : null }}">
@@ -77,7 +77,7 @@
           @guest
           @if (Route::has('login'))
           <li class="nav-item {{Request::segment(1) === 'login' ? 'active' : null }}">
-            <a class="nav-link " href={{ route('login') }}>{{ __('Login') }}</a>
+            <a class="nav-link " href={{ route('login') }}>{{ __('Masuk') }}</a>
           </li>
           @endif
           @else

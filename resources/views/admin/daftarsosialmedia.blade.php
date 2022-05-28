@@ -10,6 +10,17 @@
             <main>
                 <div class="container-fluid">
                     <h1 class="mt-4">Daftar Sosial Media</h1>
+                    <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href={{url('/dashboard')}}>Beranda</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                <a>Daftar Sosial Media</a>
+                            </li>
+                        </ol>
+                    </nav>
+                    
                     <!-- <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item active">Dashboard</li>
                     </ol> -->

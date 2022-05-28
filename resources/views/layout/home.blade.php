@@ -35,7 +35,6 @@
         <div class="col-md-12">
           <div class="title-wrap d-flex justify-content-between">
             <div class="title-box">
-              <h2 class="title-a">Our Services</h2>
             </div>
           </div>
         </div>
@@ -82,7 +81,7 @@
                 <span class="bi bi-card-checklist"></span>
               </div>
               <div class="card-title-c align-self-center">
-                <h2 class="title-c">Testimoni</h2>
+                <h2 class="title-c">Pemesanan</h2>
               </div>
             </div>
             <div class="card-body-c">
@@ -175,7 +174,7 @@
         <div class="swiper-wrapper">
           @foreach($layanans as $layanan)
           <div class="carousel-item-c swiper-slide">
-            <a href="layanan/detail/{{$layanan->id_layanan}}"> 
+            <a href="layanan/detail/{{$layanan->id_layanan}}">
               <div class="card mycard-lebar">
                 <div class="img-box-b">
                   <img src="{{url('gbr_produk/'.$layanan->gambar_layanan)}}" alt="" class=" mycard-image-lebar">
@@ -248,6 +247,9 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-12">
+        <div class="title-box">
+          <h2 class="title-a">Ulasan </h2>
+        </div>
         <div id="property-single-carousel" class="swiper">
           <div class="swiper-wrapper">
             @foreach($testimonis as $testimoni)

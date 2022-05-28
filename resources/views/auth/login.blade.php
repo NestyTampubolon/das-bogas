@@ -54,7 +54,7 @@
         <ul class="navbar-nav">
 
           <li class="nav-item">
-            <a class="nav-link " href={{url('/')}}>Home</a>
+            <a class="nav-link " href={{url('/')}}>Beranda</a>
           </li>
 
           <li class="nav-item">
@@ -75,7 +75,7 @@
           @guest
           @if (Route::has('login'))
           <li class="nav-item">
-            <a class="nav-link active" href={{ route('login') }}>{{ __('Login') }}</a>
+            <a class="nav-link active" href={{ route('login') }}>{{ __('Masuk') }}</a>
           </li>
           @endif
           @else
@@ -107,7 +107,7 @@
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card p-5">
                         <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">{{ __('Login') }}</h1>
+                            <h1 class="h4 text-gray-900 mb-4">{{ __('Masuk') }}</h1>
                         </div>
 
                         <div class="card-body">
@@ -125,7 +125,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="current-password" placeholder="Masukkan Password">
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="current-password" placeholder="Masukkan Sandi">
 
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -150,13 +150,14 @@
                                     <!-- <div class="col-md-8 offset-md-4"> -->
                                     <div class="col-md-8 text-center offset-md-2 ">
                                         <button type="submit" class="btn btn-primary btn-block text-center">
-                                            {{ __('Login') }}
+                                            {{ __('Masuk') }}
                                         </button>
                                         <hr>
                                         @if (Route::has('password.request'))
                                         <a class="btn btn-link" href="{{ route('password.request') }}">
-                                            {{ __('Lupa Password?') }}
+                                            {{ __('Lupa Sandi?') }}
                                         </a>
+                                        <br>
                                         @endif
                                         <a class="btn btn-link" href="{{ route('register') }}">
                                             {{ __('Daftar Akun?') }}

@@ -54,7 +54,7 @@
         <ul class="navbar-nav">
 
           <li class="nav-item">
-            <a class="nav-link " href={{url('/')}}>Home</a>
+            <a class="nav-link " href={{url('/')}}>Beranda</a>
           </li>
 
           <li class="nav-item">
@@ -75,7 +75,7 @@
           @guest
           @if (Route::has('login'))
           <li class="nav-item">
-            <a class="nav-link active" href={{ route('login') }}>{{ __('Login') }}</a>
+            <a class="nav-link active" href={{ route('login') }}>{{ __('Masuk') }}</a>
           </li>
           @endif
           @else
@@ -129,7 +129,7 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                                <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email') }}</label>
 
                                 <div class="col-md-8">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email">
@@ -143,7 +143,7 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                                <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Sandi') }}</label>
 
                                 <div class="col-md-8">
                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password">
@@ -157,7 +157,7 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Konfirmasi Password') }}</label>
+                                <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Konfirmasi Sandi') }}</label>
 
                                 <div class="col-md-8">
                                     <input id="password-confirm" type="password" class="form-control " name="password_confirmation" required autocomplete="new-password">
@@ -181,7 +181,7 @@
                             <div class="row mb-0">
                                 <div class="col-md-8 offset-md-2">
                                     <button type="submit" class="btn btn-primary  btn-block text-center">
-                                        {{ __('Register') }}
+                                        {{ __('Daftar Akun') }}
                                     </button>
                                 </div>
                             </div>

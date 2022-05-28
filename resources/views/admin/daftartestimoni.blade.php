@@ -14,7 +14,7 @@
                     <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href={{url('/dashboard')}}>Dashboard</a>
+                                <a href={{url('/dashboard')}}>Beranda</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
                                 <a>Daftar Ulasan</a>
@@ -39,7 +39,7 @@
                                             <th>Judul</th>
                                             <th>Pesan</th>
                                             <th>Status</th>
-                                            <th>Action</th>
+                                            <th  width="250px">Action</th>
                                         </tr><?php $nomor = 1; ?>
                                     </thead>
                                     <tbody>
@@ -48,7 +48,7 @@
                                             <td><?php echo $nomor++; ?></td>
                                             <td>{{$testimoni->judul}}</td>
                                             <td>{{$testimoni->pesan}}</td>
-                                            <td>
+                                            <td class="text-center">
                                                 <form action="{{route('daftartestimoni.update',$testimoni->id_testimoni)}}" method="post" enctype="multipart/form-data">
                                                     {{ csrf_field() }}
                                                     <div class=" row">

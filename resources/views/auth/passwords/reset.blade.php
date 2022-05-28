@@ -54,7 +54,7 @@
                 <ul class="navbar-nav">
 
                     <li class="nav-item">
-                        <a class="nav-link " href={{url('/')}}>Home</a>
+                        <a class="nav-link " href={{url('/')}}>Beranda</a>
                     </li>
 
                     <li class="nav-item">
@@ -75,7 +75,7 @@
                     @guest
                     @if (Route::has('login'))
                     <li class="nav-item">
-                        <a class="nav-link active" href={{ route('login') }}>{{ __('Login') }}</a>
+                        <a class="nav-link active" href={{ route('Masuk') }}>{{ __('Login') }}</a>
                     </li>
                     @endif
                     @else

@@ -54,7 +54,7 @@
                 <ul class="navbar-nav">
 
                     <li class="nav-item">
-                        <a class="nav-link " href={{url('/')}}>Home</a>
+                        <a class="nav-link " href={{url('/')}}>Beranda</a>
                     </li>
 
                     <li class="nav-item">
@@ -75,7 +75,7 @@
                     @guest
                     @if (Route::has('login'))
                     <li class="nav-item">
-                        <a class="nav-link active" href={{ route('login') }}>{{ __('Login') }}</a>
+                        <a class="nav-link active" href={{ route('login') }}>{{ __('Masuk') }}</a>
                     </li>
                     @endif
                     @else
@@ -106,7 +106,7 @@
                     <div class="col-md-8">
                         <div class="card p-5 o-hidden border-0 shadow-lg my-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">{{ __('Reset Password') }}</h1>
+                                <h1 class="h4 text-gray-900 mb-4">{{ __('Reset Sandi') }}</h1>
                             </div>
                             <div class="card-body">
                                 @if (session('status'))
@@ -135,7 +135,7 @@
                                     <div class="row mb-0">
                                         <div class="col-md-6 offset-md-4">
                                             <button type="submit" class="btn btn-primary">
-                                                {{ __('Kirim Password Reset Link') }}
+                                                {{ __('Kirim Sandi Reset Link') }}
                                             </button>
                                         </div>
                                     </div>
