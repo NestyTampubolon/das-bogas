@@ -44,27 +44,27 @@
         <div class="row">
           @foreach($produks as $produk)
           <div class="col-md-3 task-list-row" data-assigned-user="{{$produk->kategori}}">
-          <a href="produk/detail/{{$produk->id_produk}}">
-            <div class=" card mycard-lebar">
-              <div class="img-box-b">
-                <img src="{{asset('gbr_produk')}}/{{$produk->gambar}}" alt="" height="400px" width="400px" class="mycard-image-lebar" >
-              </div>
-              <div class="card-overlay">
-                <div class="card-header-b">
-                  <div class="card-title-b">
-                    <h2 class="title-2">
-                      <a href="produk/detail/{{$produk->id_produk}}">{{$produk->nama}}
-                    </h2>
+            <a href="produk/detail/{{$produk->id_produk}}">
+              <div class=" card mycard-lebar">
+                <div class="img-box-b">
+                  <img src="{{asset('gbr_produk')}}/{{$produk->gambar}}" alt="" height="400px" width="400px" class="mycard-image-lebar">
+                </div>
+                <div class="card-overlay">
+                  <div class="card-header-b">
+                    <div class="card-title-b">
+                      <h2 class="title-2">
+                        <a href="produk/detail/{{$produk->id_produk}}">{{$produk->nama}}
+                      </h2>
+                    </div>
+                    <div class="price-box d-flex">
+                      <span class="price-a">@currency($produk->harga)</span>
+                    </div>
+                    <h6>
+                      {{$produk->kategori}}
+                    </h6>
                   </div>
-                  <div class="price-box d-flex">
-                    <span class="price-a">@currency($produk->harga)</span>
-                  </div>
-                  <h6>
-                    {{$produk->kategori}}
-                  </h6>
                 </div>
               </div>
-            </div>
             </a>
           </div>
           @endforeach
@@ -129,23 +129,31 @@
             <div class="w-body-a">
               <ul class="list-unstyled">
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">Home</a>
+                  <i class="bi bi-chevron-right"></i> <a href={{url('/')}}>Beranda</a>
                 </li>
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">Produk</a>
+                  <i class="bi bi-chevron-right"></i> <a href={{url('/produk')}}>Produk</a>
                 </li>
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">Layanan</a>
+                  <i class="bi bi-chevron-right"></i> <a href={{url('/layanan')}}>Layanan</a>
                 </li>
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">Kafe</a>
+                  <i class="bi bi-chevron-right"></i> <a href={{url('/cafe')}}>Kafe</a>
                 </li>
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">Tentang</a>
+                  <i class="bi bi-chevron-right"></i> <a href={{url('/about')}}>Tentang</a>
                 </li>
+                @guest
+                @if (Route::has('login'))
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">Login</a>
+                  <i class="bi bi-chevron-right"></i> <a href={{ route('login') }}>Masuk</a>
                 </li>
+                @endif
+                @else
+                <li class="item-list-a">
+                  <i class="bi bi-chevron-right"></i> <a href="#">Masuk</a>
+                </li>
+                @endguest
               </ul>
             </div>
           </div>

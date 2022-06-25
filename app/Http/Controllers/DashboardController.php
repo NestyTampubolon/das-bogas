@@ -35,7 +35,7 @@ class DashboardController extends Controller
             DB::raw('sum(total_pembayaran) as total'),
         )->where('status','=',"Selesai")
         ->groupBy(DB::raw("DATE_FORMAT(tanggal_pemesanan,'%M')"))
-            ->pluck('total');
+        ->pluck('total');
 
 
         $bulan2 = PembookinganLayanan::select(

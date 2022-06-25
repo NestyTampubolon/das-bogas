@@ -233,7 +233,7 @@
                   <i class="bi bi-chevron-right"></i> <a href="#">Tentang</a>
                 </li>
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">Login</a>
+                  <i class="bi bi-chevron-right"></i> <a href="#">Masuk</a>
                 </li>
               </ul>
             </div>

@@ -26,15 +26,19 @@ class ProdukDetailController extends Controller
     {
 
         $stok = $request->stok;
-        $this->validate(
-            $request,
-            [
-                'stok' => 'required',
-                'kuantitas' => 'required|numeric|min:1|max:' . $stok
-            ]
-        );
+    
+        if($stok == '0'){
+            Alert::warning('Warning', 'Produk tidak tersedia!');
+        }else{
+            $this->validate(
+                $request,
+                [
+                    'stok' => 'required',
+                    'kuantitas' => 'required|numeric|min:1|max:' . $stok
+                ]
+            );
 
-        $cekpesanan = DB::table('keranjangproduk')
+             $cekpesanan = DB::table('keranjangproduk')
             ->select('id_produk')
             ->where('id_customer', '=', auth()->id())
             ->where('id_produk', '=', $request->id_produk)
@@ -58,10 +62,8 @@ class ProdukDetailController extends Controller
         $produks->save();
         Alert::success('Success', 'Pesanan Anda berhasil disimpan di Keranjang Produk!');
 
-
-
-
-
+        }
+       
         return redirect()->back()->with('success', "Pesanan Anda berhasil disimpan di Keranjang Produk!");
     }
 }

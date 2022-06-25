@@ -52,12 +52,12 @@ class LoginController extends Controller
         if (auth()->attempt(array('email' => $input['email'], 'password' =>
         $input['password']))) {
             if (auth()->user()->role == 1) {
-                return redirect('/dashboard')->with('success', "Berhasil login!");
+                return redirect('/dashboard')->with('success', "Berhasil masuk!");
             } elseif (auth()->user()->role == 0) {
-                return redirect('/')->with('success', "Berhasil login!");
+                return redirect('/')->with('success', "Berhasil masuk!");
             }
         } else {
-            Alert::warning('Failed', 'Email atau Password Salah!');
+            Alert::warning('Failed', 'Email atau sandi Salah!');
             return redirect()->route('login');
         }
     }

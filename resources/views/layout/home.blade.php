@@ -6,7 +6,7 @@
   <div class="swiper-wrapper">
     @foreach($carousels as $carousel)
     <div class="swiper-slide carousel-item-a intro-item ">
-      <img src="{{url('gbr_galeri/'.$carousel->gambar)}}" class="bg-image" style="object-fit: contain;" width="100%" alt="">
+      <img src="{{url('gbr_galeri/'.$carousel->gambar)}}" class="bg-image" style="object-fit: contain;" alt="">
       <div class="overlay overlay-a"></div>
       <div class="intro-content display-table">
         <div class="table-cell">
@@ -312,23 +312,31 @@
             <div class="w-body-a">
               <ul class="list-unstyled">
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">Home</a>
+                  <i class="bi bi-chevron-right"></i> <a href={{url('/')}}>Beranda</a>
                 </li>
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">Produk</a>
+                  <i class="bi bi-chevron-right"></i> <a href={{url('/produk')}}>Produk</a>
                 </li>
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">Layanan</a>
+                  <i class="bi bi-chevron-right"></i> <a href={{url('/layanan')}}>Layanan</a>
                 </li>
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">Kafe</a>
+                  <i class="bi bi-chevron-right"></i> <a href={{url('/cafe')}}>Kafe</a>
                 </li>
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">Tentang</a>
+                  <i class="bi bi-chevron-right"></i> <a href={{url('/about')}}>Tentang</a>
                 </li>
+                @guest
+                @if (Route::has('login'))
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">Login</a>
+                  <i class="bi bi-chevron-right"></i> <a href={{ route('login') }}>Masuk</a>
                 </li>
+                @endif
+                @else
+                <li class="item-list-a">
+                  <i class="bi bi-chevron-right"></i> <a href="#">Masuk</a>
+                </li>
+                @endguest
               </ul>
             </div>
           </div>

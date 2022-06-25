@@ -106,23 +106,31 @@
                         <div class="w-body-a">
                             <ul class="list-unstyled">
                                 <li class="item-list-a">
-                                    <i class="bi bi-chevron-right"></i> <a href="#">Home</a>
+                                    <i class="bi bi-chevron-right"></i> <a href={{url('/')}}>Beranda</a>
                                 </li>
                                 <li class="item-list-a">
-                                    <i class="bi bi-chevron-right"></i> <a href="#">Produk</a>
+                                    <i class="bi bi-chevron-right"></i> <a href={{url('/produk')}}>Produk</a>
                                 </li>
                                 <li class="item-list-a">
-                                    <i class="bi bi-chevron-right"></i> <a href="#">Layanan</a>
+                                    <i class="bi bi-chevron-right"></i> <a href={{url('/layanan')}}>Layanan</a>
                                 </li>
                                 <li class="item-list-a">
-                                    <i class="bi bi-chevron-right"></i> <a href="#">Cafe</a>
+                                    <i class="bi bi-chevron-right"></i> <a href={{url('/cafe')}}>Kafe</a>
                                 </li>
                                 <li class="item-list-a">
-                                    <i class="bi bi-chevron-right"></i> <a href="#">Tentang</a>
+                                    <i class="bi bi-chevron-right"></i> <a href={{url('/about')}}>Tentang</a>
                                 </li>
+                                @guest
+                                @if (Route::has('login'))
                                 <li class="item-list-a">
-                                    <i class="bi bi-chevron-right"></i> <a href="#">Login</a>
+                                    <i class="bi bi-chevron-right"></i> <a href={{ route('login') }}>Masuk</a>
                                 </li>
+                                @endif
+                                @else
+                                <li class="item-list-a">
+                                    <i class="bi bi-chevron-right"></i> <a href="#">Masuk</a>
+                                </li>
+                                @endguest
                             </ul>
                         </div>
                     </div>
