@@ -39,13 +39,8 @@
                 <div class="col col-1">
                 </div>
                 <div class="col col-6">
-                  <h2 class="title-2">{{$produks->nama}}</h2>
-                  <h4 class="title-2">@currency($produks->harga)</h4>
-                  <span class="badge badge-pill badge-secondary">{{$produks->kategori}}</span>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800"> </div>
-                  <div class="price-box d-flex">
-                    tersisa : &nbsp {{$produks->stok}}
-                  </div>
+                  <h3 class="title-2">{{$produks->nama}}</h3>
+                  <h5 class="title-2">@currency($produks->harga)</h5>
                   <form action="{{route('pesan.produk')}}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <input type="hidden" name="id_produk" class="form-control" value="{{$produks->id_produk}}">
@@ -54,7 +49,7 @@
                     <div class="row">
                       <div class="col-md-6 mb-3">
                         <div class="form-group">
-                          <input type="number" name="kuantitas" class="form-control form-control-lg form-control-a  @error('kuantitas') is-invalid @enderror" autofocus value="{{ old('kuantitas') }}">
+                          <input type="number" name="kuantitas" class="form-control form-control-a  @error('kuantitas') is-invalid @enderror" autofocus value="{{ old('kuantitas') }}">
                           @error('kuantitas')
                           <div class="invalid-feedback">
                             {{ $message }}
@@ -62,15 +57,23 @@
                           @enderror
                         </div>
                       </div>
+                      <div class="col-md-6 ">
+                        <button type="submit" class="btn btn-a ">Kirim</button>
+                      </div>
                     </div>
-                    <br>
 
-                    <div class="col-md-12 text-center bottom-center" style="margin-Top : 90px;">
-                      <button type="submit" class="btn btn-a ">Kirim</button>
-                    </div>
                 </div>
                 </form>
+                <div class="col col-1">
+                </div>
+                <br>
               </div>
+              <hr>
+              <span class="badge badge-pill badge-secondary">{{$produks->kategori}}</span>
+              <div class="price-box d-flex">
+                tersisa : &nbsp {{$produks->stok}}
+              </div>
+              <div class="h6 mb-0  text-gray-400">{{$produks->deskripsi}}</div>
             </div>
           </div>
         </div>

@@ -29,14 +29,37 @@ class CheckoutProdukController extends Controller
             ->select(DB::raw('SUM(total) as total'))
             ->groupBy('id_customer')
             ->where('id_customer', '=', auth()->id())
+            ->first();
+
+        $pesanlayanan = DB::table('keranjanglayanan')
+            ->join('users', 'keranjanglayanan.id_customer', '=', 'users.user_id')
+            ->join('layanan', 'layanan.id_layanan', '=', 'keranjanglayanan.id_layanan')
+            ->where('keranjanglayanan.id_customer', '=', auth()->id())
             ->get();
+
+
+        $totallayanan = DB::table('keranjanglayanan')
+            ->select(DB::raw('SUM(harga) as total'))
+            ->groupBy('id_customer')
+            ->where('id_customer', '=', auth()->id())
+            ->first();
+
+        if ($total == null && $totallayanan == null) {
+            $totalpembayaran = 0;
+        } else if ($total == null) {
+            $totalpembayaran = (int)$totallayanan->total;
+        } else if ($totallayanan == null) {
+            $totalpembayaran = (int)$total->total;
+        } else {
+            $totalpembayaran = (((int)$total->total) + ((int)$totallayanan->total));
+        }
 
         $instagram = sosial_media::where('id_sosialmedia', 1)->value('hyperlink');
         $twitter = sosial_media::where('id_sosialmedia', 2)->value('hyperlink');
         $youtube = sosial_media::where('id_sosialmedia', 3)->value('hyperlink');
         $facebook = sosial_media::where('id_sosialmedia', 4)->value('hyperlink');
 
-        return view('layout.checkoutproduk', compact('pesan', 'total', 'instagram', 'twitter', 'youtube', 'facebook'));
+        return view('layout.checkoutproduk', compact('pesan', 'total', 'pesanlayanan', 'totallayanan', 'totalpembayaran', 'instagram', 'twitter', 'youtube', 'facebook'));
     }
 
 

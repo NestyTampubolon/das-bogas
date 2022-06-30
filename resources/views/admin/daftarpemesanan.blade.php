@@ -32,13 +32,13 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>ID Pemesanan</th>
+                                            <th width="100px">ID Pemesanan</th>
+                                            <th width="100px">Nama</th>
                                             <!-- <th>Nama</th> -->
                                             <!-- <th>Tanggal Pemesanan</th> -->
-                                            <th>Total Pembayaran</th>
-                                            <th>Bukti Pembayaran</th>
+                                            <th width="100px">Total Pembayaran</th>
                                             <th>Status</th>
-                                            <th>Action</th>
+                                            <th >Action</th>
                                         </tr><?php $nomor = 1; ?>
                                     </thead>
                                     <tbody>
@@ -46,35 +46,34 @@
                                         <tr>
                                             <td><?php echo $nomor++; ?></td>
                                             <td>{{$pemesanan->id_pemesananproduk}}</td>
+                                            <td>{{$pemesanan->name}}</td>
                                             <!-- <td>{{$pemesanan->name}}</td> -->
                                             <!-- <td>{{ Carbon\Carbon::parse($pemesanan->tanggal_pemesanan)->format('d-m-Y') }}</td> -->
                                             <td>@currency($pemesanan->total_pembayaran)</td>
-                                            <td><img src="{{url('gbr_bukti_pembayaran/'.$pemesanan->bukti_pembayaran)}}" width="100px" height="100px" alt="" data-bs-toggle="modal" data-bs-target="#myModals{{$pemesanan->id_pemesananproduk}}"></td>
                                             <td>
-                                                <form action="{{route('daftarpemesanan.update',$pemesanan->id_pemesananproduk)}}" method="post" enctype="multipart/form-data">
-                                                    {{ csrf_field() }}
-                                                    <div class=" row">
-                                                        <div class="col">
-                                                            <select class="form-control" border="0px" required="required" name="status" aria-label="Default select example" value="{{$pemesanan->status}}">
-                                                                <option value="Verifikasi"{{$pemesanan->status == "Verifikasi" ? 'selected' : ''}}>Verifikasi</option>
-                                                                <option value="Proses"{{$pemesanan->status == "Proses" ? 'selected' : ''}}>Proses</option>
-                                                                <option value="Antar"{{$pemesanan->status == "Antar" ? 'selected' : ''}}>Antar</option>
-                                                                <option value="Selesai"{{$pemesanan->status == "Selesai" ? 'selected' : ''}}>Selesai</option>
-                                                                <option value="Tolak"{{$pemesanan->status == "Tolak" ? 'selected' : ''}}>Tolak</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
+                                                @if($pemesanan->status == 'Verifikasi')
+                                                <span class="badge badge-warning">{{$pemesanan->status}}</span>
+                                                @elseif($pemesanan->status == 'Proses')
+                                                <span class="badge badge-info">{{$pemesanan->status}}</span>
+                                                @elseif($pemesanan->status == 'Antar')
+                                                <span class="badge badge-primary">{{$pemesanan->status}}</span>
+                                                @elseif($pemesanan->status == 'Selesai')
+                                                <span class="badge badge-success">{{$pemesanan->status}}</span>
+                                                @elseif($pemesanan->status == 'Tolak')
+                                                <span class="badge badge-danger">{{$pemesanan->status}}</span>
+                                                @endif
+
                                             </td>
-                                            <td class="text-center">
-                                                <button type="submit" class="btn btn-success btn-icon-split">
-                                                    <a href="" type="submit" class="btn btn-success btn-icon-split">
+                                            <td >
+                                                <button type="button" class="btn btn-primary btn-icon-split" data-bs-toggle="modal" data-bs-target="#exampleModalstatus{{$pemesanan->id_pemesananproduk}}">
+                                                    <a class="btn btn-primary btn-icon-split">
                                                         <span class="icon text-white-50">
                                                             <i class="fas fa-check"></i>
                                                         </span>
-                                                        <span class="text">Simpan</span>
+                                                        <span class="text">Konfirmasi</span>
                                                     </a></button>
 
-                                                </form>
+
                                                 <button class="btn btn-info btn-icon-split">
                                                     <a href="pemesanandetail/{{$pemesanan->id_pemesananproduk}}" class="btn btn-info btn-icon-split">
                                                         <span class="icon text-white-50">
@@ -93,17 +92,6 @@
                                                 </button>
                                             </td>
                                         </tr>
-
-                                        <!-- Modal Gambar -->
-                                        <div id="myModals{{$pemesanan->id_pemesananproduk}}" class="modal fade" tabindex="-1" role="dialog">
-                                            <div class="modal-dialog modal-dialog-centered">
-                                                <div class="modal-content">
-                                                    <div class="modal-body">
-                                                        <img src="{{url('gbr_bukti_pembayaran/'.$pemesanan->bukti_pembayaran)}}" class="img-fluid">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
 
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModal{{$pemesanan->id_pemesananproduk}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -125,6 +113,64 @@
                                                 </div>
                                             </div>
                                         </div>
+
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModalstatus{{$pemesanan->id_pemesananproduk}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Status </h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form action="{{route('daftarpemesanan.update',$pemesanan->id_pemesananproduk)}}" method="post" enctype="multipart/form-data">
+                                                            {{ csrf_field() }}
+                                                            <label for="exampleFormControlInput1">Status</label>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="status" id="Verifikasi" value="Verifikasi" {{ $pemesanan->status == "Verifikasi" ? 'checked' : '' }}>
+                                                                <label class="form-check-label" for="diterima">
+                                                                    Verifikasi
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="status" id="Proses" value="Proses" {{ $pemesanan->status == "Proses" ? 'checked' : '' }}>
+                                                                <label class="form-check-label" for="diterima">
+                                                                    Proses
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="status" id="Antar" value="Antar" {{ $pemesanan->status == "Antar" ? 'checked' : '' }}>
+                                                                <label class="form-check-label" for="diterima">
+                                                                    Antar
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="status" id="Selesai" value="Selesai" {{ $pemesanan->status == "Selesai" ? 'checked' : '' }}>
+                                                                <label class="form-check-label" for="diterima">
+                                                                    Selesai
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="status" id="Tolak" value="Tolak" {{ $pemesanan->status == "Tolak" ? 'checked' : '' }}>
+                                                                <label class="form-check-label" for="diterima">
+                                                                    Tolak
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="keterangan">Keterangan</label>
+                                                                <textarea class="form-control" id="keterangan" name="keterangan" rows="3">{{$pemesanan->keterangan}}</textarea>
+                                                            </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Kirim</button>
+                                                    </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         @endforeach
                                     </tbody>
                                 </table>

@@ -96,6 +96,12 @@
                 Pesan
             </div>
 
+            <li class="nav-item {{Request::segment(1) === 'daftarpemesananadmin' ? 'active' : null }}">
+                <a class="nav-link" href="{{ url('daftarpemesananadmin' )}}">
+                    <i class="fas fa-fw fa-shopping-bag"></i>
+                    <span>Pemesanan</span></a>
+            </li>
+
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item {{Request::segment(1) === 'daftarpemesanan' ? 'active' : null }}">
                 <a class="nav-link" href="{{ url('daftarpemesanan' )}}">
@@ -110,6 +116,12 @@
                     <span>Pemesanan Layanan</span></a>
             </li>
 
+            <!-- Nav Item - Charts -->
+            <li class="nav-item {{Request::segment(1) === 'daftarpemesanankafe' ? 'active' : null }}">
+                <a class="nav-link" href="{{ url('/daftarpemesanankafe' )}}">
+                    <i class="fas fa-fw fa-shopping-bag"></i>
+                    <span>Pemesanan Kafe</span></a>
+            </li>
             <hr class="sidebar-divider">
 
             <!-- Heading -->
@@ -179,16 +191,16 @@
                         </li>
                     </ul>
                 </nav>
-           
-
-
-            <!-- End of Topbar -->
-            <!-- Logout Modal-->
 
 
 
+                <!-- End of Topbar -->
+                <!-- Logout Modal-->
 
-            <!-- End of Content Wrapper -->
+
+
+
+                <!-- End of Content Wrapper -->
 </body>
 
 </html>

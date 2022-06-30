@@ -12,10 +12,12 @@ class DaftarPemesananController extends Controller
 {
     //
     public function index(){ 
-        $pemesanans = DB::table('pemesananproduk')
+        $pemesanans = DB::table('pemesanan')
+        ->join('pemesananproduk', 'pemesanan.id_pemesanan', '=', 'pemesananproduk.id_pemesanan')
         ->join('users', 'users.user_id','=','pemesananproduk.id_customer')
         ->select('users.name','pemesananproduk.*')
         ->orderBy('created_at', 'desc')
+        ->where('status_pembayaran', '=', 'Sudah Bayar')
         ->get();
         return view('admin.daftarpemesanan',compact('pemesanans'));
     }
@@ -23,6 +25,7 @@ class DaftarPemesananController extends Controller
     public function update(Request $request, $id_pemesananproduk){
         $update = PemesananProduk::find($id_pemesananproduk);
         $update->status = $request->status;
+        $update->keterangan = $request->keterangan;
         $update-> save();
         Alert::success('Success', 'Berhasil mengubah status pemesanan!');
         return redirect('daftarpemesanan')->with('success', "Berhasil mengubah status pemesanan!");  

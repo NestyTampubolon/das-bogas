@@ -6,78 +6,86 @@
     <section class="intro-single">
 
     </section><!-- End Intro Single-->
-
-    <!-- ======= Property Grid ======= -->
-    <section class="property-grid grid">
-        <div class="container">
-            <div class="row justify-content-center">
-                <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">
-                            <a href={{url('/')}}>Home</a>
-                        </li>
-                        <li class="breadcrumb-item" aria-current="page">
-                            <a href={{url('/layanan')}}>Layanan</a>
-                        </li>
-                        <li class="breadcrumb-item active" aria-current="page">
-                            <a>Layanan Detail</a>
-                        </li>
-                    </ol>
-                </nav>
-
-                <!-- Earnings (Monthly) Card Example -->
-                <div class="col-xl-8 col-md-6 mb-4 j">
-                    <div class="card border-left-primary shadow h-100 py-2">
-                        <div class="card-body">
-                            <div class="row no-gutters ">
-                                <div class="col col-4">
-                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                        <img src="{{url('gbr_layanan/'.$layanans->gambar_layanan)}}" alt="" class="img-b img-fluid" width="400px">
-                                    </div>
-
-                                </div>
-                                <div class="col col-1">
-                                </div>
-                                <div class="col col-6">
-                                    <h2 class="title-2">{{$layanans->jenisservice}}</h2>
-                                    <h4 class="title-2">TIPE A : @currency($layanans->harga_tipea)</h4>
-                                    <h4 class="title-2">TIPE B : @currency($layanans->harga_tipeb)</h4>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800"> </div>
-                                    <form action="{{route('pesan.layanan')}}" method="post" enctype="multipart/form-data">
-                                        {{ csrf_field() }}
-                                        <div class="row">
-                                            <div class="col-md-12 mb-3">
-                                                <input type="hidden" name="id_layanan" class="form-control" value="{{$layanans->id_layanan}}">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="tipe_kendaraan" id="exampleRadios1" value="{{$layanans->harga_tipea}}" checked>
-                                                    <label class="form-check-label" for="exampleRadios1">
-                                                        TIPE A
-                                                    </label>
+    <div class="container">
+        <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href={{url('/')}}>Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="/checkout/produk/{{ Auth::user()->user_id}}">Keranjang</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    <a>Pembayaran</a>
+                </li>
+            </ol>
+        </nav>
+        <div class="py-5 text-center">
+            <h2>Pembayaran</h2>
+            <p class="lead">Silahkan transfer sesuai dengan total pembayaran yang tertera, tidak kurang dan tidak lebih. Kemudian masukkan bukti pembayaran dan tunggu hingga kami mengkonfirmasinya. Terimakasih</p>
+        </div>
+        <!-- ======= Property Grid ======= -->
+        <section class="property-grid grid">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <!-- Earnings (Monthly) Card Example -->
+                    <div class="col-xl-10 ">
+                        <div class="row no-gutters ">
+                            <div class="col col-1">
+                            </div>
+                            <div class="col">
+                                @foreach($pesan as $pesans)
+                                <form action="{{route('pembayaran.store',$pesans->id_pemesanan)}}" method="post" enctype="multipart/form-data">
+                                    {{ csrf_field() }}
+                                    <div class="card col-xl-12 border-left-primary shadow py-2">
+                                        <div class="card-body">
+                                            <div style="padding: 10px;">
+                                                <div class=" py-2">
+                                                    <h6>Metode Pembayaran : @if($pesans-> metode_pembayaran == 'BCA')
+                                                        {{$pesans->metode_pembayaran}} - No Rek 0000000001
+                                                        @elseif($pesans-> metode_pembayaran == 'BNI')
+                                                        {{$pesans->metode_pembayaran}} - No Rek 0000000002
+                                                        @elseif($pesans-> metode_pembayaran == 'Mandiri')
+                                                        {{$pesans->metode_pembayaran}} - No Rek 0000000003
+                                                        @endif
+                                                    </h6>
                                                 </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="tipe_kendaraan" id="exampleRadios1" value="{{$layanans->harga_tipeb}}" checked>
-                                                    <label class="form-check-label" for="exampleRadios1">
-                                                        TIPE B
-                                                    </label>
+                                                <div class="py-2">
+                                                    <h6>Total Pembayaran : @currency($pesans->total_pemesanan)</h6>
+                                                </div>
+                                                <div class="py-2">
+                                                    <h6>Bukti Pembayaran</h6>
+                                                    <input type="file" class="form-control  @error('bukti_pembayaran') is-invalid @enderror" id="gambar" name="bukti_pembayaran" value="" onchange="previewImage()" autofocus value="{{ old('bukti_pembayaran') }}">
+                                                    @error('bukti_pembayaran')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                    @enderror
+                                                    <br>
+                                                    <img class="img-preview img-fluid mb-3 col-sm-5" alt="">
                                                 </div>
                                             </div>
+                                            <div class="row" style="padding: 10px;">
+                                                <button type="submit" class="btn btn-a btn-lg btn-block">Bayar</button>
+                                            </div>
                                         </div>
-                                        <br>
-
-                                        <div class="col-md-12 text-center bottom-center" style="margin-Top : 90px;">
-                                            <button type="submit" class="btn btn-a ">Kirim</button>
+                                        @endforeach
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
                                         </div>
-                                </div>
+                                    </div>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        </div>
+    </div>
+    </div>
+    </div>
+    </div>
     </section><!-- End Property Grid Single-->
-
 
     <!-- ======= Footer ======= -->
     <section class="section-footer">
@@ -210,16 +218,7 @@
         <div id="preloader"></div>
         <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-        <!-- @if(Session::has('success'))
-  <script>
-    toastr.success("{{Session::get('success') }}")
-  </script>
-  @endif
-  @if(Session::has('warning'))
-  <script>
-    toastr.warning("{{Session::get('warning') }}")
-  </script>
-  @endif -->
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <!-- Vendor JS Files -->
         <script src="{{asset('js')}}/previewimg.js"></script>

@@ -9,9 +9,10 @@ use RealRashid\SweetAlert\Facades\Alert;
 class DaftarProdukController extends Controller
 {
     //
-    public function index(){
+    public function index()
+    {
         $daftarproduks = Produk::all();
-        return view('admin.produk.daftarproduk',compact('daftarproduks'));
+        return view('admin.produk.daftarproduk', compact('daftarproduks'));
     }
 
     public function tambah()
@@ -21,13 +22,15 @@ class DaftarProdukController extends Controller
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate(
+        $this->validate(
+            $request,
             [
                 'nama' => 'required|unique:produk,nama',
                 'harga' => 'required|integer',
                 'kategori' => 'required',
                 'stok' => 'required|integer',
                 'gambar_produk' => 'required',
+                'deskripsi' => 'required',
             ]
         );
 
@@ -36,6 +39,7 @@ class DaftarProdukController extends Controller
         $daftarproduk->harga = $request->harga;
         $daftarproduk->kategori = $request->kategori;
         $daftarproduk->stok = $request->stok;
+        $daftarproduk->deskripsi = $request->deskripsi;
 
         if ($request->hasFile('gambar_produk')) {
             $file = $request->file('gambar_produk')->getClientOriginalName();
@@ -44,7 +48,7 @@ class DaftarProdukController extends Controller
         }
         Alert::success('Success', 'Produk berhasil ditambahkan!');
         $daftarproduk->save();
-        
+
         return redirect('daftarproduk')->with('success', "Produk berhasil ditambahkan!");
     }
 
@@ -62,7 +66,8 @@ class DaftarProdukController extends Controller
                 'harga' => 'required|integer',
                 'kategori' => 'required',
                 'stok' => 'required|integer',
-                'gambar' => 'mimes:jpg,bmp,png'
+                'gambar' => 'mimes:jpg,bmp,png',
+                'deskripsi' => 'required',
 
             ]
         );
@@ -72,12 +77,12 @@ class DaftarProdukController extends Controller
             $file = $request->file('gambar')->getClientOriginalName();
             $request->file('gambar')->move('gbr_produk', $file);
             $update->gambar = $file;
-            
         }
         $update->nama = $request->nama;
         $update->harga = $request->harga;
         $update->kategori = $request->kategori;
         $update->stok = $request->stok;
+        $update->deskripsi = $request->deskripsi;
         $update->save();
         Alert::success('Success', 'Produk berhasil diubah!');
         return redirect('daftarproduk')->with('success', "Produk berhasil diubah!");

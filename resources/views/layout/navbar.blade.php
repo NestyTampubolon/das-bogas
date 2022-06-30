@@ -81,11 +81,11 @@
           </li>
           @endif
           @else
+          @if( Auth::user()->role == 0 )
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{ Auth::user()->name }}</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item " href="/checkout/produk/{{ Auth::user()->user_id}}">Keranjang Produk</a>
-              <a class="dropdown-item " href="/checkout/layanan/{{ Auth::user()->user_id}}">Keranjang Layanan</a>
+              <a class="dropdown-item " href="/checkout/produk/{{ Auth::user()->user_id}}">Keranjang</a>
               <a class="dropdown-item " href={{url('/statuspesanan')}}>Riwayat Pemesanan</a>
               <a class="dropdown-item " href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -95,6 +95,15 @@
               </form>
             </div>
           </li>
+          @else
+          <li>
+            <div class="price-box d-flex">
+              <span class="price-a">
+                <button type="button" class="btn" style="width: 180px; text-align: center" onclick="window.location.href='/daftarpemesananadmin/tambah'">Admin</button>
+            </span>
+            </div>
+          </li>
+          @endif
           @endguest
         </ul>
       </div>

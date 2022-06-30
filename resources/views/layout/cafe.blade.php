@@ -1,4 +1,5 @@
 @include('layout.navbar')
+@include('sweetalert::alert')
 <main id="main">
 
   <!-- ======= Intro Single ======= -->
@@ -41,13 +42,39 @@
                   </div>
                   <div class="h5 mb-0 text-gray-800">@currency($cafe->harga_cafe)</div>
                 </div>
-                <div class="col-auto">
-                  <br>
-                  <div class="price-box d-flex">
-                    <span class="price-a" style="color: black;">{{$cafe->kategori}}</span>
-                  </div>
+              </div>
+              <div>
+                <br>
+                <div class="price-box d-flex">
+                  <span class="price-a" style="color: black;">{{$cafe->kategori}}</span>
                 </div>
               </div>
+              @guest
+              @else
+              @if( Auth::user()->role == 1 )
+              <form action="{{route('pesan.kafe')}}" method="post" enctype="multipart/form-data">
+                {{ csrf_field() }}
+                <input type="hidden" name="id_cafe" class="form-control" value="{{$cafe->id_cafe}}">
+                <input type="hidden" name="harga_cafe" required="required" class="form-control" value="{{$cafe->harga_cafe}}">
+                <br>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <input type="number" name="kuantitas" class="form-control @error('kuantitas') is-invalid @enderror" autofocus value="{{ old('kuantitas') }}">
+                      @error('kuantitas')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                      @enderror
+                    </div>
+                  </div>
+                  <div class="col-md-4 text-center bottom-center">
+                    <button type="submit" class="btn btn-success">Tambah</button>
+                  </div>
+                </div>
+              </form>
+              @endif
+              @endguest
             </div>
           </div>
         </div>

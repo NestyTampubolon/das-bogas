@@ -6,6 +6,7 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\CafeController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\BuatPesananController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ProdukDetailController;
 use App\Http\Controllers\LayananDetailController;
@@ -21,7 +22,11 @@ use App\Http\Controllers\DaftarPemesananController;
 use App\Http\Controllers\DaftarPembookinganController;
 use App\Http\Controllers\DaftarSosialMediaController;
 use App\Http\Controllers\DaftarGaleriController;
+use App\Http\Controllers\DaftarPemesananAdminController;
+use App\Http\Controllers\DaftarPemesananKafeController;
 use App\Http\Controllers\DaftarTestimoniController;
+use App\Http\Controllers\PembayaranController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,11 +54,14 @@ Route::get('/layanan/detail/{id_layanan}', [LayananDetailController::class, 'ind
 Route::group(['middleware' => ['auth']], function () {
     Route::post('/testimoni', [AboutController::class, 'testimoni'])->name('testimoni');
     
-
     Route::post('pesan/produk', [ProdukDetailController::class, 'simpanpesanan'])->name('pesan.produk');
 
-
     Route::post('pesan/layanan', [LayananDetailController::class, 'simpanpesanan'])->name('pesan.layanan');
+
+    Route::post('pesan/kafe', [CafeController::class, 'simpanpesanan'])->name('pesan.kafe');
+    Route::get('kafe/delete/{id}', [CafeController::class, 'delete'])->name('kafe.delete');
+    Route::get('kafe/kurang/{id}', [CafeController::class, 'kurang'])->name('kafe.kurang');
+    Route::get('kafe/tambah/{id}', [CafeController::class, 'tambah'])->name('kafe.tambah');
 
     Route::get('/checkout/produk/{id_customer}', [CheckoutProdukController::class, 'index']);
     Route::get('checkout/delete/{id}', [CheckoutProdukController::class, 'delete'])->name('checkout.delete');
@@ -61,6 +69,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('checkout/kurang/{id}', [CheckoutProdukController::class, 'kurang'])->name('checkout.kurang');
     Route::get('checkout/tambah/{id}', [CheckoutProdukController::class, 'tambah'])->name('checkout.tambah');
 
+    Route::get('/buatpesanan', [BuatPesananController::class, 'index']);
+    Route::post('buatpesanan/store', [BuatPesananController::class, 'store'])->name('checkout.storepemesanan');
+
+    Route::get('/pembayaran/{id}', [PembayaranController::class, 'index']);
+    Route::post('pembayaran/store/{id}', [PembayaranController::class, 'store'])->name('pembayaran.store');
 
     Route::get('/checkout/layanan/{id_customer}', [CheckoutLayananController::class, 'index']);
     Route::get('checkout/deletelayanan/{id}', [CheckoutLayananController::class, 'delete'])->name('checkout.deletelayanan');
@@ -96,6 +109,10 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::post('daftarcafe/update/{id_cafe}', [DaftarCafeController::class, 'update'])->name('daftarcafe.update');
     Route::get('daftarcafe/delete/{id_cafe}', [DaftarCafeController::class, 'delete'])->name('daftarcafe.delete');
 
+    Route::get('/daftarpemesananadmin', [DaftarPemesananAdminController::class, 'index']);
+    Route::get('/daftarpemesananadmin/tambah', [DaftarPemesananAdminController::class, 'tambah']);
+    Route::post('daftarpemesananadmin/store', [DaftarPemesananAdminController::class, 'store'])->name('pemesananadmin.store');
+
     Route::get('/daftarpemesanan', [DaftarPemesananController::class, 'index']);
     Route::post('daftarpemesanan/{id}', [DaftarpemesananController::class, 'update'])->name('daftarpemesanan.update');
     Route::get('pemesanandetail/{id_pemesanan}', [DaftarpemesananController::class, 'detail']);
@@ -105,6 +122,9 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::post('daftarpembookingan/{id}', [DaftarPembookinganController::class, 'update'])->name('daftarpembookingan.update');
     Route::get('pembookingandetail/{id_pembookingan}', [DaftarPembookinganController::class, 'detail']);
     Route::get('daftarpembokinganlayanan/delete/{id}', [DaftarPembookinganController::class, 'delete'])->name('daftarpembookinganlayanan.delete');
+
+    Route::get('/daftarpemesanankafe', [DaftarPemesananKafeController::class, 'index']);
+    Route::get('/daftarpemesanankafe/{id}', [DaftarPemesananKafeController::class, 'detail']);
 
     Route::get('/daftarsosialmedia', [DaftarSosialMediaController::class, 'index']);
     Route::post('daftarsosialmedia/{id}', [DaftarSosialMediaController::class, 'update'])->name('daftarsosialmedia.update');

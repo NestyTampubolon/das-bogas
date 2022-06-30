@@ -16,6 +16,7 @@ class DashboardController extends Controller
         $users = DB::table('users')->count();
         $pemesanans = DB::table('pemesananproduk')->where('status', '=', "Selesai")->count();
         $pembookingans = DB::table('pembookinganlayanan')->where('status', '=', "Diterima")->count();
+        $kafes = DB::table('pemesanankafe')->count();
         $category[] = ['January', 'February', 'March', 'April', 'May', 'June', 'Julu', 'August', 'September', 'October', 'November', 'December'];
         $totalpemesanan = PemesananProduk::select(
             DB::raw('sum(total_pembayaran) as total'),
@@ -54,6 +55,6 @@ class DashboardController extends Controller
 
 
 
-        return view('admin.dashboard', compact('users', 'pemesanans', 'pembookingans', 'bulan1', 'data1', 'bulan2', 'data2', 'category'));
+        return view('admin.dashboard', compact('users', 'pemesanans', 'pembookingans', 'kafes','bulan1', 'data1', 'bulan2', 'data2', 'category'));
     }
 }

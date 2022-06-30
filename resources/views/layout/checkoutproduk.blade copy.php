@@ -25,9 +25,9 @@
                 <!-- Earnings (Monthly) Card Example -->
                 <div class="col-xl-10 col-md-6 mb-4">
                     <div class="card border-left-primary shadow py-2">
-                        @if(count($pesanlayanan) != 0 || count($pesan) != 0)
+                    @if(count($pesanlayanan) != 0 || count($pesan) != 0)
                         @if(empty($pesan) || count($pesan) == 0)
-
+                        
                         @else
                         <div class="card-body">
                             <h2 class="title-2 text-center">Produk</h2>
@@ -84,7 +84,7 @@
                         @endif
                         <!----------------------------------------------------LAYANAN-------------------------------------------------------------------->
                         @if(empty($pesanlayanan) || count($pesanlayanan) == 0)
-
+                       
                         @else
                         <div class="card-body">
                             <h2 class="title-2 text-center">Layanan</h2>
@@ -138,7 +138,7 @@
                                     <div class="h5 mb-0 text-gray-800"> Total : @currency($totalpembayaran)</div>
 
                                 </div>
-                                <div class="col col-4"><button type="button" class="btn btn-a" onclick="window.location.href='/buatpesanan'">Checkout</button>
+                                <div class="col col-4"><button type="button" class="btn btn-a" data-bs-toggle="modal" data-bs-target="#exampleModal">Checkout</button>
 
                                 </div>
 
@@ -156,151 +156,87 @@
                                     </div>
                                     <div class="modal-body ">
                                         <input type="hidden" name="total_harga" value="{{$totalpembayaran}}">
-                                        <h6>Informasi Pemesanan</h6>
+
+                                        <h5>{{ Auth::user()->name}}, Silahkan lakukan pembayaran @currency($totalpembayaran)</h5>
+                                        <h6>Payment Information</h6>
                                         <p>Silahkan transfer ke salah satu rekening berikut : </p>
-                                        <div class="form-group row m-2">
-                                            <div class=" col-md-3">
-                                                <label for="nama">Metode Pembayaran</label>
+                                        <div class="row m-2">
+                                            <div class="col-md-2">
+                                                <img src="{{url('img/bank_bca.png')}}" alt="" height="20px">
                                             </div>
-                                            <div class="col-md-9 mb-3">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="tipe_kendaraan" id="exampleRadios1" value="TIPE A" checked>
-                                                    <label class="form-check-label" for="exampleRadios1">
-                                                        BCA
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="tipe_kendaraan" id="exampleRadios1" value="TIPE B" checked>
-                                                    <label class="form-check-label" for="exampleRadios1">
-                                                        BNI
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="tipe_kendaraan" id="exampleRadios1" value="TIPE B" checked>
-                                                    <label class="form-check-label" for="exampleRadios1">
-                                                        Mandiri
-                                                    </label>
-                                                </div>
+                                            <div class="col-md-4">
+                                                No Rek 000000000001
+                                            </div>
+                                            <div class="col-md-6">
+
+                                            </div>
+                                        </div>
+                                        <div class="row m-2">
+                                            <div class="col-md-2">
+                                                <img src="{{url('img/bank_bni.png')}}" alt="" height="20px">
+                                            </div>
+                                            <div class="col-md-4">
+                                                No Rek 000000000001
+                                            </div>
+                                            <div class="col-md-6">
+
+                                            </div>
+                                        </div>
+                                        <div class="row m-2">
+                                            <div class="col-md-2">
+                                                <img src="{{url('img/bank-mandiri.png')}}" alt="" height="20px">
+                                            </div>
+                                            <div class="col-md-4">
+                                                No Rek 000000000001
+                                            </div>
+                                            <div class="col-md-6">
+
                                             </div>
                                         </div>
 
-                                        <h6>Produk</h6>
                                         <div class="form-group row m-2">
                                             <div class="col-md-3">
-                                                <label for="nama">Metode Pengiriman</label>
+                                                <label for="nama">Nama Penerima</label>
                                             </div>
-                                            <div class="col-md-9 mb-3">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="metode_pengiriman" id="antar" value="Antar" checked>
-                                                    <label class="form-check-label" for="antar">
-                                                        Antar
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="metode_pengiriman" id="ambil_sendiri" value="Ambil Sendiri">
-                                                    <label class="form-check-label" for="ambil_sendiri">
-                                                        Ambil Sendiri
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div align="center" id="id_data" style="border:5">
-                                            <div class="form-group row m-2">
-                                                <div class="col-md-3">
-                                                    <label for="nama">Nama Penerima</label>
-                                                </div>
-                                                <div class="col-md-9">
-                                                    <input type="text" class="form-control form-control-user @error('nama_penerima') is-invalid @enderror" name=" nama_penerima" id="nama_penerima" placeholder="nama penerima" autofocus value="{{ old('jenisservice') }}">
-                                                    @error('nama_penerima')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                    @enderror
-                                                </div>
-                                            </div>
-                                            <div class="form-group row m-2">
-                                                <div class="col-md-3">
-                                                    <label for="form-control alamat_penerima">Alamat</label>
-                                                </div>
-                                                <div class="col-md-9">
-                                                    <textarea class="form-control @error('alamat_penerima') is-invalid @enderror" id="alamat_penerima" name="alamat_penerima" rows="3" autofocus value="{{ old('alamat_penerima') }}"></textarea>
-                                                    @error('alamat_penerima')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                    @enderror
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <script>
-                                            $(document).ready(function() {
-                                                // show the table as soon as the DOM is ready
-                                                $("#id_data").show();
-                                                // shows the table on clicking the noted link
-                                                $("#antar").click(function() {
-                                                    $("#id_data").show("slow");
-                                                });
-                                                // hides the table on clicking the noted link
-                                                $("#ambil_sendiri").click(function() {
-                                                    $("#id_data").hide("fast");
-                                                });
-                                            });
-                                        </script>
-                                        <h6>Layanan</h6>
-                                        <div class="row">
-                                            <div class="form-group col-md-4">
-                                                <label for="nama">Tipe Kendaraan</label>
-                                            </div>
-                                            <div class="col-md-8 mb-3">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="tipe_kendaraan" id="exampleRadios1" value="TIPE A" checked>
-                                                    <label class="form-check-label" for="exampleRadios1">
-                                                        TIPE A
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="tipe_kendaraan" id="exampleRadios1" value="TIPE B" checked>
-                                                    <label class="form-check-label" for="exampleRadios1">
-                                                        TIPE B
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row form-group">
-                                            <div class="form-group col-md-4">
-                                                <label for="nama">Tanggal Service</label>
-                                            </div>
-                                            <div class="form-group col-md-8">
-                                                <input type="date" class="form-control @error('tanggal_pembookingan') is-invalid @enderror" name="tanggal_pembookingan" id="tanggal_pembookingan" autofocus value="{{ old('tanggal_pembookingan') }}">
-                                                @error('tanggal_pembookingan')
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control form-control-user @error('nama_penerima') is-invalid @enderror" name=" nama_penerima" id="nama_penerima" placeholder="nama penerima" autofocus value="{{ old('jenisservice') }}">
+                                                @error('nama_penerima')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="row form-group mt-3">
-                                            <div class="form-group col-md-4">
-                                                <label for="nama">Pukul</label>
+                                        <div class="form-group row m-2">
+                                            <div class="col-md-3">
+                                                <label for="form-control alamat_penerima">Alamat</label>
                                             </div>
-                                            <div class="form-group col-md-8">
-                                                <input type="time" class="form-control @error('pukul') is-invalid @enderror" name="pukul" id="pukul" autofocus value="{{ old('pukul') }}">
-                                                @error('pukul')
+                                            <div class="col-md-9">
+                                                <textarea class="form-control @error('alamat_penerima') is-invalid @enderror" id="alamat_penerima" name="alamat_penerima" rows="3" autofocus value="{{ old('alamat_penerima') }}"></textarea>
+                                                @error('alamat_penerima')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="form-group mt-3">
-                                            <label for="keluhan">Keluhan</label>
-                                            <textarea class="form-control @error('keluhan_service') is-invalid @enderror" id="keluhan_service" name="keluhan_service" rows="3"></textarea>
-                                            @error('keluhan_service')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
+                                        <div class="form-group row m-2">
+                                            <div class="col-md-3">
+                                                <label for="bukti_pembayaran">Bukti Pembayaran</label>
                                             </div>
-                                            @enderror
+                                            <div class="col-md-9">
+                                                <img class="img-preview img-fluid mb-3 col-sm-5" alt="">
+                                                <input class="form-control  @error('bukti_pembayaran') is-invalid @enderror" type="file" id="formFile" id="gambar" name="bukti_pembayaran" onchange="previewImage()" autofocus value="{{ old('bukti_pembayaran') }}">
+                                                @error('bukti_pembayaran')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
+                                            </div>
                                         </div>
+                                        <h6>Note : Silahkan transfer sesuai dengan total pembayaran yang tertera, tidak kurang dan tidak lebih. Kemudian masukkan bukti pembayaran dan tunggu hingga kami
+                                            mengkonfirmasinya. Terimakasih
+                                        </h6>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
@@ -320,6 +256,7 @@
         </div>
         </div>
     </section><!-- End Property Grid Single-->
+
 
 
     <!-- ======= Footer ======= -->

@@ -6,22 +6,7 @@
 
     </section><!-- End Intro Single-->
     @if(empty($daftarjoin) || count($daftarjoin) == 0)
-    <section class="property-grid grid">
-        <div class="container">
-            <div class="row justify-content-center">
 
-                <!-- Earnings (Monthly) Card Example -->
-                <div class="col-xl-10 col-md-6 mb-4">
-                    <div class="card border-left-primary shadow py-2 text-center">
-                        <div class="card-body">
-                            <h1>Tidak ada pesanan</h1>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     @else
     <!-- ======= Property Grid ======= -->
     <section class="property-grid grid">
@@ -47,8 +32,22 @@
                             <div class="row no-gutters ">
                                 @foreach($pemesanan as $pemesanans)
                                 <div>
-                                    <h4>Pemesanan ID</h4>
+                                    <h4>Pemesanan Produk ID</h4>
                                     <h2># {{$pemesanans->id_pemesananproduk}}</h2>
+                                    @if($pemesanans->status == 'Verifikasi')
+                                    <span class="text-warning font-weight-bold">{{$pemesanans->status}}</span>
+                                    @elseif($pemesanans->status == 'Proses')
+                                    <span class="text-info font-weight-bold">{{$pemesanans->status}}</span>
+                                    @elseif($pemesanans->status == 'Antar')
+                                    <span class="text-primary font-weight-bold">{{$pemesanans->status}}</span>
+                                    @elseif($pemesanans->status == 'Selesai')
+                                    <span class="text-success font-weight-bold">{{$pemesanans->status}}</span>
+                                    @elseif($pemesanans->status == 'Tolak')
+                                    <span class="texte-danger font-weight-bold">{{$pemesanans->status}}</span>
+                                    @endif
+                                    <p class="font-weight-light text-info">
+                                    {{$pemesanans->keterangan}} <br>
+                                    <li>{{ Carbon\Carbon::parse($pemesanans->updated_at)->format('d M Y - H:i') }}</li></p>
                                 </div>
                                 <hr>
                                 @endforeach
@@ -66,6 +65,91 @@
             </div>
         </div>
     </section><!-- End Property Grid Single-->
+</main>
+@endif
+
+@if(empty($daftarjoin1) || count($daftarjoin1) == 0)
+
+@else
+<!-- ======= Property Grid ======= -->
+<section class="property-grid grid">
+    <div class="container">
+        <div class="row justify-content-center">
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-10 col-md-6 mb-4">
+                <div class="card border-left-primary shadow py-2">
+                    <div class="card-body" style="padding: 50px;">
+                        <div class="row no-gutters ">
+                            @foreach($pembookingan as $pembookingans)
+                            <div>
+                                <h4>Pemesanan Layanan ID</h4>
+                                <h2># {{$pembookingans->id_pembookinganlayanan}}</h2>
+                                @if($pembookingans->status == 'Verifikasi')
+                                <span class="text-warning font-weight-bold">{{$pembookingans->status}}</span>
+                                @elseif($pembookingans->status == 'Diterima')
+                                <span class="text-success font-weight-bold">{{$pembookingans->status}}</span>
+                                @elseif($pembookingans->status == 'Ditolak')
+                                <span class="text-danger font-weight-bold">{{$pembookingans->status}}</span>
+                                @endif
+                                <p class="font-weight-light text-info">
+                                {{$pembookingans->keterangan}}
+                                <li>{{ Carbon\Carbon::parse($pembookingans->updated_at)->format('d M Y - H:i') }}</li></p>
+                            </div>
+                            <hr>
+                            @endforeach
+                            <h6>Pesanan Detail</h6>
+                            @foreach($daftarjoin1 as $daftarjoin1)
+                            <p>Jenis Service : {{$daftarjoin1->jenisservice}}</p>
+                            <p>Harga : @currency($daftarjoin1->total_harga)</p>
+                            <hr style="width:50%;text-align:left;margin-left:0">
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- End Property Grid Single-->
+</main>
+@endif
+
+<!------------------DAFTAR PEMESANAN KAFE-------------------->
+
+@if(empty($daftarpemesanankafe) || count($daftarpemesanankafe) == 0)
+
+@else
+<!-- ======= Property Grid ======= -->
+<section class="property-grid grid">
+    <div class="container">
+        <div class="row justify-content-center">
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-xl-10 col-md-6 mb-4">
+                <div class="card border-left-primary shadow py-2">
+                    <div class="card-body" style="padding: 50px;">
+                        <div class="row no-gutters ">
+                            @foreach($pemesanankafe as $pemesanankafes)
+                            <div>
+                                <h4>Pemesanan Kafe ID</h4>
+                                <h2># {{$pemesanankafes->id_pemesanankafe}}</h2>
+                                <p class="font-weight-light text-info">
+                                <li>{{ Carbon\Carbon::parse($pemesanankafes->updated_at)->format('d M Y - H:i') }}</li></p>
+                            </div>
+                            <hr>
+                            @endforeach
+                            <h6>Pesanan Detail</h6>
+                            @foreach($daftarpemesanankafe as $daftarpemesanankafe)
+                            <p>Nama : {{$daftarpemesanankafe->nama}}</p>
+                            <p>Jumlah : {{$daftarpemesanankafe->kuantitas}}</p>
+                            <p>Total : @currency($daftarpemesanankafe->total_harga)</p>
+                            <hr style="width:50%;text-align:left;margin-left:0">
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- End Property Grid Single-->
 </main>
 @endif
 

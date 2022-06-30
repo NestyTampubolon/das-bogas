@@ -58,7 +58,7 @@ class DaftarCafeController extends Controller
         $update->harga_cafe = $request->harga_cafe;
         $update->kategori = $request->kategori;
         $update->save();
-        Alert::success('Success', 'Menu Kafe berhasil ditambahkan!');
+        Alert::success('Success', 'Menu Kafe berhasil diubah!');
         return redirect('daftarcafe')->with('success', "Menu Cafe berhasil diubah!");
     }
 

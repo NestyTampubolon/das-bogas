@@ -12,10 +12,12 @@ class DaftarPembookinganController extends Controller
 {
     //
     public function index(){ 
-        $pembookingans = DB::table('pembookinganlayanan')
+        $pembookingans = DB::table('pemesanan')
+        ->join('pembookinganlayanan', 'pemesanan.id_pemesanan', '=', 'pembookinganlayanan.id_pemesanan')
         ->join('users', 'users.user_id','=','pembookinganlayanan.id_customer')
         ->select('users.name','pembookinganlayanan.*')
         ->orderBy('created_at', 'desc')
+        ->where('status_pembayaran', '=', 'Sudah Bayar')
         ->get();
         return view('admin.daftarpembookingan',compact('pembookingans'));
     }

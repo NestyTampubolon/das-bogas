@@ -94,7 +94,16 @@
                                             @enderror
                                     </div>
                                 </div>
-                                <div class="form-group row py-xl-5">
+                                <div class="form-group row">
+                                    <label for="exampleFormControlTextarea1">Deskripsi</label>
+                                    <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3">{{$editproduks->deskripsi}}</textarea>
+                                    @error('deskripsi')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+                                <div class="form-group row ">
                                     <div class="col-sm-10">
                                         <button type="submit" class="btn btn-success">Ubah</button>
                                     </div>
@@ -104,7 +113,6 @@
                     </div>
                 </div>
             </main>
-
         </div>
         <!-- /.container-fluid -->
 
