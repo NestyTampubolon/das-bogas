@@ -66,7 +66,10 @@
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
                                             <div class="price-box d-flex">
                                                 ID Pemesanan : {{$pesan->kode_transaksi}}
+                                                <br>
+                                                
                                             </div>
+                                            <div class="text-danger mb-0 text-gray-800">Tanggal Kadaluwarsa : {{ Carbon\Carbon::parse($pesan->tanggal_kadaluwarsa)->format('d M Y - H:i') }}</div>
                                         </div>
                                         <div class="col col-4">
                                             @currency($pesan->total_pemesanan)

@@ -43,6 +43,7 @@
                                             <th>ID Pemesanan</th>
                                             <th>Nama</th>
                                             <th>Total Pembayaran</th>
+                                            <th>Bukti Pembayaran</th>
                                             <th>Action</th>
                                         </tr><?php $nomor = 1; ?>
                                     </thead>
@@ -53,6 +54,7 @@
                                             <td>{{$daftarpemesanans->kode_transaksi}}</td>
                                             <td>{{$daftarpemesanans->name}}</td>
                                             <td>@currency($daftarpemesanans->total_pemesanan)</td>
+                                            <td><img src="{{url('gbr_bukti_pembayaran/'.$daftarpemesanans->bukti_pembayaran)}}" width="100px" height="100px" alt="" data-bs-toggle="modal" data-bs-target="#myModals{{$daftarpemesanans->id_pemesanan}}"></td>
                                             <td><button type="button" class="btn btn-primary btn-icon-split" data-bs-toggle="modal" data-bs-target="#exampleModal{{$daftarpemesanans->id_pemesanan}}">
                                                     <a class="btn btn-primary btn-icon-split">
                                                         <span class="icon text-white-50">
@@ -142,7 +144,7 @@
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-auto">
-                                                                                <button type="button" class="btn btn-warning btn-icon-split" onclick="window.location.href='/daftarpemesanankafe/{{$daftarpemesanans->id_pemesanankafe}}}'" >
+                                                                                <button type="button" class="btn btn-warning btn-icon-split" onclick="window.location.href='/daftarpemesanankafe/{{$daftarpemesanans->id_pemesanankafe}}}'">
                                                                                     <a class="btn btn-warning btn-icon-split">
                                                                                         <span class="icon text-white-50">
                                                                                             <i class="fas fa-eye"></i>
@@ -164,6 +166,16 @@
                                             </div>
                                         </div>
 
+                                        <!-- Modal Gambar -->
+                                        <div id="myModals{{$daftarpemesanans->id_pemesanan}}" class="modal fade" tabindex="-1" role="dialog">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <div class="modal-body">
+                                                        <img src="{{url('gbr_bukti_pembayaran/'.$daftarpemesanans->bukti_pembayaran)}}" class="img-fluid">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         @endforeach
                                     </tbody>
                                 </table>

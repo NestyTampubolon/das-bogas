@@ -19,6 +19,7 @@ class CreatePemesananTable extends Migration
             $table->integer('id_customer')->unsigned();
             $table->string('metode_pembayaran');
             $table->date('tanggal_pesanan');
+            $table->timestamp('tanggal_kadaluwarsa');
             $table->integer('total_pemesanan');
             $table->string('status_pembayaran');
             $table->string('bukti_pembayaran')->nullable();

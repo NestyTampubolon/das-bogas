@@ -41,6 +41,7 @@
             </form>
           </div>
         </div>
+
         <div class="row">
           @foreach($produks as $produk)
           <div class="col-md-3 task-list-row" data-assigned-user="{{$produk->kategori}}">
@@ -52,9 +53,9 @@
                 <div class="card-overlay">
                   <div class="card-header-b">
                     <div class="card-title-b">
-                      <h2 class="title-2">
+                      <h5>
                         <a href="produk/detail/{{$produk->id_produk}}">{{$produk->nama}}
-                      </h2>
+                      </h5>
                     </div>
                     <div class="price-box d-flex">
                       <span class="price-a">@currency($produk->harga)</span>
@@ -234,6 +235,7 @@
   @endif -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- Vendor JS Files -->
+  <script src="{{asset('js')}}/sb-admin-2.min.js"></script>
   <script src="{{asset('js')}}/previewimg.js"></script>
   <script src="{{asset('js')}}/owl.carousel.js"></script>
   <script src="{{asset('js')}}/jquery-3.3.1.slim.min.js"></script>

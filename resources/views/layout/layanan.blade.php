@@ -63,11 +63,35 @@
               </div>
             </form>
           </div>
+          <br>
+          <div class="justify-content-lg-end d-flex">
+            <img src="{{url('info.png')}}" alt="" width="40px" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          </div>
         </div>
       </div>
     </div>
   </section><!-- End Intro Single-->
 
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Informasi Tipe Kendaraan</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Untuk tipe kendaraan dibedakan menjadi TIPE A dan TIPE B. <br>
+          Dikelompokkan berdasarkan besar kecilnya mobil dan tingkat kesulitan dalam pengerjaaan. <br>
+          TIPE A : Kijang, Avanza <br>
+          TIPE B : Inova, Fortuner
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
   <!-- =======  Blog Grid ======= -->
@@ -84,9 +108,9 @@
               <div class="card-overlay">
                 <div class="card-header-b">
                   <div class="card-title-b">
-                    <h4 class="title-2">
+                    <h5>
                       {{$layanan->jenisservice}}
-                    </h4>
+                    </h5>
                   </div>
                   <div class="card-category-b">
                     <a class="category-b">TIPE A | @currency($layanan->harga_tipea)</a>

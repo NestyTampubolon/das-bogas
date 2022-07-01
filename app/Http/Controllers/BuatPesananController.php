@@ -14,7 +14,7 @@ use App\Models\KeranjangProduk;
 use App\Models\PembookinganLayanan;
 use App\Models\PembookinganLayananDetail;
 use App\Models\KeranjangLayanan;
-
+use Carbon\Carbon;
 class BuatPesananController extends Controller
 {
     //
@@ -78,6 +78,7 @@ class BuatPesananController extends Controller
             $buatpesanan->kode_transaksi = "INV/PYM/" . now()->format('Y-m-d') . "/" . rand(100, 999);
             $buatpesanan->metode_pembayaran = $request->metode_pembayaran;
             $buatpesanan->tanggal_pesanan = now();
+            $buatpesanan->tanggal_kadaluwarsa = Carbon::now()->addDay()->format('Y-m-d H:i:s');
             $buatpesanan->total_pemesanan = $totalpembayaran;
             $buatpesanan->status_pembayaran = "Belum Bayar";
 

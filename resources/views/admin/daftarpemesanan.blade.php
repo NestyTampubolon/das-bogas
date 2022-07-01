@@ -170,15 +170,9 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         @endforeach
                                     </tbody>
                                 </table>
-
-
-
-
-
                             </div>
                         </div>
                     </div>
