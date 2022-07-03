@@ -10,21 +10,21 @@
 
             <main>
                 <div class="container-fluid">
-                    <h1 class="mt-4">Daftar Pemesanan Produk</h1>
+                    <h1 class="mt-4">Daftar Pemesanan</h1>
                     <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
                                 <a href={{url('/dashboard')}}>Beranda</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                <a>Daftar Pemesanan Produk</a>
+                                <a>Daftar Pemesanan</a>
                             </li>
                         </ol>
                     </nav>
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table mr-1"></i>
-                            Data Tabel Pemesanan Produk
+                            Data Tabel Pemesanan
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">

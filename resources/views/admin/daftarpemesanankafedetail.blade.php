@@ -17,7 +17,7 @@
                                 <a href={{url('/daftarpemesanankafe')}}>Daftar Pemesanan</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                <a>Daftar Pemesanan Detail</a>
+                                <a>Daftar Pemesanan Kafe Detail</a>
                             </li>
                         </ol>
                     </nav>
