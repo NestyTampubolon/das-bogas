@@ -218,7 +218,7 @@
             <div class="w-body-a">
               <ul class="list-unstyled">
                 <li class="item-list-a">
-                  <i class="bi bi-chevron-right"></i> <a href="#">Home</a>
+                  <i class="bi bi-chevron-right"></i> <a href="#">Beranda</a>
                 </li>
                 <li class="item-list-a">
                   <i class="bi bi-chevron-right"></i> <a href="#">Produk</a>

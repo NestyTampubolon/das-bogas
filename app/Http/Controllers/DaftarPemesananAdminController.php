@@ -251,7 +251,7 @@ class DaftarPemesananAdminController extends Controller
                         }
                     }
                 }
-                Alert::success('Success', 'Silahkan lakukan pembayaran dalam 24 jam!');
+                Alert::success('Success', 'Pemesanan Berhasil!');
                 return redirect('daftarpemesananadmin');
             }
         }

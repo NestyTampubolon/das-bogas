@@ -10,7 +10,7 @@
         <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href={{url('/')}}>Home</a>
+                    <a href={{url('/')}}>Beranda</a>
                 </li>
                 <li class="breadcrumb-item">
                     <a href="/checkout/produk/{{ Auth::user()->user_id}}">Keranjang</a>
@@ -22,7 +22,6 @@
         </nav>
         <div class="py-5 text-center">
             <h2>Konfirmasi Data</h2>
-            <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
         </div>
         <form action="{{route('checkout.storepemesanan')}}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}

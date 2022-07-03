@@ -19,8 +19,7 @@ class StatusPesananController extends Controller
             ->join('users', 'pemesanan.id_customer', '=', 'users.user_id')
             ->where('pemesanan.id_customer', '=', auth()->id())
             ->where('pemesanan.status_pembayaran', '=', 'Belum Bayar')
-            ->whereDate('pemesanan.tanggal_kadaluwarsa', '>=', now()->format('Y-m-d'))
-            ->whereTime('pemesanan.tanggal_kadaluwarsa', '>', now()->format('H:i:s'))
+            ->where('pemesanan.tanggal_kadaluwarsa', '>=', now()->format('Y-m-d H:i:s'))
             ->get();
 
         $sudahbayar = DB::table('pemesanan')
